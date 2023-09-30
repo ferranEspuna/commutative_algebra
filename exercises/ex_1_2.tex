@@ -1,0 +1,222 @@
+
+\begin{problem}
+    Let $A$ be a ring.
+    Prove:
+
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+
+        \item \label{itm:1_minus_x_invertible} If $x \in A$ is nilpotent, then $1 - x$ is invertible.
+            \begin{sol}
+            \begin{proof}
+                 Suppose that $x^n=0$ for some $n \in \mathbb{N}$.
+                 Then,
+                    \begin{align*}
+                        (1-x)(1+x+x^2+\cdots+x^{n-1}) = 1-x^{n} = 1 \\
+                    \end{align*}
+            \end{proof}
+            \end{sol}
+
+        \item \label{itm:nilradical_is_ideal} The nilradical $N(A) = \{x \in A \, | \, x \, \text{nilpotent}\}$ is an ideal of A .
+            \begin{sol}
+            \begin{proof}
+                Let $x,y \in N(A)$, then $x^n = 0$ and $y^m = 0$ for some $n,m \in \mathbb{N}$.
+                Then,
+                    \begin{align*}
+                        (x-y)^{n+m} = \sum_{k=0}^{n+m} (-1)^{k} \binom{n+m}{k} x^{n+m-k} y^{k} = 0
+                    \end{align*}
+                since $k \geq n$ or $n+m-k \geq m$ for all $k$.
+                Thus, $x-y \in N(A)$.
+                We have that $N(A)$ is an additive subgroup of $A$.
+                Now, let $a \in A$.
+                Then,
+                    \begin{align*}
+                        (ax)^n = a^n x^n = 0a = 0
+                    \end{align*}
+                so $ax \in N(A)$.
+                Thus, $N(A)$ is an ideal of $A$.
+            \end{proof}
+            \end{sol}
+
+        \item \label{itm:nilradical_in_prme} $N(A)$ is contained in all prime ideals of $A$ .
+            \begin{sol}
+
+            \begin{proof}
+                Let $I \subset A$ be a prime ideal.
+                Let $x \in N(A)$.
+                Then, $x^n = 0 \in I$ for some $n \in \mathbb{N}$.
+                Let us show by induction on $n$ that this implies $x \in I$:
+                \begin{itemize}
+                    \item If $n=1$, then $x = 0 \in I$.
+                    \item Suppose that the statement is true for $n-1$: $x^{n-1} = 0 \imp x \in I$.
+                    If $0 = x^n = x \cdot x^{n-1}$,
+                    since $I$ is prime, $x \in I$ or $x^{n-1} \in I$.
+                    In the first case, we are done.
+                    The second case is just the inductive hypothesis.
+                \end{itemize}
+            \end{proof}
+            \end{sol}
+
+        \item $N(A)$ is the intersection of all prime ideals of $A$ .
+            \begin{sol}
+                \begin{claim}
+                    Given $x \notin N(A)$, let $\varSigma_x$ be the set of all ideals that do not contain any power of $x$.
+                    Then, $\varSigma_x$ has a maximal element.
+                    \begin{proof}
+
+                        We will use Zorn's lemma.
+                        Let us check the conditions:
+
+                        \begin{claim}
+                              $\varSigma_x$ is a partially ordered set with respect to inclusion.
+                        \end{claim}
+
+                        \begin{claim}
+                            $\varSigma_x$ is not empty.
+                            \begin{proof}
+                                Since $x \notin N(A)$, ${0} \in \varSigma_x$.
+                            \end{proof}
+                        \end{claim}
+
+                        \begin{claim}
+                            Every chain in $\varSigma_x$ has an upper bound.
+                            \begin{proof}
+                                Let $\{I_{\alpha}\}_{\alpha \in S}$ be a chain in $\varSigma_x$.
+                                Then, $I = \bigcup_{\alpha \in S} I_{\alpha}$ is an ideal of $A$ (One can check that if $x,y \in I$, then $x,y \in I_{\alpha} $ for some $\alpha \in S$, and then check the axioms from there).
+                                Let $x^n \in I$ for some $n \in \mathbb{N}$.
+                                Then, $x^n \in I_{\alpha}$ for some $\alpha \in A$.
+                                Since $I_{\alpha}$ is an ideal, $x \in I_{\alpha}$.
+                                Thus, $I \in \varSigma_x$.
+                            \end{proof}
+                        \end{claim}
+
+                        Now that we have verified the conditions of Zorn's lemma, we can conclude that $\varSigma_x$ has a maximal.
+                    \end{proof}
+                \end{claim}
+
+                \begin{claim}
+                    Let $x \notin N(x)$.
+                    Then the maximal element $K(x)$ of $\varSigma_x$ is prime.
+                    \begin{proof}
+                        Let $a,b \in A$ such that $ab \in K(x)$.
+                        By way of contradiction, suppose that $a \notin K(x)$ and $b \notin K(x)$.
+                        Then, $x^n \in (a)$ and $x^m \in (b)$ for some $m,n \in \mathbb{N}$, but $x^{n+m} \notin (ab) = (a)(b)$.
+                        Contradiction.
+                    \end{proof}
+                \end{claim}
+
+                Finally, we can prove the statement.
+
+                \begin{claim} $N(A)$ is the intersection of all prime ideals of $A$.
+                    \begin{proof}
+                        Let $J$ be the intersection of all prime ideals of $A$.
+                        By~\ref{itm:nilradical_in_prme}, we know that $N(A) \subset J$.
+                        We want to prove that if  $x \notin N(a)$, then $x \notin J$.
+                        Indeed, $J \subset K(x)$ because $K(x)$ is prime and $x \notin K(x)$ because $K(x)$ does not contain any power of $x$.
+                    \end{proof}
+                \end{claim}
+
+
+
+            \end{sol}
+    \end{enumerate}
+
+\end{problem}
+
+\begin{problem}
+    Let $A$ be a ring.
+    Let $a_i\in A$ and $f = a_0 + a_1 T + \cdots + a_n T^n \in A[T]$ be a polynomial.
+    Prove:
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+        \item \label{itm:coefficients_nilpotent}
+        $f$ is a unit in $A[T] \iff a_0$ is a unit in $A$ and $a_1, \ldots, a_n$ are nilpotent.
+            \begin{sol}
+                \begin{proof}
+                    We will show both implications separately.
+                    \begin{itemize}
+                        \item[$(\Leftarrow)$]
+                        Let $a_i^{n_i} = 0$ for all $1 \leq i \leq n$.
+                        Consider s = $\varSigma_{i=1}^{n} n_i$.
+                        Let h = $-a_1 T - \cdots - a_n T^n$ be the negative of the polynomial without the constant term.
+                        Then,
+                            \begin{align*}
+                                h^s = \left(- \sum_{i=1}^{n} a_i T^i \right)^s = (-1)^s \sum_{j_1 + \cdots + j_n = s} a_1^{j_1} \cdots a_n^{j_n} T^{j_1 + 2 \cdot j_2 \cdots + n \cdot j_n}
+                            \end{align*}
+                        By the pigeonhole principle, in each term of the sum, there is at least one $j_k \geq n_k$ so $a_k^{j_k} = 0$, and thus $h^s = 0$.
+                        Then, h is nilpotent, so is $a_0^{-1} \cdot h$ and, by~\ref{itm:1_minus_x_invertible}, $1 - a_0^{-1} \cdot h$ is invertible.
+                        Multiplying by $a_0$, we get that $f = a_0 - h$ is also invertible.
+                        \item[$(\Rightarrow)$]
+                        Suppose, there exists $g = b_0 + b_1 T + \cdots + b_m T^m \in A[T]$ such that $1 = fg = \sum_{i=0}^{n+m} s_i T^i$,
+                        where $s_i =  \sum_{j=0}^{n} a_j b_{i-j}$ and $b_k = 0$ for $k>m$ or $k < 0$.
+                        We first note that $1 = s_0 = a_0 b_0 \Rightarrow a_0, b_0 \in A^*$.
+                        Next, suppose $n > 0$ (Otherwise, there is nothing to show).
+                        \begin{claim}
+                            Let $0 \leq k \leq m$. $a_n^{k + 1} b_{m-k} = 0$
+                            \begin{proof}
+                                By total induction on $k$:
+                                \begin{itemize}
+                                    \item If $k = 0$, then $0 = s_{n+m} = a_n b_m = (a_n)^{0+1}b_{m-0}$.
+                                    \item Suppose that the statement is true for $0, \ldots, k-1$.
+                                    Then, $s_{n+m-k} = 0$ as $n+m-k \geq n > 0$.
+                                    Therefore:
+                                        \begin{align*}
+                                            0 = a_n^k s_{n+m-k} = \sum_{j=0}^{n} a_n^k a_j b_{n+m-k-j} = a_n^{k+1} b_{m-k} + \sum_{j=0}^{n-1} a_n^k a_j b_{n+m-k-j}
+                                        \end{align*}
+
+                                    Now, the terms in the sum are zero by the inductive hypothesis, as $j < n \Rightarrow -(n-k-j) < k \Rightarrow (n-k-j)+1 \leq k$.
+                                    Therefore, $a_n^{k+1} b_{m-k} = 0$ as we wanted to show.
+                                \end{itemize}
+                            \end{proof}
+                        \end{claim}
+                        Now, by setting $k = m$, we get that $a_n^{m+1} b_0 = 0$.
+                        Since $b_0$ is a unit, $a_n^{m+1} = 0$ and $a_n$ is nilpotent.
+                        We are almost done if we realize the following:
+                        \begin{claim}
+                            Let $p = c_0 + c_1 T + \cdots + c_l T^l \in A[T]$ be an invertible polynomial such that $c_l$ is nilpotent.
+                            Then, $q = c_0 + c_1 T + \cdots + c_{l-1} T^{l-1}$ is also invertible.
+                            \begin{proof}
+                                Note that $c_l T^l$ is nilpotent and so is $c_l T^l p^{-1}$.
+                                Then, $1 - c_l T^l p^{-1}$ is invertible by~\ref{itm:1_minus_x_invertible}.
+                                Finally, because $p$ is invertible, so is $q = p - c_l T^l = p (1 - c_l T^l p^{-1})$.
+                            \end{proof}
+                        \end{claim}
+                        We will prove that for $0 < k \leq n$, $a_0 + \cdots + a_k T^k$ is invertible and $a_k$ is nilpotent by (reverse) induction on $k$.
+                        \begin{itemize}
+                            \item $a_n$ has already been done.
+                            \item If $0 < k < n$, by hypothesis $a_{k+1}$ is nilpotent and $a_0 + \cdots + a_{k+1} T^{k+1}$ is invertible.
+                            Then, $a_0 + \cdots + a_k T^k = (a_0 + \cdots + a_{k+1} T^{k+1}) - a_{k+1} T^{k+1}$ is invertible by the claim.
+                            Therefore, $a_k$ is nilpotent.
+                        \end{itemize}
+                    \end{itemize}
+                \end{proof}
+            \end{sol}
+        \item $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
+            \begin{sol}
+                \begin{proof}
+                    We will show both implications separately.
+                    \begin{itemize}
+                        \item[$(\Leftarrow)$]
+                        Just use the same argument as in the previous part of the exercise, but directly on $f$, not on $h = a_0-f$.
+                        \item[$(\Rightarrow)$]
+                        If $f$ is nilpotent, then $1 - f$ is invertible by~\ref{itm:1_minus_x_invertible}.
+                        Thus, by the previous part, $-a_1, \ldots, -a_n$ are nilpotent.
+                        Because $-a_i$ is nilpotent, $a_i$ is nilpotent.
+                        We only have to prove that $a_0$ is nilpotent.
+                        By the other implication, $h$ is nilpotent.
+                        Then, by~\ref{itm:nilradical_is_ideal}, $a_0 = f + h$ is nilpotent.
+                    \end{itemize}
+                \end{proof}
+            \end{sol}
+        \item $f$ is a zero divisor $\iff$ there exists $a \in A$, $a \neq 0$ such that $af = 0$.
+            \begin{sol}
+                \begin{proof}
+                    The backward implication is trivial because of the inclusion $A \subset A[T]$.
+                    For the forward implication, suppose that $f$ is a zero divisor.
+                    Then, there exists $g \in A[T]$, $g \neq 0$ such that $fg = 0$.
+                    Let $g = b_0 + \cdots + b_m T^m$.
+                    By the same argument as in the second implication of~\ref{itm:coefficients_nilpotent},
+                    we can conclude that $b_n^{k+1} a_{n-k} = 0$, for all $0 \leq k \leq n$.
+                    In particular, $b_n^{n+1} f = 0$.
+                \end{proof}
+            \end{sol}
+    \end{enumerate}
+    \end{problem}
