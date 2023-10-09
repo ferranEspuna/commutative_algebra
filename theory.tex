@@ -90,7 +90,7 @@
             $I^{e}$ is by contstruction, the smallest ideal of $B$ containing $f(I)$.
         \end{rk}
 
-        \begin{prop}
+        \begin{prop} \label{prop:extension-and-contraction}
             In the above situation, let $I^{ec} \coloneqq (I^e)^c$, and similarly for the rest.
             Then:
             \begin{enumerate}
@@ -106,7 +106,7 @@
             Furthermore, extension and contraction clearly respect inclusions.
             \begin{enumerate}
                 \item $I \subset f^{-1}(f(I)) \subset f^{-1}(I^e) = I^{ec}$.
-                \item $(J^{c})^e \subset f(J^c) = f(f^{-1}(J)) \subset J$.
+                \item $(J^{c})^e = f(J^c) = \langle f(f^{-1}(J))\rangle \subset \langle J  \rangle = J$.
 
                 \item By the two previous points, $(I^e)^{ce} \subset I^e$ and $I\subset I^{ec}$ so
                 $(I^{ec})^e \subset I^e$.
@@ -238,7 +238,7 @@
             We say that a ring $R$ is \emph{local} if it has a unique maximal ideal $\mathfrak{m}$.
         \end{defn}
 
-        \begin{prop}
+        \begin{prop} \label{prop:local}
             Let $R$ be a ring.
             R is local if and only if $R \setminus R^*$ is an ideal (which is then necessarily the maximal ideal).
         \end{prop}
@@ -335,62 +335,120 @@
                 In particular, it contains only zero if and only if $S$ contains no zero divisors.
             \end{proof}
 
-    \begin{prop}
-        Let $A$ be a ring and $S \subset R$ a multiplicatively closed subset.
-        Let $f: A \rightarrow B$ be a ring homomorphism such that $f(S) \subset B^*$.
-        Then, there exists a unique ring homomorphism
-        $g: S^{-1}A \rightarrow B$ such that $f = g \circ \pi$, where $\pi$
-        is the canonical projection.
-        That is, the following diagram commutes:
+        \begin{prop}
+            Let $A$ be a ring and $S \subset R$ a multiplicatively closed subset.
+            Let $f: A \rightarrow B$ be a ring homomorphism such that $f(S) \subset B^*$.
+            Then, there exists a unique ring homomorphism
+            $g: S^{-1}A \rightarrow B$ such that $f = g \circ \pi$, where $\pi$
+            is the canonical projection.
+            That is, the following diagram commutes:
 
-        \begin{center}
-        \begin{tikzcd}[row sep=huge,column sep=huge]
-        A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
-        S^{-1}A \arrow[dashed]{ur}{\exists ! g}
-        \end{tikzcd}
-        \end{center}
+            \begin{center}
+            \begin{tikzcd}[row sep=huge,column sep=huge]
+            A \arrow{r}{f} \arrow[swap]{d}{\pi} & B \\
+            S^{-1}A \arrow[dashed]{ur}{\exists ! g}
+            \end{tikzcd}
+            \end{center}
 
-    \end{prop}
+        \end{prop}
 
-        \begin{proof}
-            Suppose that such a $g$ exists.
-            By definition,
-            \begin{align}
-                g\bigg(\frac{a}{1}\bigg) = f(a) \nonumber
-            \end{align}
-            For any $s \in S, $
-            \begin{align}
-                1 = f(1) = g\bigg(\frac{s}{1} \frac{1}{s}\bigg) = g\bigg(\frac{s}{1}\bigg) g\bigg(\frac{1}{s}\bigg)  \Rightarrow
-                g\bigg(\frac{1}{s}\bigg) = g\bigg( \frac{s}{1}\bigg)^{-1}  = f(s)^{-1} \nonumber
-            \end{align}
-            Then,
-            \begin{align}
-                g\bigg(\frac{a}{s}\bigg) = g\bigg(\frac{a}{1} \frac{1}{s}\bigg) = g\bigg(\frac{a}{1}\bigg) g\bigg(\frac{1}{s}\bigg) = f(a) f(s)^{-1} \nonumber
-            \end{align}
-            Therefore, $g$ is uniquely determined by $f$.
-            The derived expression for $g$ clearly makes the diagram commute.
-            Finally, we will show that it is well defined and that it is a ring homomorphism.
-            Suppose $\frac{a}{s} = \frac{b}{t}$.
-            Then, for some $u \in S$,
-            \begin{align}
-                 u(at - bs) = 0 \Rightarrow 0 = f(0) = f(u(at - bs)) = f(u) (f(a) f(t) - f(b) f(s)) \nonumber
-            \end{align}
-            But $f(u), f(s), f(t)\in B^*$, so
-            \begin{align}
-                f(a) f(t) = f(b) f(s) \Rightarrow g\bigg(\frac{a}{s}\bigg) =
-                f(a) f(s)^{-1} = f(b) f(t)^{-1} = g\bigg(\frac{b}{t}\bigg)\nonumber
-            \end{align}
-            Therefore, $g$ is well defined.
-            Finally, let us check that it is a ring homomorphism:
-            \begin{itemize}
-                \item $g(\frac{a}{s}) + g(\frac{b}{t}) = f(a) f(s)^{-1} + f(b) f(t)^{-1} = f(a) f(t) f(t)^{-1} f(s)^{-1} + f(b) f(s) f(t)^{-1} f(s)^{-1} =
-            f(at + bs)f(st)^{-1} = g(\frac{at + bs}{st}) = g(\frac{a}{s} + \frac{b}{t})$
-                \item$g(\frac{a}{s}) g(\frac{b}{t}) = f(a) f(s)^{-1} f(b) f(t)^{-1} = f(ab) f(st)^{-1} = g(\frac{ab}{st}) = g(\frac{a}{s} \frac{b}{t})$
-                \item$g(\frac{1}{1}) = 1$
-            \end{itemize}
+            \begin{proof}
+                Suppose that such a $g$ exists.
+                By definition,
+                \begin{align}
+                    g\bigg(\frac{a}{1}\bigg) = f(a) \nonumber
+                \end{align}
+                For any $s \in S, $
+                \begin{align}
+                    1 = f(1) = g\bigg(\frac{s}{1} \frac{1}{s}\bigg) = g\bigg(\frac{s}{1}\bigg) g\bigg(\frac{1}{s}\bigg)  \Rightarrow
+                    g\bigg(\frac{1}{s}\bigg) = g\bigg( \frac{s}{1}\bigg)^{-1}  = f(s)^{-1} \nonumber
+                \end{align}
+                Then,
+                \begin{align}
+                    g\bigg(\frac{a}{s}\bigg) = g\bigg(\frac{a}{1} \frac{1}{s}\bigg) = g\bigg(\frac{a}{1}\bigg) g\bigg(\frac{1}{s}\bigg) = f(a) f(s)^{-1} \nonumber
+                \end{align}
+                Therefore, $g$ is uniquely determined by $f$.
+                The derived expression for $g$ clearly makes the diagram commute.
+                Finally, we will show that it is well defined and that it is a ring homomorphism.
+                Suppose $\frac{a}{s} = \frac{b}{t}$.
+                Then, for some $u \in S$,
+                \begin{align}
+                     u(at - bs) = 0 \Rightarrow 0 = f(0) = f(u(at - bs)) = f(u) (f(a) f(t) - f(b) f(s)) \nonumber
+                \end{align}
+                But $f(u), f(s), f(t)\in B^*$, so
+                \begin{align}
+                    f(a) f(t) = f(b) f(s) \Rightarrow g\bigg(\frac{a}{s}\bigg) =
+                    f(a) f(s)^{-1} = f(b) f(t)^{-1} = g\bigg(\frac{b}{t}\bigg)\nonumber
+                \end{align}
+                Therefore, $g$ is well defined.
+                Finally, let us check that it is a ring homomorphism:
+                \begin{itemize}
+                    \item $g(\frac{a}{s}) + g(\frac{b}{t}) = f(a) f(s)^{-1} + f(b) f(t)^{-1} = f(a) f(t) f(t)^{-1} f(s)^{-1} + f(b) f(s) f(t)^{-1} f(s)^{-1} =
+                f(at + bs)f(st)^{-1} = g(\frac{at + bs}{st}) = g(\frac{a}{s} + \frac{b}{t})$
+                    \item$g(\frac{a}{s}) g(\frac{b}{t}) = f(a) f(s)^{-1} f(b) f(t)^{-1} = f(ab) f(st)^{-1} = g(\frac{ab}{st}) = g(\frac{a}{s} \frac{b}{t})$
+                    \item$g(\frac{1}{1}) = 1$
+                \end{itemize}
 
-        \end{proof}
+            \end{proof}
 
+        \begin{prop} \label{prop:extension-in-fractions}
+            In the above situation, let $I \subset A$ be an ideal Consider the canonical projection $\pi: A \rightarrow S^{-1}A$.
+            Then we can write the extension of $I$ by $\pi$ as
+            $I^{e} \eqqcolon IS^{-1}A = S^{-1}I \coloneqq \{\frac{j}{s} \mid j \in I, s \in S \}$.
+            Furthermore, every ideal of $S^{-1}A$ is of this form.
+        \end{prop}
+            \begin{proof}
+                    It is clear that $S^{-1}I \subset IS^{-1}A$.
+                    Suppose that $x = \frac{j_1}{1} \frac{a_1}{s_1} + \cdots + \frac{j_n}{1} \frac{a_n}{s_n} \in IS^{-1}A$,
+                    with $j_i \in I, a_i \in A, s_i \in S$.
+                    Then, by applying the definition of addition repeatedly, we get
+                    $x = \frac{j}{s}$, with $j \in I$.
+                    Therefore $x \in I^{-1}B$.
+
+                    \noindent Now, take any ideal $J \subset S^{-1}A$.
+                    We know by~\ref{prop:extension-and-contraction} $J^{ce} \subset J$.
+                    We will show the reverse inclusion in this case.
+                    Let $\frac{a}{s} \in J.$ Then $\pi(a) = \frac{a}{1} = \frac{a}{s} \frac{s}{1} \in J \Rightarrow a \in J^c \Rightarrow \frac{a}{s} \in J^{ce} $.
+                    In particular, $J = J^{ce} = J^{c}S^{-1}A = S^{-1}J^{c}$.
+                    \end{proof}
+
+        \begin{defn}
+            Let $A$ be a ring and $\mathfrak{p} \in \text{Spec}(A)$ a prime ideal.
+            Then, the \emph{localization of $A$ at $\mathfrak{p}$} is $A_{\mathfrak{p}} \coloneqq S^{-1}A$, where $S = A \setminus \mathfrak{p}$.
+        \end{defn}
+
+        \begin{rk}
+            Indeed, $S$ is multiplicatively closed as $\mathfrak{p}$ is prime.
+        \end{rk}
+
+        \begin{prop}
+            In the above situation, $\frac{a}{s} \in A_{\mathfrak{p}}$ is a unit $\iff a \notin \mathfrak{p}$.
+        \end{prop}
+            \begin{proof}
+                We will show both implications.
+                \begin{itemize}
+                    \item[$(\Rightarrow)$] Suppose $\frac{a}{s} \in A_{\mathfrak{p}}$ is a unit.
+                    Then, there is some $\frac{b}{t} \in A_{\mathfrak{p}}$ such that $\frac{a}{s} \frac{b}{t} = \frac{1}{1}$.
+                    For some $u \notin \mathfrak{p}, u (ab - st) = 0$.
+                    Rearanging, $uab = ust$.
+                    But neither of $u, s, t$ are in $\mathfrak{p}$, so their product $ust$ is not in $\mathfrak{p}$ (because $\mathfrak{p}$ is prime).
+                    In particular, $a \notin \mathfrak{p}$.
+                    \item[$(\Leftarrow)$] Suppose $a \notin \mathfrak{p}$.
+                    Then, $\frac{a}{s} \frac{s}{a} = 1$
+                \end{itemize}
+            \end{proof}
+
+        \begin{prop}
+            In the above situation, $A_{\mathfrak{p}}$ is a local ring with maximal ideal
+            $\mathfrak{p}A_{\mathfrak{p}}$.
+        \end{prop}
+            \begin{proof}
+                
+                By Proposition~\ref{prop:local}, We just need to show that $\mathfrak{p}A_{\mathfrak{p}} = A_{\mathfrak{p}} \setminus (A_{\mathfrak{p}})^*$.
+                Indeed, by \ref{prop:extension-in-fractions} we know $\mathfrak{p}A_{\mathfrak{p}} = \{\frac{a}{s} \mid a \in \mathfrak{p}, s \notin \mathfrak{p} \}$, which by the previous proposition
+                is exactly the set of nonunits of $A_{\mathfrak{p}}$.
+
+            \end{proof}
 
 
 
