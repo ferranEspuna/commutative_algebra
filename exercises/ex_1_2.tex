@@ -56,7 +56,7 @@
             \end{proof}
             \end{sol}
 
-        \item $N(A)$ is the intersection of all prime ideals of $A$ .
+        \item \label{itm:nilradical_is_intersection_of_all_primes} $N(A)$ is the intersection of all prime ideals of $A$ .
             \begin{sol}
                 \begin{claim}
                     Given $x \notin N(A)$, let $\varSigma_x$ be the set of all ideals that do not contain any power of $x$.
@@ -186,6 +186,23 @@
                             Then, $a_0 + \cdots + a_k T^k = (a_0 + \cdots + a_{k+1} T^{k+1}) - a_{k+1} T^{k+1}$ is invertible by the claim.
                             Therefore, $a_k$ is nilpotent.
                         \end{itemize}
+                        \item[$(\Rightarrow)$]
+                        (Faster Version) Let $f$ be a unit in $A[T]$.
+                        \begin{claim}
+                            Let $p \in Spec(A)$.
+                            Then, $a_i \in p$ for all $i \in \{1, \cdots n\}$.
+                            \begin{proof}
+                                $p \in Spec(A)$ implies that $A/p$ is an integral domain.
+                                Consider the reduction $\pi: A[T] \rightarrow A/p[T]$ that takes each element $a \in A[T]$ to the class $\bar{a} \in A/p[T]$.
+                                It takes units $f$ to units $\bar{f}$.
+                                We have that $0 = degree(\bar{f} \bar{f^{-1}}) = degree(\bar{f}) + degree(\bar{f^{-1}})$, and since $A/p$ is an integral domain $degree(\bar{f}) = degree(\bar{f^{-1}}) = 0$.
+                                Thus, $\bar{f}$ is constant, and $a_i \in p$ for all $i \in \{1, \cdots n\}$.
+                            \end{proof}
+                        \end{claim}
+                        Since the claim holds for all $p \in Spec(A)$, we have that $a_i \in \bigcap_{p \in Spec(A)}p$.
+                        Following~\ref{itm:nilradical_is_intersection_of_all_primes}, we have that $a_i \in N(A)$ for all $i \in \{1, \cdots n\}$.
+                        Finally, suppose that $f^{-1} = b_0 + b_1 T + \cdots + b_m T^m$.
+                        Given that $f f^{-1}=1$ we have that $a_0 b_0 = 1$, and thus $a_0$ is invertible.
                     \end{itemize}
                 \end{proof}
             \end{sol}
