@@ -1,10 +1,10 @@
-
+% PROBLEM 1
 \begin{problem}
     Let $A$ be a ring.
     Prove:
-
     \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
 
+        % PROBLEM 1.1
         \item \label{itm:1_minus_x_invertible} If $x \in A$ is nilpotent, then $1 - x$ is invertible.
             \begin{sol}
             \begin{proof}
@@ -16,6 +16,7 @@
             \end{proof}
             \end{sol}
 
+        % PROBLEM 1.2
         \item \label{itm:nilradical_is_ideal} The nilradical $N(A) = \{x \in A \, | \, x \, \text{nilpotent}\}$ is an ideal of A .
             \begin{sol}
             \begin{proof}
@@ -37,9 +38,9 @@
             \end{proof}
             \end{sol}
 
+        % PROBLEM 1.3
         \item \label{itm:nilradical_in_prme} $N(A)$ is contained in all prime ideals of $A$ .
             \begin{sol}
-
             \begin{proof}
                 Let $I \subset A$ be a prime ideal.
                 Let $x \in N(A)$.
@@ -56,13 +57,13 @@
             \end{proof}
             \end{sol}
 
+        % PROBLEM 1.4
         \item \label{itm:nilradical_is_intersection_of_all_primes} $N(A)$ is the intersection of all prime ideals of $A$ .
             \begin{sol}
                 \begin{claim}
                     Given $x \notin N(A)$, let $\varSigma_x$ be the set of all ideals that do not contain any power of $x$.
                     Then, $\varSigma_x$ has a maximal element.
                     \begin{proof}
-
                         We will use Zorn's lemma.
                         Let us check the conditions:
 
@@ -115,18 +116,18 @@
                     \end{proof}
                 \end{claim}
 
-
-
             \end{sol}
     \end{enumerate}
-
 \end{problem}
 
+% PROBLEM 2
 \begin{problem}
     Let $A$ be a ring.
     Let $a_i\in A$ and $f = a_0 + a_1 T + \cdots + a_n T^n \in A[T]$ be a polynomial.
     Prove:
     \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+
+        % PROBLEM 2.1
         \item \label{itm:coefficients_nilpotent}
         $f$ is a unit in $A[T] \iff a_0$ is a unit in $A$ and $a_1, \ldots, a_n$ are nilpotent.
             \begin{sol}
@@ -189,23 +190,25 @@
                         \item[$(\Rightarrow)$]
                         (Faster Version) Let $f$ be a unit in $A[T]$.
                         \begin{claim}
-                            Let $p \in Spec(A)$.
-                            Then, $a_i \in p$ for all $i \in \{1, \cdots n\}$.
+                            Let $\mathfrak{p} \in Spec(A)$.
+                            Then, $a_i \in \mathfrak{p}$ for all $i \in \{1, \cdots n\}$.
                             \begin{proof}
-                                $p \in Spec(A)$ implies that $A/p$ is an integral domain.
-                                Consider the reduction $\pi: A[T] \rightarrow A/p[T]$ that takes each element $a \in A[T]$ to the class $\bar{a} \in A/p[T]$.
+                                $\mathfrak{p} \in Spec(A)$ implies that $A/\mathfrak{p}$ is an integral domain.
+                                Consider the reduction $\pi: A[T] \rightarrow A/\mathfrak{p}[T]$ that takes each element $a \in A[T]$ to the class $\bar{a} \in A/\mathfrak{p}[T]$.
                                 It takes units $f$ to units $\bar{f}$.
-                                We have that $0 = degree(\bar{f} \bar{f^{-1}}) = degree(\bar{f}) + degree(\bar{f^{-1}})$, and since $A/p$ is an integral domain $degree(\bar{f}) = degree(\bar{f^{-1}}) = 0$.
-                                Thus, $\bar{f}$ is constant, and $a_i \in p$ for all $i \in \{1, \cdots n\}$.
+                                Since $A/\mathfrak{p}$ is an integral domain, $0 = degree(\bar{f} \bar{f^{-1}}) = degree(\bar{f}) + degree(\bar{f^{-1}})$ and then $degree(\bar{f}) = degree(\bar{f^{-1}}) = 0$.
+                                Thus, $\bar{f}$ is constant, and $a_i \in \mathfrak{p}$ for all $i \in \{1, \cdots n\}$.
                             \end{proof}
                         \end{claim}
-                        Since the claim holds for all $p \in Spec(A)$, we have that $a_i \in \bigcap_{p \in Spec(A)}p$.
+                        Since the claim holds for all $\mathfrak{p} \in Spec(A)$, we have that $a_i \in \bigcap_{\mathfrak{p} \in Spec(A)}\mathfrak{p}$.
                         Following~\ref{itm:nilradical_is_intersection_of_all_primes}, we have that $a_i \in N(A)$ for all $i \in \{1, \cdots n\}$.
                         Finally, suppose that $f^{-1} = b_0 + b_1 T + \cdots + b_m T^m$.
                         Given that $f f^{-1}=1$ we have that $a_0 b_0 = 1$, and thus $a_0$ is invertible.
                     \end{itemize}
                 \end{proof}
             \end{sol}
+
+        % PROBLEM 2.2
         \item $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
             \begin{sol}
                 \begin{proof}
@@ -229,8 +232,8 @@
                     The backward implication is trivial because of the inclusion $A \subset A[T]$.
                     For the forward implication, suppose that $f$ is a zero divisor.
                     Then, there exists $g \in A[T]$, $g \neq 0$ such that $fg = 0$.
-                    Let $g = b_0 + \cdots + b_m T^m$ be the minimum degree polynomial satifying the condition $fg = 0$.
-                    If $g$ has degree $0$ we have finished. Suppose that $m > 0$.
+                    Let $g = b_0 + \cdots + b_m T^m$ be the minimum degree polynomial satisfying the condition $fg = 0$.
+                    Suppose that $m > 0$.
                     \begin{claim}
                         $\exists i \in \{1, \ldots, n\}$ s.t. $a_i g \neq 0$
                         \begin{proof}
@@ -241,7 +244,8 @@
                         \end{proof}
                     \end{claim}
                     Take $i$ maximal such that $a_i g \neq 0$.
-                    Then, $0 = f g = (a_0 + \dots + a_i T^i) (b_0 + \dots + b_m T^m) + \sum_{j=i}^n T^j a_j g$
+                    Then, $0 = f g = (a_0 + \dots + a_i T^i) (b_0 + \dots + b_m T^m) + \sum_{j=i+1}^n T^j a_j g = (a_0 + \dots + a_i T^i) (b_0 + \dots + b_m T^m)$, and $a_i b_m = 0$.
+                    Thus, we have a polynomial $g' = a_i g \neq 0$ with degree $m-1$ satisfying $f (a_i g) = a_i (f g) = 0$, in contradiction with $g$ being of minimal degree.
                 \end{proof}
             \end{sol}
     \end{enumerate}
