@@ -213,7 +213,7 @@
             \end{sol}
 
         % PROBLEM 2.2
-        \item $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
+        \item \label{itm:nilponent_implies_nilponent_coefficients} $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
             \begin{sol}
                 \begin{proof}
                     We will show both implications separately.
@@ -263,7 +263,7 @@
     \begin{itemize}
 
         % PROBLEM 3.1
-        \item $x \in \mathcal{J}(A) \Leftrightarrow 1-xy$ is invertible for all $y \in A$.
+        \item \label{itm:jacobson_element_to_invertible} $x \in \mathcal{J}(A) \Leftrightarrow 1-xy$ is invertible for all $y \in A$.
             \begin{sol}
                 \begin{proof}
                 We will prove the two implications separately:
@@ -307,8 +307,14 @@
                 \begin{proof}
                 We will prove the two inclusions separately:
                     \begin{itemize}
-                        \item[$(\supseteq)$] % TODO
-                        \item[$(\subseteq)$] % TODO
+                        \item[$(\supseteq)$]
+                        \[ \mathcal{N}(A[T]) = \bigcap Spec(A[T]) \subseteq \bigcap Max(A[T]) = \mathcal{J}(A[T]) \]
+                        The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A[T]) \subseteq Spec(A[T])$.
+                        \item[$(\subseteq)$]
+                        Take $f = a_0 + a_1 T + \cdots + a_n T^n \in \mathcal{J}(A[T])$.
+                        Using ~\ref{itm:jacobson_element_to_invertible} with $y = T$ we know that $1 - f T = 1 - a_0 T - a_1 T^2 \cdots - a_n T^{n + 1}$ is invertible in $A[t]$.
+                        But then, from ~\ref{itm:coefficients_nilpotent} we get that $-a_0, \cdots, -a_n$ nilponents, and finally $a_0, \cdots a_n$ are nilponents\todo{¿should we write a proof of this or is it overkill?}.
+                        We conclude from~\ref{itm:nilponent_implies_nilponent_coefficients} we get that $f$ is nilponent in $A[T]$
                     \end{itemize}
                 \end{proof}
             \end{sol}
