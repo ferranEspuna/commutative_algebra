@@ -260,10 +260,11 @@
     Let $A$ be a ring.
     We define the Jacobson radical $\mathcal{J}(A)$ as the intersection of all maximal ideals of $A$.
     Prove:
-    \begin{itemize}
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
 
         % PROBLEM 3.1
-        \item \label{itm:jacobson_element_to_invertible} $x \in \mathcal{J}(A) \Leftrightarrow 1-xy$ is invertible for all $y \in A$.
+        \item \label{itm:jacobson_element_to_invertible}
+        $x \in \mathcal{J}(A) \Leftrightarrow 1-xy$ is invertible for all $y \in A$.
             \begin{sol}
                 \begin{proof}
                 We will prove the two implications separately:
@@ -302,7 +303,8 @@
             \end{sol}
 
         % PROBLEM 3.3
-        \item $\mathcal{J}(A[t]) = \mathcal{N}(A[t])$.
+        \item \label{itm:nilradical_equals_jacobson_in_polynomial_ring}
+        $\mathcal{J}(A[T]) = \mathcal{N}(A[T])$.
             \begin{sol}
                 \begin{proof}
                 We will prove the two inclusions separately:
@@ -318,7 +320,7 @@
                     \end{itemize}
                 \end{proof}
             \end{sol}
-    \end{itemize}
+    \end{enumerate}
 \end{problem}
 
 % PROBLEM 4
@@ -327,7 +329,20 @@
     Prove that the nilradical and the Jacobson radical $\mathcal{J}(A)$ are equal.
     \begin{sol}
         \begin{proof}
-            % TODO
+            We will prove the two inclusions separately:
+                \begin{itemize}
+                    \item[$(\supseteq)$]
+                    (Same as in~\ref{itm:nilradical_equals_jacobson_in_polynomial_ring})
+                    \[ \mathcal{N}(A) = \bigcap Spec(A) \subseteq \bigcap Max(A) = \mathcal{J}(A) \]
+                    The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A) \subseteq Spec(A)$.
+                    \item[$(\subseteq)$]
+                    Suppose that $\mathcal{J}(A) \nsubseteq \mathcal{N}(A)$.
+                    Then, since $\mathcal{J}(A)$ is an intersection of ideals and thus an ideal itself, we have that $\exists e \in \mathcal{J}(A)$ such that $e^2 = e \neq 0$.
+                    By~\ref{itm:jacobson_element_to_invertible}, we have that $1 - e 1$ is invertible, so
+                    \[ (1 + e) = (1 - e)^{-1}(1 - e)(1 + e) = (1 - e)^{-1}(1 - e^2) = (1 - e)^{-1}(1 - e) = 1 \]
+                    Finally, we get that $e = 0$, in contradiction with the definition of $e$.
+                    Thus, we conclude that $\mathcal{J}(A) \subseteq \mathcal{N}(A)$.
+                \end{itemize}
         \end{proof}
     \end{sol}
 \end{problem}
@@ -350,11 +365,30 @@
 % PROBLEM 6
 \begin{problem}
     \begin{itemize}
-        \item Let $f(T) \in k[T]$ be irreducible where $k$ is a field.
+        \item Let $f(T) \in K[T]$ be irreducible where $K$ is a field.
         Prove that the ideal $(f(T))$ is maximal.
             \begin{sol}
                 \begin{proof}
-                    % TODO
+                    Consider $I = (f(T))$ and $J$ such that $I \subseteq J \neq K[T]$.
+                    \begin{claim} \label{itm:polynomial_field_is_pid}
+                        If $K$ is a field, then $K[T]$ is a P.I.D.
+                        \begin{proof}
+                            Take $I$ ideal in $K[T]$ and the polynomial of minimal degree $p(T) \neq 0$ in $I$.
+                            Then, $d(p(T)) > 0$, otherwise $p(T) \in K$ and $p p^{-1} = 1 \in I$ (in contradiction with $I \neq K[T]$).
+                            Now, consider $g(T) \in I$.
+                            By the division algorithm, $\exists q(T), r(T) \in K[T]$ such that $g(T) = p(T) q(T) + r(T)$ with $d(r(T)) < d(p(T))$.
+                            Then $r(T) = g(T) - p(T) q(T) \in I$ since $g(T), p(T) \in I$.
+                            By minimality of $p(T) \neq 0$, we have that $r(T) = 0$.
+                            Thus, $g(T) = p(T) q(T)$, and $I = (p(T))$.
+                        \end{proof}
+                    \end{claim}
+                    For the claim we know that $K[T]$ is a P.I.D., thus $\exists h(T) \in K(T)$ such that $J = (h(T))$.
+                    Then
+                    \[ f(T) \in (f(T)) \subseteq J = (h(T)) \]
+                    This implies that $f(T) = h(T) g(T)$, but since $f(T)$ is irreducible, either $h(T)$ or $g(T)$ is an element of $K$.
+                    $h(T) \notin K$, otherwise $J = K[T]$ which is not a field.
+                    Then $g(T) \in K$ and $h(T) = f(T) a^{-1}$.
+                    We conclude that $J \subset I$, so $I$ is maximal.
                 \end{proof}
             \end{sol}
         \item Describe the spectrum of $\mathbb{R}[T], \mathbb{C}[T], \mathbb{R}[T]/(T^2+9), \mathbb{C}[T]/(T^2+9)$
