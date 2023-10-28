@@ -36,13 +36,17 @@ citecolor=blue, urlcolor=blue]{hyperref}
 \newcommand{\inter}{\cap}
 \newcommand{\ps}{\mathscr{P}}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
-\newtheorem*{sol}{Solution}
 \newtheorem*{claim}{Claim}
 \newtheorem{problem}{Problem}
+\theoremstyle{definition}
+\newtheorem*{sol}{Solution}
+
 \usepackage{enumitem}
+\usepackage{color}
 \renewcommand{\labelenumii}{\theproblem.\arabic{enumi}.\arabic{enumii}}
 \begin{document}
 \lhead{Communative Algebra. Exercises from Set 1.}
 \rhead{Ferran Espuña}
 \include{exercises/ex_1_2}
+\include{exercises/ex_7}
 \end{document}
