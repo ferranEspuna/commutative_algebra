@@ -15,7 +15,7 @@
                     \begin{itemize}
                         \item[$(\Leftarrow)$]
                         Suppose $x \notin \mathcal{J}(A)$.
-                        This means that there exists $\mathfrak{m} \in Max(A)$ such that $x \notin \mathfrak{m}$.
+                        This means that there exists $\mathfrak{m} \in \text{Max}\,A$ such that $x \notin \mathfrak{m}$.
                         Since $\mathfrak{m}$ is a maximal ideal, $(x) + \mathfrak{m} = A$.
                         Then, there exist $y' \in A$ and $m' \in \mathfrak{m}$ such that $x y' + m' = 1 \in A$.
                         But this means that $1 - x y' = m' \in \mathfrak{m}$, which invertible.
@@ -40,8 +40,8 @@
                 \begin{proof}
                     This comes directly from the fact that an ideal $I \subset A$ cannot contain a unit $x$, else $x x^{-1} = 1 \in I$ and thus $I = A$.
                     \begin{gather*}
-                        \mathcal{J}(A) = A \setminus A^* \Leftrightarrow \forall \mathfrak{m} \in Max(A), \mathfrak{m} \supseteq \{\text{non-units of }A\} = A \setminus A^* \Leftrightarrow\\
-                        \Leftrightarrow \forall \mathfrak{m} \in Max(A), \mathfrak{m} = \{\text{non-units of }A\} \Leftrightarrow (A, \mathfrak{m}) \text{local}\\
+                        \mathcal{J}(A) = A \setminus A^* \Leftrightarrow \forall \mathfrak{m} \in \text{Max}\,A, \mathfrak{m} \supseteq \{\text{non-units of }A\} = A \setminus A^* \Leftrightarrow\\
+                        \Leftrightarrow \forall \mathfrak{m} \in \text{Max}\,A, \mathfrak{m} = \{\text{non-units of }A\} \Leftrightarrow (A, \mathfrak{m}) \text{ local}\\
                     \end{gather*}
                 \end{proof}
             \end{sol}
@@ -54,12 +54,12 @@
                 We will prove the two inclusions separately:
                     \begin{itemize}
                         \item[$(\supseteq)$]
-                        \[ \mathcal{N}(A[T]) = \bigcap Spec(A[T]) \subseteq \bigcap Max(A[T]) = \mathcal{J}(A[T]) \]
-                        The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A[T]) \subseteq Spec(A[T])$.
+                        \[ \mathcal{N}(A[T]) = \bigcap \text{Spec}\,A[T] \subseteq \bigcap \text{Max}\,A[T] = \mathcal{J}(A[T]) \]
+                        The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $\text{Max}\,A[T] \subseteq \text{Spec}\,A[T]$.
                         \item[$(\subseteq)$]
                         Take $f = a_0 + a_1 T + \cdots + a_n T^n \in \mathcal{J}(A[T])$.
                         Using ~\ref{itm:jacobson_element_to_invertible} with $y = T$ we know that $1 - f T = 1 - a_0 T - a_1 T^2 \cdots - a_n T^{n + 1}$ is invertible in $A[t]$.
-                        But then, from ~\ref{itm:coefficients_nilpotent} we get that $-a_0, \cdots, -a_n$ nilponents, and finally $a_0, \cdots a_n$ are nilponents\todo{¿should we write a proof of this or is it overkill?}.
+                        But then, from ~\ref{itm:coefficients_nilpotent} we get that $-a_0, \cdots, -a_n$ nilponents, and finally $a_0, \cdots a_n$ are nilponents.
                         We conclude from~\ref{itm:nilponent_implies_nilponent_coefficients} we get that $f$ is nilponent in $A[T]$
                     \end{itemize}
                 \end{proof}

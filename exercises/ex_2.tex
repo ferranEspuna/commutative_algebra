@@ -68,10 +68,10 @@
                         \item[$(\Rightarrow)$]
                         (Faster Version) Let $f$ be a unit in $A[T]$.
                         \begin{claim}
-                            Let $\mathfrak{p} \in Spec(A)$.
+                            Let $\mathfrak{p} \in \text{Spec}\,A$.
                             Then, $a_i \in \mathfrak{p}$ for all $i \in \{1, \ldots n\}$.
                             \begin{proof}
-                                $\mathfrak{p} \in Spec(A)$ implies that $A/\mathfrak{p}$ is an integral domain.
+                                $\mathfrak{p} \in \text{Spec}\,A$ implies that $A/\mathfrak{p}$ is an integral domain.
                                 Consider the reduction $\pi: A[T] \rightarrow A/\mathfrak{p}[T]$ that takes each element $a \in A[T]$ to the class $\overline{a} \in A/\mathfrak{p}[T]$.
                                 Since $A/\mathfrak{p}$ is an integral domain,
                                 \[
@@ -82,8 +82,8 @@
                                 $\overline{a_i} = \bar{0} \Rightarrow a_i \in \mathfrak{p}$.
                             \end{proof}
                         \end{claim}
-                        Since this holds for all $\mathfrak{p} \in Spec(A)$, we have that $ \forall i \in \{1, \ldots n\},
-                        a_i \in \bigcap_{\mathfrak{p} \in Spec(A)}\mathfrak{p} = N(A)$ (by~\ref{itm:nilradical_is_intersection_of_all_primes}).
+                        Since this holds for all $\mathfrak{p} \in \text{Spec}\,A$, we have that $ \forall i \in \{1, \ldots n\},
+                        a_i \in \bigcap_{\mathfrak{p} \in \text{Spec}\,A}\mathfrak{p} = \mathcal{N}(A)$ (by~\ref{itm:nilradical_is_intersection_of_all_primes}).
                         Finally, suppose that $f^{-1} = b_0 + b_1 T + \cdots + b_m T^m$.
                         Given that $f f^{-1}=1$ we have that $a_0 b_0 = 1$, and thus $a_0$ is invertible.
                     \end{itemize}
