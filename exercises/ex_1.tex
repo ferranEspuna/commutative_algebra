@@ -1,0 +1,120 @@
+\begin{problem}
+    Let $A$ be a ring.
+    Prove:
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+
+        % PROBLEM 1.1
+        \item \label{itm:1_minus_x_invertible} If $x \in A$ is nilpotent, then $1 - x$ is invertible.
+            \begin{sol}
+            \begin{proof}
+                 Suppose that $x^n=0$ for some $n \in \mathbb{N}$.
+                 Then,
+                    \begin{align*}
+                        (1-x)(1+x+x^2+\cdots+x^{n-1}) = 1-x^{n} = 1 \\
+                    \end{align*}
+            \end{proof}
+            \end{sol}
+
+        % PROBLEM 1.2
+        \item \label{itm:nilradical_is_ideal} The nilradical $N(A) = \{x \in A \, | \, x \, \text{nilpotent}\}$ is an ideal of A .
+            \begin{sol}
+            \begin{proof}
+                Let $x,y \in N(A)$, then $x^n = 0$ and $y^m = 0$ for some $n,m \in \mathbb{N}$.
+                Then,
+                    \begin{align*}
+                        (x-y)^{n+m} = \sum_{k=0}^{n+m} (-1)^{k} \binom{n+m}{k} x^{n+m-k} y^{k} = 0
+                    \end{align*}
+                since $k \geq n$ or $n+m-k \geq m$ for all $k$.
+                Thus, $x-y \in N(A)$.
+                We have that $N(A)$ is an additive subgroup of $A$.
+                Now, let $a \in A$.
+                Then,
+                    \begin{align*}
+                        (ax)^n = a^n x^n = 0a = 0
+                    \end{align*}
+                so $ax \in N(A)$.
+                Thus, $N(A)$ is an ideal of $A$.
+            \end{proof}
+            \end{sol}
+
+        % PROBLEM 1.3
+        \item \label{itm:nilradical_in_prme} $N(A)$ is contained in all prime ideals of $A$ .
+            \begin{sol}
+            \begin{proof}
+                Let $I \subset A$ be a prime ideal.
+                Let $x \in N(A)$.
+                Then, $x^n = 0 \in I$ for some $n \in \mathbb{N}$.
+                Let us show by induction on $n$ that this implies $x \in I$:
+                \begin{itemize}
+                    \item If $n=1$, then $x = 0 \in I$.
+                    \item Suppose that the statement is true for $n-1$: $x^{n-1} = 0 \imp x \in I$.
+                    If $0 = x^n = x \cdot x^{n-1}$,
+                    since $I$ is prime, $x \in I$ or $x^{n-1} \in I$.
+                    In the first case, we are done.
+                    The second case is just the inductive hypothesis.
+                \end{itemize}
+            \end{proof}
+            \end{sol}
+
+        % PROBLEM 1.4
+        \item \label{itm:nilradical_is_intersection_of_all_primes} $N(A)$ is the intersection of all prime ideals of $A$ .
+            \begin{sol}
+                \begin{claim}
+                    Given $x \notin N(A)$, let $\varSigma_x$ be the set of all ideals that do not contain any power of $x$.
+                    Then, $\varSigma_x$ has a maximal element.
+                    \begin{proof}
+                        We will use Zorn's lemma.
+                        Let us check the conditions:
+
+                        \begin{claim}
+                              $\varSigma_x$ is a partially ordered set with respect to inclusion.
+                        \end{claim}
+
+                        \begin{claim}
+                            $\varSigma_x$ is not empty.
+                            \begin{proof}
+                                Since $x \notin N(A)$, ${0} \in \varSigma_x$.
+                            \end{proof}
+                        \end{claim}
+
+                        \begin{claim}
+                            Every chain in $\varSigma_x$ has an upper bound.
+                            \begin{proof}
+                                Let $\{I_{\alpha}\}_{\alpha \in S}$ be a chain in $\varSigma_x$.
+                                Then, $I = \bigcup_{\alpha \in S} I_{\alpha}$ is an ideal of $A$ (One can check that if $x,y \in I$, then $x,y \in I_{\alpha} $ for some $\alpha \in S$, and then check the axioms from there).
+                                Let $x^n \in I$ for some $n \in \mathbb{N}$.
+                                Then, $x^n \in I_{\alpha}$ for some $\alpha \in A$.
+                                Since $I_{\alpha}$ is an ideal, $x \in I_{\alpha}$.
+                                Thus, $I \in \varSigma_x$.
+                            \end{proof}
+                        \end{claim}
+
+                        Now that we have verified the conditions of Zorn's lemma, we can conclude that $\varSigma_x$ has a maximal element.
+                    \end{proof}
+                \end{claim}
+
+                \begin{claim}
+                    Let $x \notin N(A)$.
+                    Then the maximal element $K(x)$ of $\varSigma_x$ is prime.
+                    \begin{proof}
+                        Let $a,b \in A$ such that $ab \in K(x)$.
+                        By way of contradiction, suppose that $a \notin K(x)$ and $b \notin K(x)$.
+                        Then, $x^n \in (a)$ and $x^m \in (b)$ for some $m,n \in \mathbb{N}$, but $x^{n+m} \notin (ab) = (a)(b)$.
+                        Contradiction.
+                    \end{proof}
+                \end{claim}
+
+                Finally, we can prove the statement.
+
+                \begin{claim} $N(A)$ is the intersection of all prime ideals of $A$.
+                    \begin{proof}
+                        Let $J$ be the intersection of all prime ideals of $A$.
+                        By~\ref{itm:nilradical_in_prme}, we know that $N(A) \subset J$.
+                        We want to prove that if  $x \notin N(A)$, then $x \notin J$.
+                        Indeed, $J \subset K(x)$ because $K(x)$ is prime and $x \notin K(x)$ because $K(x)$ does not contain any power of $x$.
+                    \end{proof}
+                \end{claim}
+
+            \end{sol}
+    \end{enumerate}
+\end{problem}

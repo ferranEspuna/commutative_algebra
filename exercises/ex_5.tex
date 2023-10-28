@@ -1,0 +1,59 @@
+% PROBLEM 5
+\begin{problem}
+    Let $A$ be an integral domain.
+    Prove that the ideal $I = (x^2 - y^3, y^2 - z^3) \subseteq A[x,y,z]$ is prime.
+
+    (\textit{Hint}: Let $f:R \rightarrow B$ be a ring homomorphism and $I \subseteq R$ be an ideal such that $I \subseteq \ker f$.
+    Then $f$ factorizes through $R/I$.
+    Consider a parametrization $f: A[x,y,z] \rightarrow A[T]$.)
+    \begin{sol}
+        \begin{proof}
+            Consider the ring homomorphism
+            \begin{align*}
+            f \colon A[x,y,z] & \longrightarrow A[T]\\
+            x&\longmapsto T^9\\
+            y&\longmapsto T^6\\
+            z&\longmapsto T^4
+            \end{align*}
+            Since $f(x^2 - y^3) = (T^9)^2 - (T^6)^3 = 0$ and $f(y^2 - z^3) = (T^6)^2 - (T^4)^3 = 0$, we have that $f(I) = 0$ and $I \subseteq \ker f$.
+            Consider the projection $\pi: A[x,y,z] \rightarrow A[x,y,z]/I$.
+            By definition of quotient, $\ker \pi = I$.
+            \begin{claim}
+                There exists $g: A[x,y,z]/I \rightarrow A[T]$ ring homomorphism such that $f = g \circ \pi$.
+                \begin{proof}
+                    $g(\bar{a}) = f(a)$.
+                    \begin{itemize}
+                        \item
+                        \underline{$\bar{a} = \bar{b} \Rightarrow g(\bar{a}) = g(\bar{b})$?} \newline
+                        Suppose $\bar{a} = \bar{b}$.
+                        Then, $a - b \in I$, and since $I = \ker f$, $f(a - b) = 0$.
+                        So, $f(a) = f(b)$ and $g(\bar{a}) = g(\bar{b})$.
+
+                        \item
+                        \underline{$g(\lambda \bar{a}) = \lambda g(\bar{a})$?}
+                        \[ g(\lambda \bar{a}) = f(\lambda a) = \lambda f(a) = \lambda g(\bar{a}) \]
+
+                        \item
+                        \underline{$g(\bar{a} - \bar{b}) = g(\bar{a}) - g(\bar{b})$?}
+                        \[ g(\bar{a} - \bar{b}) = g(\overline{a - b}) = f(a - b) = f(a) - f(b) = g(\bar{a}) - g(\bar{b}) \]
+                    \end{itemize}
+                \end{proof}
+            \end{claim}
+            Notice that $(z^i)_{i \geq 0}, (x z^i)_{i \geq 0}, (y z^i)_{i \geq 0}, ( x y z^i)_{i \geq 0}$ is a set of $A$-generators of $A[x,y,z]/I$.
+            Also, their images
+            \begin{align*}
+            g(z^i) = T^{4i} = T^{4i + 0} \\
+            g(x z^i) = T^{4i + 9} = T^{4(i + 2) + 1} \\
+            g(y z^i) = T^{4i + 6} = T^{4(i + 1) + 2} \\
+            g(x y z^i) = T^{4i + 15} = T^{4(i + 3) + 3} \\
+            \end{align*}
+            are independent, given the non-congruence of the exponents $mod(4)$.
+            Thus, $g$ is injective.
+            Now, take $\bar{a}, \bar{b} \in A[x,y,z]/I$ such that $\overline{ab} = 0$.
+            \[ 0 = g(0) = g(\overline{ab}) = g(\bar{a})g(\bar{b}) \in A[T] \]
+            Since $A$ is a domain, $A[T]$ is a domain and $g(\bar{a}) = 0$ or $g(\bar{b}) = 0$.
+            But since $g$ is injective, $\bar{a} = 0$ or $\bar{b} = 0$.
+            Thus, $A[x,y,z]/I$ is a domain and we can conclude that $I$ is a prime ideal.
+        \end{proof}
+    \end{sol}
+\end{problem}

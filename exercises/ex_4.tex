@@ -1,0 +1,23 @@
+% PROBLEM 4
+\begin{problem}
+    Let $A$ be a ring such that every ideal not contained in the nilradical $\mathcal{N}(A)$ has a non-zero idempotent element (i.e. an element $e \neq 0$ such that $e^2 = e$).
+    Prove that the nilradical and the Jacobson radical $\mathcal{J}(A)$ are equal.
+    \begin{sol}
+        \begin{proof}
+            We will prove the two inclusions separately:
+                \begin{itemize}
+                    \item[$(\supseteq)$]
+                    (Same as in~\ref{itm:nilradical_equals_jacobson_in_polynomial_ring})
+                    \[ \mathcal{N}(A) = \bigcap Spec(A) \subseteq \bigcap Max(A) = \mathcal{J}(A) \]
+                    The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A) \subseteq Spec(A)$.
+                    \item[$(\subseteq)$]
+                    Suppose that $\mathcal{J}(A) \nsubseteq \mathcal{N}(A)$.
+                    Then, since $\mathcal{J}(A)$ is an intersection of ideals and thus an ideal itself, we have that $\exists e \in \mathcal{J}(A)$ such that $e^2 = e \neq 0$.
+                    By~\ref{itm:jacobson_element_to_invertible}, we have that $1 - e 1$ is invertible, so
+                    \[ (1 + e) = (1 - e)^{-1}(1 - e)(1 + e) = (1 - e)^{-1}(1 - e^2) = (1 - e)^{-1}(1 - e) = 1 \]
+                    Finally, we get that $e = 0$, in contradiction with the definition of $e$.
+                    Thus, we conclude that $\mathcal{J}(A) \subseteq \mathcal{N}(A)$.
+                \end{itemize}
+        \end{proof}
+    \end{sol}
+\end{problem}
