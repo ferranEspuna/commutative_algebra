@@ -213,7 +213,7 @@
             \end{sol}
 
         % PROBLEM 2.2
-        \item $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
+        \item \label{itm:nilponent_implies_nilponent_coefficients} $f$ is nilpotent $\iff$ $a_0, \ldots, a_n$ are nilpotent.
             \begin{sol}
                 \begin{proof}
                     We will show both implications separately.
@@ -253,4 +253,149 @@
                 \end{proof}
             \end{sol}
     \end{enumerate}
+\end{problem}
+
+% PROBLEM 3
+\begin{problem}
+    Let $A$ be a ring.
+    We define the Jacobson radical $\mathcal{J}(A)$ as the intersection of all maximal ideals of $A$.
+    Prove:
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+
+        % PROBLEM 3.1
+        \item \label{itm:jacobson_element_to_invertible}
+        $x \in \mathcal{J}(A) \Leftrightarrow 1-xy$ is invertible for all $y \in A$.
+            \begin{sol}
+                \begin{proof}
+                We will prove the two implications separately:
+                    \begin{itemize}
+                        \item[$(\Leftarrow)$]
+                        Suppose $x \notin \mathcal{J}(A)$.
+                        This means that there exists $\mathfrak{m} \in Max(A)$ such that $x \notin \mathfrak{m}$.
+                        Since $\mathfrak{m}$ is a maximal ideal, $(x) + \mathfrak{m} = A$.
+                        Then, there exist $y' \in A$ and $m' \in \mathfrak{m}$ such that $x y' + m' = 1 \in A$.
+                        But this means that $1 - x y' = m' \in \mathfrak{m}$, which invertible.
+                        Contradiction with $\mathfrak{m}$ being an ideal.
+                        Thus, $x \mathcal{J}(A)$.
+                        \item[$(\Rightarrow)$]
+                        Suppose that $\exists y \in A$ such that $1-x y$ is not a unit in $A$.
+                        Notice that:
+                        \begin{itemize}
+                            \item There exists a maximal ideal $\mathfrak{M}$ such that $1 - x y \in \mathfrak{m}$.
+                            \item Since $x \in \mathfrak{m} \subseteq \mathcal{J}(A)$, we have that $x y \in \mathfrak{m}$.
+                        \end{itemize}
+                        Finally,  $1 - x y + x y = 1 \in \mathfrak{m}$, in contradiction with $\mathfrak{m}$ being an ideal.
+                        Thus, $\forall y \in A$ we have that $1 - x y$ is a unit in $A$.
+                    \end{itemize}
+                \end{proof}
+            \end{sol}
+
+        % PROBLEM 3.2
+        \item $\mathcal{J}(A) = A \setminus A* \Leftrightarrow A$ has only one maximal ideal.
+            \begin{sol}
+                \begin{proof}
+                    This comes directly from the fact that an ideal $I \subset A$ cannot contain a unit $x$, else $x x^{-1} = 1 \in I$ and thus $I = A$.
+                    \begin{gather*}
+                        \mathcal{J}(A) = A \setminus A^* \Leftrightarrow \forall \mathfrak{m} \in Max(A), \mathfrak{m} \supseteq \{\text{non-units of }A\} = A \setminus A^* \Leftrightarrow\\
+                        \Leftrightarrow \forall \mathfrak{m} \in Max(A), \mathfrak{m} = \{\text{non-units of }A\} \Leftrightarrow (A, \mathfrak{m}) \text{local}\\
+                    \end{gather*}
+                \end{proof}
+            \end{sol}
+
+        % PROBLEM 3.3
+        \item \label{itm:nilradical_equals_jacobson_in_polynomial_ring}
+        $\mathcal{J}(A[T]) = \mathcal{N}(A[T])$.
+            \begin{sol}
+                \begin{proof}
+                We will prove the two inclusions separately:
+                    \begin{itemize}
+                        \item[$(\supseteq)$]
+                        \[ \mathcal{N}(A[T]) = \bigcap Spec(A[T]) \subseteq \bigcap Max(A[T]) = \mathcal{J}(A[T]) \]
+                        The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A[T]) \subseteq Spec(A[T])$.
+                        \item[$(\subseteq)$]
+                        Take $f = a_0 + a_1 T + \cdots + a_n T^n \in \mathcal{J}(A[T])$.
+                        Using ~\ref{itm:jacobson_element_to_invertible} with $y = T$ we know that $1 - f T = 1 - a_0 T - a_1 T^2 \cdots - a_n T^{n + 1}$ is invertible in $A[t]$.
+                        But then, from ~\ref{itm:coefficients_nilpotent} we get that $-a_0, \cdots, -a_n$ nilponents, and finally $a_0, \cdots a_n$ are nilponents\todo{¿should we write a proof of this or is it overkill?}.
+                        We conclude from~\ref{itm:nilponent_implies_nilponent_coefficients} we get that $f$ is nilponent in $A[T]$
+                    \end{itemize}
+                \end{proof}
+            \end{sol}
+    \end{enumerate}
+\end{problem}
+
+% PROBLEM 4
+\begin{problem}
+    Let $A$ be a ring such that every ideal not contained in the nilradical $\mathcal{N}(A)$ has a non-zero idempotent element (i.e. an element $e \neq 0$ such that $e^2 = e$).
+    Prove that the nilradical and the Jacobson radical $\mathcal{J}(A)$ are equal.
+    \begin{sol}
+        \begin{proof}
+            We will prove the two inclusions separately:
+                \begin{itemize}
+                    \item[$(\supseteq)$]
+                    (Same as in~\ref{itm:nilradical_equals_jacobson_in_polynomial_ring})
+                    \[ \mathcal{N}(A) = \bigcap Spec(A) \subseteq \bigcap Max(A) = \mathcal{J}(A) \]
+                    The first equality follows~\ref{itm:nilradical_is_intersection_of_all_primes}, while the inclusion is a consequence of $Max(A) \subseteq Spec(A)$.
+                    \item[$(\subseteq)$]
+                    Suppose that $\mathcal{J}(A) \nsubseteq \mathcal{N}(A)$.
+                    Then, since $\mathcal{J}(A)$ is an intersection of ideals and thus an ideal itself, we have that $\exists e \in \mathcal{J}(A)$ such that $e^2 = e \neq 0$.
+                    By~\ref{itm:jacobson_element_to_invertible}, we have that $1 - e 1$ is invertible, so
+                    \[ (1 + e) = (1 - e)^{-1}(1 - e)(1 + e) = (1 - e)^{-1}(1 - e^2) = (1 - e)^{-1}(1 - e) = 1 \]
+                    Finally, we get that $e = 0$, in contradiction with the definition of $e$.
+                    Thus, we conclude that $\mathcal{J}(A) \subseteq \mathcal{N}(A)$.
+                \end{itemize}
+        \end{proof}
+    \end{sol}
+\end{problem}
+
+% PROBLEM 5
+\begin{problem}
+    Let $A$ be an integral domain.
+    Prove that the ideal $I = (x^2 - y^3, y^2 - z^3) \subseteq A[x,y,z]$ is prime.
+
+    (\textit{Hint}: Let $f:R \rightarrow B$ be a ring homomorphism and $I \subseteq R$ be an ideal such that $I \subseteq \ker f$.
+    Then $f$ factorizes through $R/I$.
+    Consider a parametrization $f: A[x,y,z] \rightarrow A[T]$.)
+    \begin{sol}
+        \begin{proof}
+            % TODO
+        \end{proof}
+    \end{sol}
+\end{problem}
+
+% PROBLEM 6
+\begin{problem}
+    \begin{itemize}
+        \item Let $f(T) \in K[T]$ be irreducible where $K$ is a field.
+        Prove that the ideal $(f(T))$ is maximal.
+            \begin{sol}
+                \begin{proof}
+                    Consider $I = (f(T))$ and $J$ such that $I \subseteq J \neq K[T]$.
+                    \begin{claim} \label{itm:polynomial_field_is_pid}
+                        If $K$ is a field, then $K[T]$ is a P.I.D.
+                        \begin{proof}
+                            Take $I$ ideal in $K[T]$ and the polynomial of minimal degree $p(T) \neq 0$ in $I$.
+                            Then, $d(p(T)) > 0$, otherwise $p(T) \in K$ and $p p^{-1} = 1 \in I$ (in contradiction with $I \neq K[T]$).
+                            Now, consider $g(T) \in I$.
+                            By the division algorithm, $\exists q(T), r(T) \in K[T]$ such that $g(T) = p(T) q(T) + r(T)$ with $d(r(T)) < d(p(T))$.
+                            Then $r(T) = g(T) - p(T) q(T) \in I$ since $g(T), p(T) \in I$.
+                            By minimality of $p(T) \neq 0$, we have that $r(T) = 0$.
+                            Thus, $g(T) = p(T) q(T)$, and $I = (p(T))$.
+                        \end{proof}
+                    \end{claim}
+                    For the claim we know that $K[T]$ is a P.I.D., thus $\exists h(T) \in K(T)$ such that $J = (h(T))$.
+                    Then
+                    \[ f(T) \in (f(T)) \subseteq J = (h(T)) \]
+                    This implies that $f(T) = h(T) g(T)$, but since $f(T)$ is irreducible, either $h(T)$ or $g(T)$ is an element of $K$.
+                    $h(T) \notin K$, otherwise $J = K[T]$ which is not a field.
+                    Then $g(T) \in K$ and $h(T) = f(T) a^{-1}$.
+                    We conclude that $J \subset I$, so $I$ is maximal.
+                \end{proof}
+            \end{sol}
+        \item Describe the spectrum of $\mathbb{R}[T], \mathbb{C}[T], \mathbb{R}[T]/(T^2+9), \mathbb{C}[T]/(T^2+9)$
+            \begin{sol}
+                \begin{proof}
+                    % TODO
+                \end{proof}
+            \end{sol}
+    \end{itemize}
 \end{problem}
