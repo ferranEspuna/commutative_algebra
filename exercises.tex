@@ -10,16 +10,12 @@
 \newcommand{\cont}{\subseteq}
 \usepackage{tikz}
 \usepackage{pgfplots}
-\usepackage{amsmath}
 \usepackage[mathscr]{euscript}
 \let\euscr\mathscr \let\mathscr\relax% just so we can load this and rsfs
 \usepackage[scr]{rsfso}
-\usepackage{amsthm}
-\usepackage{amssymb}
 \usepackage{multicol}
 \usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
 citecolor=blue, urlcolor=blue]{hyperref}
-
 \DeclareMathOperator{\arcsec}{arcsec}
 \DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator{\arccsc}{arccsc}
@@ -47,8 +43,13 @@ citecolor=blue, urlcolor=blue]{hyperref}
 \renewcommand{\labelenumii}{\theproblem.\arabic{enumi}.\arabic{enumii}}
 \begin{document}
 \lhead{Communative Algebra. Exercises from Set 1.}
-\rhead{Ferran Espuña}
-\include{exercises/ex_1_2}
-\include{exercises/ex_7}
-\include{exercises/ex_9}
+\rhead{Ferran Espuña, Severino Da Dalt}
+\input{exercises/ex_1_2}
+\input{exercises/ex_7}
+\input{exercises/ex_8}
+\input{exercises/ex_9}
+\input{exercises/ex_10}
+\input{exercises/ex_11}
+\input{exercises/ex_12}
+\input{exercises/ex_13}
 \end{document}
