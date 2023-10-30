@@ -1,3 +1,30 @@
-\begin{problem}
-
+\begin{problem}\label{itm:primary_not_irreducible_example}
+    Let $I = (4, 2T, T^2)$ be an ideal of $\mathbb{Z}[T]$.
+    Prove that $I$ is primary but not irreducible, checking that $I = (4,T) \inter (2,T^2)$.
+    \begin{sol}
+        \begin{proof}
+            First of all, let's prove that $I$ is primary.
+            \[ rad(I) = rad((2^2, 2T, T^2)) = (2, 2T, T) = (2, T) \]
+            By~\ref{itm:integers_polynomial_ring_spectrum}, $(2,T)$ is maximal, so $I$ is $(2,T)$-primary.
+            Next, we will see that $I = (4,T) \inter (2,T^2)$ by proving both inclusions:
+            \begin{itemize}
+                \item[$(\subseteq)$]
+                We can trivially see that the generators of $I = (4, 2T, T^2)$ belong to both $(4,T)$ and $(2,T^2)$.
+                \item[$(\supseteq)$]
+                Take $x \in (4,T) \inter (2,T^2)$.
+                Since $x \in (2,T^2)$, $\exists q(T), f(T) = a_0 + a_1 T + \cdots + a_n T_n \in \mathbb{Z}[T]$ such that
+                \[ x = 2 f(T) + T^2 q(T) = 2 (a_0 + a_1 T + \cdots + a_n T_n) + T^2 q(T) = 2 a_0 + T(T q(T) + 2 (a_1 + \cdots + a_n T^{n-1})) \]
+                Then, since $x \in (4,T)$ we have that $4 | 2 a_0 \Rightarrow 2 | a_0$ and it exists $a_0' \in \mathbb{Z}$ such that $a_0 = 2 a_0'$.
+                We conclude that $x = 4 a_0' + T^2 q(T) + 2T (a_1 + \cdots + a_n T^{n-1}) \in (4, 2T, T^2) = I$.
+            \end{itemize}
+            Finally, it is easy to see that:
+            \begin{itemize}
+                \item $(4,T)$ is $(2,T)$-primary, since $rad((4,T)) = rad((2^2,T)) = (2,T)$ and $(2,T)$ is maximal.
+                \item $(2,T^2)$ is $(2,T)$-primary, since $rad((2,T^2)) = (2,T)$ and $(2,T)$ is maximal.
+                \item $(4,T) \neq (2,T)$, since $2 \notin (4,T)$.
+                \item $(2,T^2) \neq (2,T)$, since $T \notin (2,T^2)$.
+            \end{itemize}
+            Thus, $I = (4,T) \inter (2,T^2)$ is not irreducible.
+        \end{proof}
+    \end{sol}
 \end{problem}
