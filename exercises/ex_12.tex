@@ -1,3 +1,45 @@
 \begin{problem}
-
+    Let $A = k[x,y,z]$ be a polynomial ring over a field $k$.
+    Let $\mathfrak{p}_1 = (x,y)$, $\mathfrak{p}_2 = (x,z)$ and $\mathfrak{m} = (x,y,z)$ be ideals of $A$.
+    Let $I = \mathfrak{p}_1 \mathfrak{p}_2$.
+    Prove that $I = \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$ is a minimal primary decomposition of $I$ and describe the associated primes of $I$.
+    \begin{sol}
+        \begin{proof}
+            First of all we need to prove that $I \coloneqq \mathfrak{p}_1 \mathfrak{p}_2 = \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$.
+            We will prove both inclusions:
+            \begin{itemize}
+                \item[$(\subseteq)$]
+                $I = \mathfrak{p}_1 \mathfrak{p}_2 = (x^2, xy, xz, yz)$.
+                It is easy to see that all the generators of $I$, are multiples of either $x$ or $y$, they are multiples of $x$ or $z$ and they are generators of $\mathfrak{m}^2 = (x^2, y^2, z^2, xy, xz, yz)$.
+                Thus $I \subseteq \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$
+                \item[$(\supseteq)$]
+                Take $f \in \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$.
+                Since $f \in \mathfrak{m}^2$, $\exists a_0, a_1, a_2, a_3, a_4, a_5 \in k$ such that
+                \[ f = a_0 x^2 + a_1 y^2 + a_2 z^2 + a_3 xy + a_4 xz + a_5 yz \]
+                Now,
+                \[ a_2 z^2 = f - (a_0 x^2 + a_1 y^2 + a_3 xy + a_4 xz + a_5 yz) \in \mathfrak{p}_1 \]
+                so $x | a_2$ or $y | a_2$.
+                Thus $xz | a_2 z^2$ or $yz | a_2 z^2$ and we can conclude that $a_2 z^2 \in I$.
+                Also,
+                \[ a_1 y^2 = f - (a_0 x^2 + a_2 z^2 + a_3 xy + a_4 xz + a_5 yz) \in \mathfrak{p}_2 \]
+                so $x | a_1$ or $z | a_1$.
+                Thus $xy | a_1 y^2$ or $yz | a_1 y^2$ and we can conclude that $a_1 y^2 \in I$.
+                \[ f = \underbrace{a_1 y^2}_{\in I} + \underbrace{a_2 z^2}_{\in I} + \underbrace{a_0 x^2 + a_3 xy + a_4 xz + a_5 yz}_{\in I} \in I \]
+            \end{itemize}
+            Now, it is easy to see that $\mathfrak{p}_1$ and $\mathfrak{p}_2$ are prime in $k[x,y,z]$ and thus they are primary.
+            Also, $rad(\mathfrak{m}^2) = rad(x^2, y^2, z^2, xy, xz, yz) = (x,y,z,xy,xz,yz) = (x,y,z) = \mathfrak{m}$, and since $\mathfrak{m}$ is maximal, $\mathfrak{m}^2$ is $\mathfrak{m}$-primary.
+            So $I = \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$ is a primary decomposition.
+            Now we will prove that it is minimal.
+            First of all, notice that $rad(\mathfrak{p}_1) = \mathfrak{p}_1 = (x,y)$, $rad(\mathfrak{p}_2) = \mathfrak{p}_2 = (x,z)$ and $rad(\mathfrak{m}^2) = \mathfrak{m}= (x,y,z)$ are different.
+            Finally, we see that:
+            \begin{itemize}
+                \item $\mathfrak{p}_1 \inter \mathfrak{p}_2 = (x,y) \inter (x,z) = (x, yz) \nsubseteq (x^2, y^2, z^2, xy, xz, yz) = \mathfrak{m}^2$, since $x \notin \mathfrak{m}^2$.
+                \item $\mathfrak{p}_1 \inter \mathfrak{m}^2 = (x,y) \inter (x^2, y^2, z^2, xy, xz, yz) = (x^2, y^2, xy, xz, yz) \nsubseteq (x, z) = \mathfrak{p}_2$, since $y^2 \notin \mathfrak{p}_2$.
+                \item $\mathfrak{p}_2 \inter \mathfrak{m}^2 = (x,z) \inter (x^2, y^2, z^2, xy, xz, yz) = (x^2, z^2, xy, xz, yz) \nsubseteq (x, y) = \mathfrak{p}_1$, since $z^2 \notin \mathfrak{p}_1$.
+            \end{itemize}
+            This proves that $I = \mathfrak{p}_1 \inter \mathfrak{p}_2 \inter \mathfrak{m}^2$ s a minimal primary decomposition of $I$.
+            Also,
+            \[ Ass(A/I) = \{\mathfrak{p}_1, \mathfrak{p}_2, \mathfrak{m}\} \]
+        \end{proof}
+    \end{sol}
 \end{problem}
