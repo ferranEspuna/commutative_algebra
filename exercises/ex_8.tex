@@ -1,2 +1,60 @@
 \begin{problem}
+    Which of the following are integral domains?
+    If they are, describe their respective fields of fractions.
+    
+    \begin{enumerate}
+        \item $\mathbb{Q}[T]$
+        \begin{sol}
+            It is a domain because $\mathbb{Q}$ is a domain.
+            As the field of fractions we get $\mathbb{Q}(T) \coloneqq
+            \{\frac{p}{q} \mid p, q \in Q[T]\}$, that is, the set of
+            rational functions on one variable.
+        \end{sol}
+        \item $\mathbb{Z}[T]$
+        \begin{sol}
+            By the same reasoning, it is an integral domain.
+            Note that the homomorphism by the inclusion $\mathbb{Z} \rightarrow \mathbb{Q}$
+            from its field of fractions (we shal call it $\mathbb{Z}(T)$)
+            into $\mathbb{Q}(T)$ is injective as it is a field homomorphism.
+            Furthermore, it is surjective: by taking common denominators, we can express
+            any element of $\mathbb{Q}(T)$ as $\frac{p'/a}{q'/b} = \frac{p'b}{q'a}$,
+            where $p', q' \in \mathbb{Z}[T]$, $a, b \in \mathbb{Z}$.
+            Therefore, the field of fractions of $\mathbb{Z}[T]$ is also $\mathbb{Q}(T)$.
+        \end{sol}
+        \item $\mathbb{Z}/(T^n)$
+        \begin{sol}
+            This is not a domain for $n > 1$, as $T^{n-1}T = T^n = 0$,
+            but none of the factors is $0$.
+            For $n = 1$, it is isomorphic to $\mathbb{Z}$, which is a domain
+            with field of fractions $\mathbb{Q}$.
+        \end{sol}
+        \item  $\mathbb{Z}[T]/(p^n, T), p \in \mathbb{Z}$ prime.
+        \begin{sol}
+            This is not a domain for $n > 1$, as $p^{n-1}p = p^n = 0$,
+            but none of the factors is $0$.
+            For $n = 1$, it is isomorphic to $\mathbb{Z}/(p)$, which is a domain
+            and in fact a field, so its field of fractions is itself.
+        \end{sol}
+        \item $\mathbb{Z}[T]/(p, T^n), p \in \mathbb{Z}$ prime.
+        \begin{sol}
+            This is not a domain for $n > 1$, as $T^{n-1}T = p^n = 0$,
+            but none of the factors is $0$.
+            For $n = 1$, it is exactly the same as the previous case.
+        \end{sol}
+        \item $\mathbb{Z}/n\mathbb{Z}[T]$
+        \begin{sol}
+            This is isomorphic to $\mathbb{Z}[T]/(n)$
+            and therefore it is a domain if and only if $(n)$ is prime.
+            By the previous exercise, the ideal $(n)\subset\mathbb{Z}[T]$
+            is prime if and only if $n$ is prime.
+            In that case, its field of fractions is $\mathbb{Z}/n\mathbb{Z}(T)
+            = \{\frac{p}{q} \mid p, q \in \mathbb{Z}/n\mathbb{Z}[T]\}$.
+        \end{sol}
+        \item $A \times B$, where $A$ and $B$ are any given rings.
+        \begin{sol}
+            This is never domain,
+            as $(1, 0)(0, 1) = (0, 0) = 0$,
+            but none of the factors is $0$ (we are working with nontrivial rings, $1 \neq 0$).
+        \end{sol}
+    \end{enumerate}
 \end{problem}
