@@ -10,8 +10,8 @@
             \begin{proof}
 
                 \begin{claim}
-                    If $\mathfrak{q} \supset I[T]$ is a prime ideal of $A[T]$, then
-                    $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$ where $\mathfrak{p}$ is a prime ideal of $A$.
+                    If $\mathfrak{q} \supset I[T]$ is a prime ideal of $A[T]$, then exists $\mathfrak{p}$ prime ideal of $A$ such that
+                    $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$.
                      \begin{proof}
                         Consider the usual inclusion $A \subseteq A[T]$.
                         Then,
@@ -58,14 +58,14 @@
 
             \begin{proof}
 
-            Note that, for $ f \in A[T], \, f \in \mathfrak{q}[T] \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
+            Note that, for $ f \in A[T], \, f \in rad(\mathfrak{q}[T]) \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
             \Leftrightarrow f \text{ nilpotent in } A[T] / \mathfrak{q}[T] \cong (A/\mathfrak{q})[T]$.
             By~\ref{itm:nilponent_implies_nilponent_coefficients}, this happens precisely when
             the coefficients of $f$ are nilpotent in $A/\mathfrak{q}$.
             That is, when they belong to $\text{rad}(\mathfrak{q})$.
             We then have the equality $\text{rad}(q[T]) = \text{rad}(q)[T]$.
 
-            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly $\mathfrak{p}$ is prime in $A$.
+            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly when $\mathfrak{p}$ is prime in $A$.
             The same is true for the radicals, so we are done.
             \end{proof}
 
@@ -87,8 +87,8 @@
             \begin{itemize}
                 \item
                 Suppose that $rad(\mathfrak{q}_i[T]) = \mathfrak{p}_i[T] = \mathfrak{p}_j[T] = rad(\mathfrak{q}_j[T])$ for some $i \neq j$.
-                Then, we take the contraction $\mathfrak{p}_i = \mathfrak{p}_i[T]^c = \mathfrak{p}_j[T]^c = \mathfrak{p}_j$, in contradiction with $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ being a minimal primary decomposition of $I$.
-                Thus, the $\mathfrak{q}_1[T], \cdots, \mathfrak{q}_n[T]$ are all different.
+                Then, we can take the contraction $\mathfrak{p}_i = \mathfrak{p}_i[T]^c = \mathfrak{p}_j[T]^c = \mathfrak{p}_j$, which contradicts $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ being a minimal primary decomposition of $I$.
+                Thus, the $\mathfrak{p}_1[T], \cdots, \mathfrak{p}_n[T]$ are all different.
                 \item
                 Take $i \in \{ 1, \cdots, n \}$ and suppose that $\bigcap_{j \neq i} \mathfrak{q}_j[T] \subset \mathfrak{q}_i$.
                 But since
