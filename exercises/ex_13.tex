@@ -25,12 +25,12 @@
                 \end{claim}
 
                 \begin{claim}
-                    If $\mathfrak{p}$ a prime ideal of $A$, then $\mathfrak{p}[T]$ is prime in $A[T]$.
+                    If $\mathfrak{p}$ is an ideal of $A$, $\mathfrak{p}$ prime in $A \Leftrightarrow \mathfrak{p}[T]$ prime in $A[T]$ .
                     \begin{proof}
-                        $\mathfrak{p} \text{ prime } \Rightarrow
+                        $\mathfrak{p} \text{ prime } \Leftrightarrow
                         A / \mathfrak{p} \text{ integral domain }
-                        \Rightarrow A[T]/\mathfrak{p}[T] \cong (A / \mathfrak{p})[T] \text{ integral domain }
-                        \Rightarrow \mathfrak{p}[T] \text{ prime.}$
+                        \Leftrightarrow A[T]/\mathfrak{p}[T] \cong (A / \mathfrak{p})[T] \text{ integral domain }
+                        \Leftrightarrow \mathfrak{p}[T] \text{ prime.}$
                     \end{proof}
                 \end{claim}
 
@@ -55,18 +55,21 @@
         % PROBLEM 13.2
         \item If $\mathfrak{q}$ is $\mathfrak{p}$-primary ideal of $A$, then $\mathfrak{q}[T]$ is a $\mathfrak{p}[T]$-primary ideal of $A[T]$.
         \begin{sol}
-            We will prove both inclusions of $\mathfrak{p}[T] = rad(\mathfrak{q}[T])$ separately:
-            \begin{itemize}
-                \item[$(\supseteq)$]
-                Take $f \in rad(\mathfrak{q}[T])$.
-                Then $\exists n>0$ such that $f^n \in \mathfrak{q}[T] \subseteq \mathfrak{p}[T]$.
-                Since $\mathfrak{p}$ is prime, and thus $\mathfrak{p}[T]$ is too, we have that $f \in \mathfrak{p}[T]$.
-                \item[$(\subseteq)$]
-                Take $f \in \mathfrak{p}[T]$.
-                By definition, $\exists g \in A[T]$ and $\exists x \in \mathfrak{p}$ such that $f = g x$.
-                Also, since $x \in \mathfrak{p}$, $\exists m>0$ such that $x^m \in \mathfrak{q}$.
-                Then, $( g x )^m = g^m x^m \in \mathfrak{q}[T]$ and thus $g x = f \in rad(\mathfrak{q}[T])$.
-            \end{itemize}
+
+            \begin{proof}
+
+            Note that, for $ f \in A[T], \, f \in \mathfrak{q}[T] \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
+            \Leftrightarrow f \text{ nilpotent in } A[T] / \mathfrak{q}[T] \cong (A/\mathfrak{q}[T])$.
+            By~\ref{itm:nilponent_implies_nilponent_coefficients}, this happens precisely when
+            the coefficients of $f$ are nilpotent in $A/\mathfrak{q}$.
+            That is, when they belong to $\text{rad}(\mathfrak{q})$.
+            We then have the equality $\text{rad}(q[T]) = \text{rad}(q)[T]$.
+
+            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly $\mathfrak{p}$ is prime in $A$.
+            The same is true for the radicals, so we are done.
+            \end{proof}
+
+
         \end{sol}
 
         % PROBLEM 13.3
