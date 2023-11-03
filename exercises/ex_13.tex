@@ -10,8 +10,8 @@
             \begin{proof}
 
                 \begin{claim}
-                    If $\mathfrak{q} \supset I[T]$ is a prime ideal of $A[T]$, then
-                    $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$ where $\mathfrak{p}$ is a prime ideal of $A$.
+                    If $\mathfrak{q} \supset I[T]$ is a prime ideal of $A[T]$, then exists $\mathfrak{p}$ prime ideal of $A$ such that
+                    $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$.
                      \begin{proof}
                         Consider the usual inclusion $A \subseteq A[T]$.
                         Then,
@@ -53,19 +53,19 @@
         \end{sol}
 
         % PROBLEM 13.2
-        \item If $\mathfrak{q}$ is $\mathfrak{p}$-primary ideal of $A$, then $\mathfrak{q}[T]$ is a $\mathfrak{p}[T]$-primary ideal of $A[T]$.
+        \item\label{itm:p_primary_implies_pt_primary} If $\mathfrak{q}$ is $\mathfrak{p}$-primary ideal of $A$, then $\mathfrak{q}[T]$ is a $\mathfrak{p}[T]$-primary ideal of $A[T]$.
         \begin{sol}
 
             \begin{proof}
 
-            Note that, for $ f \in A[T], \, f \in \mathfrak{q}[T] \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
+            Note that, for $ f \in A[T], \, f \in rad(\mathfrak{q}[T]) \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
             \Leftrightarrow f \text{ nilpotent in } A[T] / \mathfrak{q}[T] \cong (A/\mathfrak{q})[T]$.
             By~\ref{itm:nilponent_implies_nilponent_coefficients}, this happens precisely when
             the coefficients of $f$ are nilpotent in $A/\mathfrak{q}$.
             That is, when they belong to $\text{rad}(\mathfrak{q})$.
             We then have the equality $\text{rad}(q[T]) = \text{rad}(q)[T]$.
 
-            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly $\mathfrak{p}$ is prime in $A$.
+            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly when $\mathfrak{p}$ is prime in $A$.
             The same is true for the radicals, so we are done.
             \end{proof}
 
@@ -73,8 +73,33 @@
         \end{sol}
 
         % PROBLEM 13.3
-        \item If $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ is a minimal decomposition of $I$, then $I[T] = \mathfrak{q}_1[T] \inter \cdots \inter \mathfrak{q}_n[T]$ is a minimal primary decomposition of $I[T]$.
+        \item If $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ is a minimal primary decomposition of $I$, then $I[T] = \mathfrak{q}_1[T] \inter \cdots \inter \mathfrak{q}_n[T]$ is a minimal primary decomposition of $I[T]$.
         \begin{sol}
+            First of all we see that, in fact,
+            \begin{gather*}
+                I[T] = \Bigl\{ \text{polynomials with coefficients in } I \Bigr\} =\\
+                = \Bigl\{ \text{polynomials with coefficients in } \mathfrak{q}_1[T] \text{, } \mathfrak{q}_2[T] \text{, ... and } \mathfrak{q}_n[T] \Bigr\} =\\
+                = \bigcap_{i=1}^n \Bigl\{ \text{polynomials with coefficients in } \mathfrak{q}_i[T] \Bigr\} = \mathfrak{q}_1[T] \inter \cdots \inter \mathfrak{q}_n[T]\\
+            \end{gather*}
+            Now, we know that for all $i \in \{ 1, \cdots, n \}$, $\mathfrak{q}_i$ is $\mathfrak{p}_i$-primary for some prime $\mathfrak{p}_i$.
+            Following~\ref{itm:p_primary_implies_pt_primary}, for all $i \in \{ 1, \cdots, n \}$, $\mathfrak{q}_i[T]$ is $\mathfrak{p}_i[T]$-primary and thus, $I[T] = \mathfrak{q}_1[T] \inter \cdots \inter \mathfrak{q}_n[T]$ is a primary decomposition of $I[T]$.
+            We just need to prove that it is minimal:
+            \begin{itemize}
+                \item
+                Suppose that $rad(\mathfrak{q}_i[T]) = \mathfrak{p}_i[T] = \mathfrak{p}_j[T] = rad(\mathfrak{q}_j[T])$ for some $i \neq j$.
+                Then, we can take the contraction $\mathfrak{p}_i = \mathfrak{p}_i[T]^c = \mathfrak{p}_j[T]^c = \mathfrak{p}_j$, which contradicts $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ being a minimal primary decomposition of $I$.
+                Thus, the $\mathfrak{p}_1[T], \cdots, \mathfrak{p}_n[T]$ are all different.
+                \item
+                Take $i \in \{ 1, \cdots, n \}$ and suppose that $\bigcap_{j \neq i} \mathfrak{q}_j[T] \subset \mathfrak{q}_i$.
+                Then
+                \begin{gather*}
+                    \Bigl( \bigcap_{j \neq i} \mathfrak{q}_j \Bigr)[T] = \Bigl\{ \text{polynomials with coefficients in all } \mathfrak{q}_j \text{ with } i \neq j \Bigr\} =\\
+                    = \bigcap_{j \neq i} \Bigl\{ \text{polynomials with coefficients in } \mathfrak{q}_j \Bigr\} = \bigcap_{j \neq i} \mathfrak{q}_j[T] \subset \mathfrak{q}_i\\
+                \end{gather*}
+                and we have that $\bigcap_{j \neq i} \mathfrak{q}_j \subset \mathfrak{q}_i$, in contradiction with $I = \mathfrak{q}_1 \inter \cdots \inter \mathfrak{q}_n$ being a minimal primary decomposition of $I$.
+                Thus, $\bigcap_{j \neq i} \mathfrak{q}_j[T] \nsubseteq \mathfrak{q}_i, \forall i \in \{ 1, \cdots, n \}$.
+            \end{itemize}
+            We conclude that $I[T] = \mathfrak{q}_1[T] \inter \cdots \inter \mathfrak{q}_n[T]$ is a minimal primary decomposition of $I[T]$.
         \end{sol}
 
     \end{enumerate}
