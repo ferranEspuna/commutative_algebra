@@ -25,12 +25,12 @@
                 \end{claim}
 
                 \begin{claim}
-                    If $\mathfrak{p}$ a prime ideal of $A$, then $\mathfrak{p}[T]$ is prime in $A[T]$.
+                    If $\mathfrak{p}$ is an ideal of $A$, $\mathfrak{p}$ prime in $A \Leftrightarrow \mathfrak{p}[T]$ prime in $A[T]$ .
                     \begin{proof}
-                        $\mathfrak{p} \text{ prime } \Rightarrow
+                        $\mathfrak{p} \text{ prime } \Leftrightarrow
                         A / \mathfrak{p} \text{ integral domain }
-                        \Rightarrow A[T]/\mathfrak{p}[T] \cong (A / \mathfrak{p})[T] \text{ integral domain }
-                        \Rightarrow \mathfrak{p}[T] \text{ prime.}$
+                        \Leftrightarrow A[T]/\mathfrak{p}[T] \cong (A / \mathfrak{p})[T] \text{ integral domain }
+                        \Leftrightarrow \mathfrak{p}[T] \text{ prime.}$
                     \end{proof}
                 \end{claim}
 
@@ -55,6 +55,21 @@
         % PROBLEM 13.2
         \item If $\mathfrak{q}$ is $\mathfrak{p}$-primary ideal of $A$, then $\mathfrak{q}[T]$ is a $\mathfrak{p}[T]$-primary ideal of $A[T]$.
         \begin{sol}
+
+            \begin{proof}
+
+            Note that, for $ f \in A[T], \, f \in \mathfrak{q}[T] \Leftrightarrow f^n \in \mathfrak{q}[T] \text{ for some } n > 0
+            \Leftrightarrow f \text{ nilpotent in } A[T] / \mathfrak{q}[T] \cong (A/\mathfrak{q})[T]$.
+            By~\ref{itm:nilponent_implies_nilponent_coefficients}, this happens precisely when
+            the coefficients of $f$ are nilpotent in $A/\mathfrak{q}$.
+            That is, when they belong to $\text{rad}(\mathfrak{q})$.
+            We then have the equality $\text{rad}(q[T]) = \text{rad}(q)[T]$.
+
+            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly $\mathfrak{p}$ is prime in $A$.
+            The same is true for the radicals, so we are done.
+            \end{proof}
+
+
         \end{sol}
 
         % PROBLEM 13.3
