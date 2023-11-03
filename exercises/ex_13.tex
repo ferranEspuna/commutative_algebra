@@ -55,6 +55,18 @@
         % PROBLEM 13.2
         \item If $\mathfrak{q}$ is $\mathfrak{p}$-primary ideal of $A$, then $\mathfrak{q}[T]$ is a $\mathfrak{p}[T]$-primary ideal of $A[T]$.
         \begin{sol}
+            We will prove both inclusions of $\mathfrak{p}[T] = rad(\mathfrak{q}[T])$ separately:
+            \begin{itemize}
+                \item[$(\subseteq)$]
+                Take $f(T) \in rad(\mathfrak{q}[T])$.
+                Then $\exists n>0$ such that $f(T)^n \in \mathfrak{q}[T] \subseteq \mathfrak{p}[T]$.
+                Since $\mathfrak{p}$ is prime, and thus $\mathfrak{p}[T]$ is too, we have that $f(T) \mathfrak{p}[T]$.
+                \item[$(\supseteq)$]
+                Take $f(T) \in \mathfrak{p}[T]$.
+                By definition, $\exists a(T) \in A$ and $\exists h \in \mathfrak{p}$ such that $f(T) = a(T) h$.
+                Also, since $h \in \mathfrak{p}$, $\exists m>0$ such that $h^m \in \mathfrak{q}$.
+                Then, $( a(T) h )^m = a(T)^m h^m \in \mathfrak{q}[T]$ and thus $a(T) h = f(T) \in rad(\mathfrak{q}[T])$.
+            \end{itemize}
         \end{sol}
 
         % PROBLEM 13.3
