@@ -57,15 +57,15 @@
         \begin{sol}
             We will prove both inclusions of $\mathfrak{p}[T] = rad(\mathfrak{q}[T])$ separately:
             \begin{itemize}
-                \item[$(\subseteq)$]
-                Take $f(T) \in rad(\mathfrak{q}[T])$.
-                Then $\exists n>0$ such that $f(T)^n \in \mathfrak{q}[T] \subseteq \mathfrak{p}[T]$.
-                Since $\mathfrak{p}$ is prime, and thus $\mathfrak{p}[T]$ is too, we have that $f(T) \in \mathfrak{p}[T]$.
                 \item[$(\supseteq)$]
-                Take $f(T) \in \mathfrak{p}[T]$.
-                By definition, $\exists a(T) \in A$ and $\exists h \in \mathfrak{p}$ such that $f(T) = a(T) h$.
-                Also, since $h \in \mathfrak{p}$, $\exists m>0$ such that $h^m \in \mathfrak{q}$.
-                Then, $( a(T) h )^m = a(T)^m h^m \in \mathfrak{q}[T]$ and thus $a(T) h = f(T) \in rad(\mathfrak{q}[T])$.
+                Take $f \in rad(\mathfrak{q}[T])$.
+                Then $\exists n>0$ such that $f^n \in \mathfrak{q}[T] \subseteq \mathfrak{p}[T]$.
+                Since $\mathfrak{p}$ is prime, and thus $\mathfrak{p}[T]$ is too, we have that $f \in \mathfrak{p}[T]$.
+                \item[$(\subseteq)$]
+                Take $f \in \mathfrak{p}[T]$.
+                By definition, $\exists g \in A[T]$ and $\exists x \in \mathfrak{p}$ such that $f = g x$.
+                Also, since $x \in \mathfrak{p}$, $\exists m>0$ such that $x^m \in \mathfrak{q}$.
+                Then, $( g x )^m = g^m x^m \in \mathfrak{q}[T]$ and thus $g x = f \in rad(\mathfrak{q}[T])$.
             \end{itemize}
         \end{sol}
 
