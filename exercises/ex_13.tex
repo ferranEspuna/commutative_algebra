@@ -6,11 +6,50 @@
         % PROBLEM 13.1
         \item If $\mathfrak{p}$ is a minimal prime of $I$, then $\mathfrak{p}[T]$ is a minimal prime of $I[T]$, and any minimal prime of $I[T]$ is of this form.
         \begin{sol}
-            Let $\mathfrak{p}$ be a minimal prime of $I$.
-            Suppose $J \subseteq A[T]$ is the minimal prime such that $I[T] \subseteq J \subseteq \mathfrak{p}[T]$.
-            By \textcolor{red}{LO QUE HA EXPLICAO FERRAN}, $\exists \mathfrak{p}' \in A$ prime such that $J = \mathfrak{p}'[T]$.
-            Then, we take the contraction $I \subseteq \mathfrak{p}' \subseteq \mathfrak{p}$ and by definition of $\mathfrak{p}$ being a minimal of $I$, we conclude that $\mathfrak{p}' = \mathfrak{p}$ and $\mathfrak{p}'[T] = \mathfrak{p}[T]$.
-            Thus, $\mathfrak{p}[T]$ is a minimal prime of $I[T]$.
+
+            \begin{proof}
+
+                \begin{claim}
+                    If $\mathfrak{q} \supset I[T]$ is a prime ideal of $A[T]$, then
+                    $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$ where $\mathfrak{p}$ is a prime ideal of $A$.
+                     \begin{proof}
+                        Consider the usual inclusion $A \subseteq A[T]$.
+                        Then,
+                        $\mathfrak{p} \coloneqq \mathfrak{q}^{c}$ is a prime ideal of $A$.
+                        Furthermore,
+                        \[I = I[T]^c \subset \mathfrak{q}^c = \mathfrak{p}\]
+                        and
+                        \[I[T] = I^e \subset \mathfrak{q}^{ce} \subset \mathfrak{q}\]
+                        with $\mathfrak{q}^{ce}=\mathfrak{p}^e = \mathfrak{p}[T]$.
+                     \end{proof}
+                \end{claim}
+
+                \begin{claim}
+                    If $\mathfrak{p}$ a prime ideal of $A$, then $\mathfrak{p}[T]$ is prime in $A[T]$.
+                    \begin{proof}
+                        $\mathfrak{p} \text{ prime } \Rightarrow
+                        A / \mathfrak{p} \text{ integral domain }
+                        \Rightarrow A[T]/\mathfrak{p}[T] \cong (A / \mathfrak{p})[T] \text{ integral domain }
+                        \Rightarrow \mathfrak{p}[T] \text{ prime.}$
+                    \end{proof}
+                \end{claim}
+
+
+
+                Suppose $\mathfrak{q} \subseteq A[T]$ is a minimal prime of $I[T]$.
+                Then, by the first claim, we have some prime ideal $\mathfrak{p} \subset A$ such that
+                $\mathfrak{q} \supset \mathfrak{p}[T] \supset I[T]$,
+                By the second claim, $\mathfrak{p}[T]$ is prime.
+                Therefore, $\mathfrak{p}[T] = \mathfrak{q}$.
+
+                Now, let $\mathfrak{p}$ be a minimal prime of $I$.
+                $\mathfrak{p}[T]$ must contain a minimal prime of $I[T]$, say, $\mathfrak{p}'[T]$
+                Then, we take the contraction $I \subseteq \mathfrak{p}' \subseteq \mathfrak{p}$
+                and by definition of $\mathfrak{p}$ being a minimal of $I$,
+                we conclude that $\mathfrak{p}' = \mathfrak{p}$ and $\mathfrak{p}'[T] = \mathfrak{p}[T]$.
+                Thus, $\mathfrak{p}[T]$ is a minimal prime of $I[T]$.
+
+            \end{proof}
         \end{sol}
 
         % PROBLEM 13.2
