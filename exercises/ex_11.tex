@@ -1,3 +1,23 @@
 \begin{problem}
-
+    Prove that in the polynomial ring $\mathbb{Z}[T]$ the ideal $\mathfrak{m} = (2,T)$ is maximal and the ideal $\mathfrak{q} = (4,T)$ is $\mathfrak{m}$-primary but not a power of $\mathfrak{m}$.
+    \begin{sol}
+        \begin{proof}
+            We proved in~\ref{itm:integers_polynomial_ring_spectrum} that $(2,T)$ is maximal and in~\ref{itm:primary_not_irreducible_example} we proved that $\mathfrak{q} = (4,T)$ is $\mathfrak{m}$-primary.
+            Let's prove that $\mathfrak{q}$ is not a power of $\mathfrak{m}$.
+            First, notice that:
+            \[ \cdots \subseteq \mathfrak{m}^n \subseteq \mathfrak{m}^{n-1} \subseteq \cdots \subseteq \mathfrak{m}^2 \subseteq \mathfrak{m} \]
+            Also:
+            \begin{itemize}
+                \item[$(\mathfrak{m}^2 \subsetneq \mathfrak{q})$]
+                It is easy to see that the generators of $I = (4, 2T, T^2)$ belong to $\mathfrak{q} =(4,T)$.
+                But $T \notin (4, 2T, T^2)$, so $\mathfrak{m}^2 \neq \mathfrak{q}$.
+                \item[$(\mathfrak{q} \subsetneq \mathfrak{m})$]
+                Since $rad(\mathfrak{q}) = \mathfrak{m}$, $\mathfrak{q} \subseteq \mathfrak{m}$.
+                But $2 \notin (4, 2T, T^2)$, so $\mathfrak{q} \neq \mathfrak{m}$.
+            \end{itemize}
+            Thus,
+            \[ \cdots \subseteq \mathfrak{m}^n \subseteq \mathfrak{m}^{n-1} \subseteq \cdots \subseteq \mathfrak{m}^2 \subsetneq \mathfrak{q} \subsetneq \mathfrak{m} \]
+            and $\mathfrak{q}$ is not a power of $\mathfrak{m}$.
+        \end{proof}
+    \end{sol}
 \end{problem}
