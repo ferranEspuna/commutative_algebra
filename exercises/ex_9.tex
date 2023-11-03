@@ -11,10 +11,17 @@ Prove that $S = 1 + I$ is a multiplicatively closed set and describe $\text{Spec
             Therefore, $s_1s_2 = (1 + i_1)(1 + i_2) = 1 + (i_1 + i_2 + i_1i_2) \in 1 + I = S$.
         \end{proof}
     \end{claim}
+    We know that $\text{Spec}\,S^{-1}A = \{ \mathfrak{p} \in \text{Spec}\,A \mid \mathfrak{p} \cap S = \emptyset \}$.
+    That is, the set of prime ideals of $A$ that do not intersect $1 + I$.
+    A prime ideal $\mathfrak{p}$ of $A$  intersects $1 + I \iff \exists i \in I$ such that $x = i + 1 \in \mathfrak{p}$.
+    In that case, $1 = x - i \in \mathfrak{p} + I$, so $p+I = A$.
+    Additionally, if $\mathfrak{p}+I = A$, $1 = x + i \in \mathfrak{p}+I \Rightarrow x \in 1 - I = 1 + I$.
+    We conclude that
+    \[
+        \text{Spec}\,S^{-1}A = \{ \mathfrak{p} \in \text{Spec}\,A \mid \mathfrak{p} + I \neq A \}
+    \]
 
-    \begin{claim}
 
 
-    \end{claim}
 \end{sol}
 \end{problem}
