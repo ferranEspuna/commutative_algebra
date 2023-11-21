@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,scrextend}
+\usepackage{mathtools}
+\usepackage{fancyhdr}
+\usepackage{todonotes}
+\pagestyle{fancy}
+
+\newcommand{\cont}{\subseteq}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[mathscr]{euscript}
+\let\euscr\mathscr \let\mathscr\relax% just so we can load this and rsfs
+\usepackage[scr]{rsfso}
+\usepackage{multicol}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue,
+citecolor=blue, urlcolor=blue]{hyperref}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\dfdx}{\frac{df}{dx}}
+\newcommand{\ddxp}[1]{\frac{d}{dx}\left( #1 \right)}
+\newcommand{\dydx}{\frac{dy}{dx}}
+\let\ds\displaystyle
+\newcommand{\intx}[1]{\int #1 \, dx}
+\newcommand{\intt}[1]{\int #1 \, dt}
+\newcommand{\defint}[3]{\int_{#1}^{#2} #3 \, dx}
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\un}{\cup}
+\newcommand{\inter}{\cap}
+\newcommand{\ps}{\mathscr{P}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newtheorem*{claim}{Claim}
+\newtheorem{problem}{Problem}
+\theoremstyle{definition}
+\newtheorem*{sol}{Solution}
+
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\renewcommand{\labelenumii}{\theproblem.\arabic{enumi}.\arabic{enumii}}
+\begin{document}
+\lhead{Communative Algebra. Exercises from Set 1.}
+\rhead{Ferran Espuña, Severino Da Dalt}
+\input{exercises_1/ex_1}
+\input{exercises_1/ex_2}
+\input{exercises_1/ex_3}
+\input{exercises_1/ex_4}
+\input{exercises_1/ex_5}
+\input{exercises_1/ex_6}
+\input{exercises_1/ex_7}
+\input{exercises_1/ex_8}
+\input{exercises_1/ex_9}
+\input{exercises_1/ex_10}
+\input{exercises_1/ex_11}
+\input{exercises_1/ex_12}
+\input{exercises_1/ex_13}
+\end{document}
