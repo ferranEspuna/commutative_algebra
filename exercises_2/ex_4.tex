@@ -8,25 +8,25 @@
     Prove that if $M'$ and $M''$ are finitely generated, then so is $M$.
 
 
-    \begin{sol}
-        \begin{proof}
-            Let $m'_1, \dots, m'_q$ be a set of generators of $M'$ and
-            $m''_1, \dots, m''_r$ be a set of generators of $M''$.
-            We will show that $M = \langle x_1, \ldots, x_r, y_1, \ldots, y_q\rangle$
-            with $g(x_i) = m''_i$ and $y_i = f(m'_i)$.
-            Let $x \in M$.
-            We have:
-            \begin{align*}
-                g(x) &= b_1 m''_1 + \cdots + b_r m''_r = g(b_1 x_1 + \cdots + b_r x_r) \eqqcolon g(\bar{x})
-                \intertext{So $g(x - \bar{x}) = 0 \Rightarrow x - \bar{x} \in \text{ Ker } g = \text{Im } f$. Therefore,}
-                x - \bar{x} &= f(a_1 m'_1 + \cdots + a_q m'_q) = a_1 y_1 + \cdots + a_q y_q
-                \intertext{All in all, we have}
-                x = \bar{x} + (x - \bar{x}) &= b_1 x_1 + \cdots + b_r x_r + a_1 y_1 + \cdots + a_q y_q
-            \end{align*}
-            as we wanted to show.
+        \begin{sol}
+            \begin{proof}
+                Let $m'_1, \dots, m'_q$ be a set of generators of $M'$ and
+                $m''_1, \dots, m''_r$ be a set of generators of $M''$.
+                We will show that $M = \langle x_1, \ldots, x_r, y_1, \ldots, y_q\rangle$
+                with $g(x_i) = m''_i$ and $y_i = f(m'_i)$.
+                Let $x \in M$.
+                We have:
+                \begin{align*}
+                    g(x) &= b_1 m''_1 + \cdots + b_r m''_r = g(b_1 x_1 + \cdots + b_r x_r) \eqqcolon g(\bar{x})
+                    \intertext{So $g(x - \bar{x}) = 0 \Rightarrow x - \bar{x} \in \text{ Ker } g = \text{Im } f$. Therefore,}
+                    x - \bar{x} &= f(a_1 m'_1 + \cdots + a_q m'_q) = a_1 y_1 + \cdots + a_q y_q
+                    \intertext{All in all, we have}
+                    x = \bar{x} + (x - \bar{x}) &= b_1 x_1 + \cdots + b_r x_r + a_1 y_1 + \cdots + a_q y_q
+                \end{align*}
+                as we wanted to show.
 
 
-        \end{proof}
-    \end{sol}
+            \end{proof}
+        \end{sol}
 
 \end{problem}
