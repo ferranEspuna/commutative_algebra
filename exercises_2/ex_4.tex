@@ -1,0 +1,29 @@
+\begin{problem}
+
+    Let $ 0  \leftarrow M' \leftarrow M \leftarrow M'' \leftarrow 0$ be an exact sequence of $A$-modules.
+    Prove that if $M'$ and $M''$ are finitely generated, then so is $M$.
+
+    \begin{sol}
+        \begin{proof}
+            Let $m'_1, \dots, m'_q$ be a set of generators of $M'$ and
+            $m''_1, \dots, m''_r$ be a set of generators of $M''$.
+            Let $g: M \rightarrow M''$ be the surjective homomorphism in the sequence.
+            Let $f: M' \rightarrow M$ be the injective homomorphism in the sequence.
+            We will show that
+            \[M = \langle x_1, \ldots, x_r, y_1, \ldots, y_q\rangle\]
+            with $g(x_i) = m''_i$ and $y_i = f(m'_i)$.
+            Let $x \in M$.
+            We have:
+            \[g(x) = b_1 m''_1 + \cdots + b_r m''_r = g(b_1 x_1 + \cdots + b_r x_r) \eqqcolon g(\bar{x})\]
+            So $g(x - \bar{x}) = 0 \Rightarrow x - \bar{x} \in \text{ Ker } g = \text{Im } f$.
+            Therefore,
+            \[x - \bar{x} = f(a_1 m'_1 + \cdots + a_q m'_q) = a_1 y_1 + \cdots + a_q y_q\]
+            All in all, we have
+            \[x = \bar{x} + (x - \bar{x}) = b_1 x_1 + \cdots + b_r x_r + a_1 y_1 + \cdots + a_q y_q \]
+            as we wanted to show.
+
+
+        \end{proof}
+    \end{sol}
+
+\end{problem}
