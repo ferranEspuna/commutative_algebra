@@ -1,2 +1,36 @@
 \begin{problem}
+    Compute the following:
+
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+        \item $\text{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z})$:
+        \begin{sol}
+            Suppose $\varphi$ is one such homomorphism.
+            Let $n = \varphi\left(\frac{a}{b}\right)$.
+            If $n \neq 0$, then $n = \varphi\left(\frac{2na}{2nb}\right) = (2n)\varphi\left(\frac{a}{2nb}\right) \Rightarrow 2n \mid n$, a contradiction.
+            Therefore, $\text{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Z}) = \{0\}$.
+        \end{sol}
+
+        \item $\text{Hom}_{\mathbb{Z}}(\mathbb{Q}, \mathbb{Q})$:
+            \begin{sol}
+                Suppose $\varphi$ is one such homomorphism.
+                Let $\varphi(1) = h$.
+                Then, for all fractions of the form $\frac{p}{q}$,
+                $q\varphi\left(\frac{p}{q}\right) = pq \varphi\left(\frac{1}{q}\right) = p f\left(\frac{q}{q}\right) = pf \Rightarrow
+                f\left(\frac{p}{q}\right) = \frac{p}{q}f$.
+                Therefore, we get a homomorphism $\varphi_h$ corresponding to each $h\in \mathbb{Q}$, consisting in multiplying by it.
+                Indeed, all of these are $\mathbb{Z}$-module homomorphisms:
+                \begin{itemize}
+                    \item $\varphi_h(nf) = h(nf) = n(hf) = n\varphi_h(f)$.
+                    \item $\varphi_h(f+g) = h(f+g) = hf + hg = \varphi_h(f) + \varphi_h(g)$.
+                \end{itemize}
+                And they are all different, since $\varphi_h(1) = h$.
+            \end{sol}
+        \item $\text{Hom}_{\mathbb{Z}}(\mathbb{Z}/(m), \mathbb{Q})$:
+            \begin{sol}
+                Suppose $\varphi$ is one such homomorphism.
+                Let $x \in \mathbb{Z}/(m)$.
+                Then, 0 = $\varphi(0) = \varphi(m \cdot x) = m\cdot \varphi(x) = \frac{m}{1}\varphi(x) \Rightarrow \varphi(x) = 0$.
+
+            \end{sol}
+    \end{enumerate}
 \end{problem}
