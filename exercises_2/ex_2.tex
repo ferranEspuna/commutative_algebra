@@ -1,23 +1,63 @@
 \begin{problem}
     Under the previous hypothesis, prove:
     \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
-        \item $A/I \otimes_A M = 0 \Rightarrow M = 0$.
+        \item \label{itm:2_1} $A/I \otimes_A M = 0 \Rightarrow M = 0$.
             \begin{sol}
                 \begin{proof}
-
+                    The solution comes directly from the Extra Exercise $14$ which states:
+                    \begin{claim}
+                        Let $A$ be a ring, $M$ an $A$-module and $I \subseteq A$ an ideal.
+                        Then
+                        \[
+                            M/IM \cong A/I \otimes_A M
+                        \]
+                    \end{claim}
+                    Follows the claim that
+                    \[
+                        M/IM \cong A/I \otimes_A M = 0 \Rightarrow M/IM = 0 \Rightarrow M = IM
+                    \]
+                    Finally, using~\ref{itm:nakayamas_lemma}
+                    \[
+                        M = IM \Rightarrow M = 0
+                    \]
                 \end{proof}
             \end{sol}
-        \item If $N \subseteq M$ is a submodule, $M = IM + N \Rightarrow M = N$.
+        \item \label{itm:2_2} If $N \subseteq M$ is a submodule, $M = IM + N \Rightarrow M = N$.
             \begin{sol}
                 \begin{proof}
-
+                    Suppose $M = IM + N$.
+                    Then
+                    \[
+                        M / N = (IM + N) / N \cong IM / N
+                    \]
+                    We can use~\ref{itm:nakayamas_lemma}
+                    \[
+                        M/N = IM/N \Rightarrow M/N = 0
+                    \]
+                    Thus, $M = N$, and we have proven the statement.
                 \end{proof}
             \end{sol}
-        \item If $f: N \rightarrow M$ is a homomorphism, $\bar{f}: N/IN \rightarrow M/IM$ surjective $\Rightarrow$ $f$
+        \item If $f: N \rightarrow M$ is a homomorphism, $\overline{f}: N/IN \rightarrow M/IM$ surjective $\Rightarrow$ $f$
         surjective.
             \begin{sol}
                 \begin{proof}
-
+                    \begin{claim}
+                        $M = IM + f(N)$
+                        \begin{sol}
+                            We will prove both inclusions:
+                            \begin{itemize}
+                                \item[$(\supseteq)$] Comes directly from the fact that $IM \subseteq M$ and $f(N) \subseteq M$ by definition.
+                                \item[$(\subseteq)$] Take $m \in M$.
+                                Since $\overline{f}$ is surjective, exists $\overline{n} \in N/IN$ such that $\overline{f}(\overline{n}) = \overline{m}$.
+                                By definition, $\overline{f(n)} = \overline{m}$ and thus $f(n) = m + x$ for some $x \in IM$.
+                                Since $f(n) \in f(N)$ and $x \in IM$ we conclude that
+                                \[
+                                    m = f(n) + x \in IM + f(N)
+                                \]
+                            \end{itemize}
+                        \end{sol}
+                    \end{claim}
+                    Since $f(N) \subseteq M$ and $M = IM + f(N)$ we can use~\ref{itm:2_2} to conclude that $M = f(N)$ and thus, $f$ is surjective.
                 \end{proof}
             \end{sol}
     \end{enumerate}
