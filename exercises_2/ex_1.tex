@@ -1,2 +1,33 @@
-\begin{problem}
+\begin{problem} \label{itm:nakayamas_lemma}
+    \textbf{Nakayama's lemma.} Let $M$ be a finitely generated $A$-module and $I$ an ideal of $A$ contained in the
+    Jacobson radical.
+    Prove:
+    \[
+        IM = M \Rightarrow M = 0
+    \]
+    \begin{sol}
+        \begin{proof}
+            Consider $\{m_1, \dots, m_n\}$ a minimal set of generators of $M$ with $n > 0$.
+            Since $M = IM$, $m_1 \in IM$, and there exist $a_1, \dots, a_n \in I$ such that
+            \[
+                m_1 = a_1 m_1 + a_2 m_2 + \dots + a_n m_n
+            \]
+            or, grouping the $m_1$s
+            \[
+                0 = (a_1 - 1) m_1 + a_2 m_2 + \dots + a_n m_n
+            \]
+            Now, exercise 3.1 from list 1 tells us that, since $a_1 \in I \subseteq \mathcal{J}(A)$, $1 - a_1$ is
+            invertible, and $a_1 - 1$ is invertible too.
+            Then,
+            \[
+                (a_1 - 1)^{-1}((a_1 - 1) m_1 + a_2 m_2 + \dots + a_n m_n) = 0
+            \]
+            and
+            \[
+                m_1 = -(a_1 - 1)^{-1} a_2 m_2 - \dots - (a_1 - 1)^{-1} a_n m_n
+            \]
+            This is a contradiction with the minimality of the set of generators.
+            We conclude that $n = 0$ and thus $M = 0$.
+        \end{proof}
+    \end{sol}
 \end{problem}
