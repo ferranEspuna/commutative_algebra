@@ -1,2 +1,76 @@
-\begin{problem}
+\begin{problem}\textcolor{white}{.}
+
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+        \item Let be $A$ be a local ring, $M$, $N$ finitely generated $A$-modules.
+        Prove that $M \otimes_A N = 0$ if and only if $M = 0$ or $N = 0$.
+            \begin{sol}
+                \begin{proof}
+                    For the left implication, suppose without loss of generality that $M = 0$.
+                    For any $n \in N$, $0 \otimes_A n = (0\cdot0) \otimes_A n = 0(0 \otimes_A n) = 0$.
+
+                    For the right implication, consider the maximal ideal $\mathfrak{m}$ of $A$
+                    and the quotient $\mathbb{K}\coloneqq~A/\mathfrak{m}$.
+                    \begin{claim}
+                        For any finitely generated $A$-module $P$, 
+                        $P \otimes_A \mathbb{K}$ is a $\mathbb{K}$-vector space.
+                        \begin{proof}
+                            We only need to check that the scalar multiplication is well-defined.
+                            Indeed, if $q-r \in \mathfrak{m}$, and $p\,\otimes_A\,k$ one of the generators of $P \otimes_A \mathbb{K}$,
+                            then $q\,(p \otimes_A k) - r\,(p \otimes_A k) =
+                            (p \otimes_A qk) - (p \otimes_A rk) =
+                            p \otimes_A (qk - rk) =
+                            p \otimes_A (q-r)k =
+                            p \otimes_A 0 = 0$.
+                            Therefore, $ q\,(p \otimes_A k) = r\,(p \otimes_A k)$.
+                            Because this is true for any generator, it is also true for any finite linear combination of generators (that is, the whole tensor product).
+                        \end{proof}
+                    \end{claim}
+
+
+                    \begin{claim}
+                        $\mathbb{K} \otimes_{A} \mathbb{K} \cong \mathbb{K}$
+                        \begin{proof}
+                            Consider the $A$-bilinear map
+                            $g\colon\mathbb{K}\times\mathbb{K}\to\mathbb{K}$
+                            defined by $g((k, k')) = kk'$.
+                            This satisfies the universal property of the tensor product,
+                            as for any $A$-bilinear $f:\mathbb{K}\times~\mathbb{K}\to~P$,
+                            it factors through $g$ as
+                            $f((k, k'))=kk'f((1, 1))=\varphi_f(g((k,k')))$
+                            where $\varphi_f$ is the homomorphism $x \mapsto f((1,1))\,x$.
+                            Clearly, $\varphi_f$ is the only such homomorphism.
+                        \end{proof}
+                    \end{claim}
+
+                    We now know $0 = M \otimes_A N = (M \otimes_A N) \otimes_A \mathbb{K} \cong (M \otimes_A N) \otimes_A (\mathbb{K} \otimes_A \mathbb{K})
+                    \cong (M \otimes_A \mathbb{K}) \otimes_A (N \otimes_A \mathbb{K})$.
+                    Considering the universal property of the tensor product, we get that
+                    all $A$-bilinear maps from $(M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K})$
+                    factor through the zero map and thus are zero.
+                    In particular, so do all $\mathbb{K}$-bilinear maps.
+                    Now, the $\mathbb{K}$-bilinear maps from $(M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K})$ to $\mathbb{K}$
+                    form a $\mathbb{K}$-vector space of dimension $\dim_{\mathbb{K}}(M \otimes_A~\mathbb{K})\times\dim_{\mathbb{K}}(N \otimes_A\mathbb{K})$,
+                    which means one of the dimensions is zero.
+                    Without loss of generality, suppose $\dim_{\mathbb{K}}(M \otimes_A \mathbb{K}) = 0$.
+                    Then, $M \otimes_A \mathbb{K} = 0$.
+                    By Exercise~\ref{itm:2_1}, $M = 0$ (recall that $\mathbb{K} = A/\mathfrak{m}$ where$ \mathfrak{m}$ is the only maximal ideal,
+                    so it is contained in the Jacobson radical).
+                \end{proof}
+            \end{sol}
+        \item Prove that the result is no longer true if $A$ is not local.
+            \begin{sol}
+                \begin{claim}
+                    Let $\mathfrak{m}_1$ and $\mathfrak{m}_2$ be two distinct maximal ideals of $A$.
+                    Then, $A/\mathfrak{m}_1 \otimes_A A/\mathfrak{m}_2 = 0$.
+                    \begin{proof}
+                        We will show that all generators $\hat{a} \otimes_A \bar{b}$ of the tensor product are zero,
+                        where $\hat{a}$ and $\bar{b}$ are the images of $a$ and $b$ in the quotients.
+                        Let $x \in \mathfrak{m}_1 \setminus \mathfrak{m}_2$ and let $\bar{y} = (\bar{x})^{-1}$.
+                        Then $\hat{a}\otimes_A\bar{b}=\hat{a}\otimes_A\overline{bxy} = \widehat{xa}\otimes_A\overline{yb} = \hat{0}\otimes_A\overline{yb}=0$.
+
+
+                    \end{proof}
+                \end{claim}
+            \end{sol}
+    \end{enumerate}
 \end{problem}
