@@ -1,2 +1,22 @@
 \begin{problem}
+    Let $M$ be an $A$-module and let $N_1$, $N_2$ be submodules of $M$.
+    Prove that if $M/N_1$ and $M/N_2$ are noetherian (artinian) then $M/(N_1 \cap N_2)$ is noetherian (artinian) as well.
+    \begin{sol}
+        \begin{proof}
+            Consider the sequence
+            \[ \label{equation:1} \tag{1}
+                0 \longrightarrow \sfrac{N_1}{N_1 \cap N_2} \overset{f}{\longrightarrow} \sfrac{M}{N_1 \cap N_2} \overset{g}{\longrightarrow} \sfrac{\sfrac{M}{N_1 \cap N_2}}{\sfrac{N_1 \cap N_2}{N_1}} \longrightarrow 0
+            \]
+            where $f$ is the inclusion and $g$ is the projection.
+            By definition of inclusion and projection, $f$ is injective and $g$ is exhaustive.
+            By definition of inclusion, $x \in Im(f)$ if an only if $x \in \sfrac{N_1}{N_1 \cap N_2}$.
+            Then, by definition of projection, $x \in \sfrac{N_1}{N_1 \cap N_2}$ if and only if $g(x) = \overline{0}$, and $x \in Ker(g)$.
+            Thus $Im(f) = Ker(g)$, and~\ref{equation:1} is a short exact sequence.
+
+            Now, we know that $\sfrac{N_1}{N_1 \cap N_2} \cong \sfrac{N_1 + N_2}{N_2} \subseteq \sfrac{M}{N_2}$.
+            Submodules of noetherian (artinian) modules are noetherian (artinian), and thus $\sfrac{N_1}{N_1 \cap N_2}$ is noetherian (artinian).
+            Also, $\sfrac{\sfrac{M}{N_1 \cap N_2}}{\sfrac{N_1 \cap N_2}{N_1}} \cong \sfrac{M}{N_1}$ is noetherian (artinian).
+            By a proposition we proved in class, we can conclude that $M/(N_1 \cap N_2)$ is noetherian (artinian).
+        \end{proof}
+    \end{sol}
 \end{problem}
