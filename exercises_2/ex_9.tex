@@ -26,35 +26,54 @@
                         \end{proof}
                     \end{claim}
 
+                    \begin{rk}
+                        In fact, we can express all elements of $P \otimes_A \mathbb{K}$ as $p \otimes_A 1$
+                        for some $p \in P$ and $k \in \mathbb{K}$.
+                        This is true because we have a set of generators
+                        of the form $p \otimes_A k$ with $p \in P$ and $k \in \mathbb{K}$, and
+                        $p_1 \otimes_A k_1 + p_2 \otimes_A k_2 =
+                        k_1 (p_1 \otimes_A 1 ) + k_2 (p_2 \otimes_A 1) =
+                        (\widehat{k_1} p_1 + \widehat{k_2} p_2) \otimes_A 1$,
+                        where $\widehat{k_i}$ is any lift of $k_i$ to $A$.
+                    \end{rk}
+
+                    We have just shown that $M \otimes_A \mathbb{K}$ and $N \otimes_A \mathbb{K}$ have a $\mathbb{K}$-vector space structure.
+                    It is clear that $M \otimes_A N = 0$ implies $M \otimes_A  N \otimes_A \mathbb{K} = 0$.
+                    In fact, we will show that it is a certain $\mathbb{K}$-tensor product, from which the result will follow:
 
                     \begin{claim}
-                        $\mathbb{K} \otimes_{A} \mathbb{K} \cong \mathbb{K}$
-                        \begin{proof}
-                            Consider the $A$-bilinear map
-                            $g\colon\mathbb{K}\times\mathbb{K}\to\mathbb{K}$
-                            defined by $g((k, k')) = kk'$.
-                            This satisfies the universal property of the tensor product,
-                            as for any $A$-bilinear $f:\mathbb{K}\times~\mathbb{K}\to~P$,
-                            it factors through $g$ as
-                            $f((k, k'))=kk'f((1, 1))=\varphi_f(g((k,k')))$
-                            where $\varphi_f$ is the homomorphism $x \mapsto f((1,1))\,x$.
-                            Clearly, $\varphi_f$ is the only such homomorphism.
-                        \end{proof}
+                        $M \otimes_A N \otimes_A \mathbb{K} \cong (M \otimes_A \mathbb{K}) \otimes_{\mathbb{K}} (N \otimes_A \mathbb{K})$ as $\mathbb{K}$-vector spaces.
+                            \begin{proof}
+
+                                We will show the universal property of the tensor product for the map
+                                \begin{align*}
+                                    \varphi: (M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K}) \rightarrow M \otimes_A N \otimes_A \mathbb{K} \\
+                                    (m \otimes_A 1, n \otimes_A 1) \mapsto m \otimes_A n \otimes_A 1 \\
+                                \end{align*}
+
+                                \begin{itemize}
+                                    \item \emph{$\varphi$ is well-defined}: Suppose $m \otimes_A 1 = m' \otimes_A 1$.
+                                    then, $(m - m') \otimes_A 1 = 0 = 0 \otimes_A 1$
+
+
+
+
+                                    \item \emph{$\varphi$ is $\mathbb{K}$-bilinear} because I say so (si lo miras lo ves).
+                                    \item Let $V$ be a $\mathbb{K}$-vector space and $f: (M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K}) \rightarrow V$ a $\mathbb{K}$-bilinear map.
+                                        We will show that there exists a unique $\mathbb{K}$-linear map $\overline{f}: M \otimes_A N \otimes_A \mathbb{K} \rightarrow V$ such that $f = \overline{f} \circ \varphi$.
+                                        Clearly, if such map exists, it is unique by construction (the image of $m \otimes_A n \otimes_A 1$ is just $f(m \otimes_A 1, n \otimes_A 1)$).
+                                        Let us show that this map $\bar{f}$ is well-defined and $\mathbb{K}$-linear.
+                                        \begin{itemize}
+                                            \item \emph{$\overline{f}$ is well-defined}: Suppose $m \otimes_A n \otimes_A 1 = m' \otimes_A n' \otimes_A 1$.
+                                            \item \emph{$\overline{f}$ is $\mathbb{K}$-linear} because I say so (si lo miras lo ves).
+                                        \end{itemize}
+
+                                \end{itemize}
+
+                            \end{proof}
+
                     \end{claim}
 
-                    We now know $0 = M \otimes_A N = (M \otimes_A N) \otimes_A \mathbb{K} \cong (M \otimes_A N) \otimes_A (\mathbb{K} \otimes_A \mathbb{K})
-                    \cong (M \otimes_A \mathbb{K}) \otimes_A (N \otimes_A \mathbb{K})$.
-                    Considering the universal property of the tensor product, we get that
-                    all $A$-bilinear maps from $(M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K})$
-                    factor through the zero map and thus are zero.
-                    In particular, so do all $\mathbb{K}$-bilinear maps.
-                    Now, the $\mathbb{K}$-bilinear maps from $(M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K})$ to $\mathbb{K}$
-                    form a $\mathbb{K}$-vector space of dimension $\dim_{\mathbb{K}}(M \otimes_A~\mathbb{K})\times\dim_{\mathbb{K}}(N \otimes_A\mathbb{K})$,
-                    which means one of the dimensions is zero.
-                    Without loss of generality, suppose $\dim_{\mathbb{K}}(M \otimes_A \mathbb{K}) = 0$.
-                    Then, $M \otimes_A \mathbb{K} = 0$.
-                    By Exercise~\ref{itm:2_1}, $M = 0$ (recall that $\mathbb{K} = A/\mathfrak{m}$ where $ \mathfrak{m}$ is the only maximal ideal,
-                    so it is contained in the Jacobson radical).
                 \end{proof}
             \end{sol}
         \item Prove that the result is no longer true if $A$ is not local.
