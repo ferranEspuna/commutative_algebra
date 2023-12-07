@@ -1,2 +1,45 @@
 \begin{problem}
+    Let $A$ be a ring, $M$, $N$ finitely generated $A$-modules.
+    Prove:
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+        \item $M \otimes_A N$ is a finitely generated $A$-module.
+            \begin{sol}
+                \begin{proof}
+                    Take $\{m_1, \dots, m_k\}$ and $\{n_1, \dots, n_p\}$ finite systems of generators of $M$ and $N$ respectively.
+                    By construction, $M \otimes_A N \cong F/R$ with $F = \bigoplus_{(m,n) \in M \times N} A e(m,n)$, $A e(m,n)$ free
+                    $A$-module of rank $1$ and $R$ the set of bilinear relationships of $e(m,n)$s.
+
+                    Now, for all $m \in M$ and $n = \in N$ exist $a_1, \dots, a_k, b_1, \dots, b_p \in A$ such that $m = a_1 m_1 + \dots + a_k m_k$ and $n = b_1 n_1 + \dots + b_p n_p$.
+                    Then
+                    \[
+                       e(m,n) = e(a_1 m_1 + \dots + a_k m_k, b_1 n_1 + \dots + b_p n_p) = \sum_{i=1}^{k}\sum_{j=1}^{p} a_i b_j e(m_i, n_j)
+                    \]
+                    We conclude that
+                    \[
+                        M \otimes_A N \cong F/R \cong \bigoplus_{\substack{i \in \{1,\dots,k\} \\ j \in \{1,\dots,p\}}} A e(m_i,n_j) = A^{kp}
+                    \]
+                    and, $M \otimes_A N$ is a finitely generated $A$-module.
+                \end{proof}
+            \end{sol}
+        \item If $A$ is noetherian, then $Hom_A(M,N)$ is a finitely generated $A$-module.
+            \begin{sol}
+                \begin{proof}
+                    Consider the same system of generators of the previous section for $M$ and $N$, and the $A$-module homomorphism
+                    \begin{align*}
+                        \psi\colon Hom_A(M,N) &\to N^r \\
+                        (f: M \rightarrow N) &\mapsto (f(m_1), \dots, f(m_r))
+                    \end{align*}
+                    Suppose that $\psi(f) = \psi(g)$.
+                    Then $f(m_i) = g(m_i)$ for all $i \in \{1, \dots, r\}$.
+                    For all $m \in M$ there exist $a_1, \dots, a_k \in A$ such that $m = a_1 m_1 + \dots + a_k m_k$, and
+                    \[
+                        f(m) = f(a_1 m_1 + \dots + a_k m_k) = \sum_{i=1}^{r} a_i f(m_i) = \sum_{i=1}^{r} a_i g(m_i) = g(a_1 m_1 + \dots + a_k m_k) = g(m)
+                    \]
+                    Thus, $f = g$ and $\psi$ is injective.
+
+                    Then, $Hom_A(M,N) \cong \psi(Hom_A(M,N)) \subseteq N^r$ with $N^r$ is finitely generated and thus noetherian.
+                    Since submodules of noetherian modules are noetherian, $Hom_A(M,N)$ is noetherian too, and we conclude that it is finitely generated.
+                \end{proof}
+            \end{sol}
+    \end{enumerate}
 \end{problem}
