@@ -1,0 +1,85 @@
+\begin{problem}\textcolor{white}{.}
+
+    \begin{enumerate}[label=(\theproblem.\arabic*),ref=\theproblem.\arabic*]
+        \item Let be $A$ be a local ring, $M$, $N$ finitely generated $A$-modules.
+        Prove that $M \otimes_A N = 0$ if and only if $M = 0$ or $N = 0$.
+            \begin{sol}
+                \begin{proof}
+                    For the left implication, suppose without loss of generality that $M = 0$.
+                    For any $n \in N$, $0 \otimes_A n = (0\cdot0) \otimes_A n = 0(0 \otimes_A n) = 0$.
+
+                    For the right implication, consider the maximal ideal $\mathfrak{m}$ of $A$
+                    and the quotient $\mathbb{K}\coloneqq~A/\mathfrak{m}$.
+                    \begin{claim}
+                        For any finitely generated $A$-module $P$, 
+                        $P \otimes_A \mathbb{K} \cong P/\mathfrak{m}P$ is a $\mathbb{K}$-vector space.
+                        \begin{proof}
+                            The first isomorphism is a consequence of Extra Exercise 14.
+                            We only need to check that the scalar multiplication is well-defined.
+                            Indeed, if $a - b \in \mathfrak{m}, p \in P, ap - bp = (a-b) p \in \mathfrak{m}P$
+                            so $ap + \mathfrak{m}P = bp + \mathfrak{m}P$.
+                        \end{proof}
+                    \end{claim}
+
+                    We have just shown that $M \otimes_A \mathbb{K}$ and $N \otimes_A \mathbb{K}$ have a $\mathbb{K}$-vector space structure.
+                    It is clear that $M \otimes_A N = 0$ implies $(M \otimes_A N) / \mathfrak{m}(M \otimes_A N) = M \otimes_A  N \otimes_A \mathbb{K} = 0$.
+                    In fact, we will show that it is a certain $\mathbb{K}$-tensor product, from which the result will follow:
+
+                    \begin{claim}
+                        $M \otimes_A N \otimes_A \mathbb{K} \cong (M \otimes_A \mathbb{K}) \otimes_{\mathbb{K}} (N \otimes_A \mathbb{K})$ as $\mathbb{K}$-vector spaces.
+                            \begin{proof}
+
+                                We will show the universal property of the tensor product for the map
+                                \begin{align*}
+                                    \bar{\varphi}: (M / \mathfrak{m} M) \times (N / \mathfrak{m} N) &\rightarrow (M \otimes_A N) / \mathfrak{m}(M \otimes_A N) \\
+                                    (\overline{m}, \overline{n}) &\mapsto \overline{ m \otimes_A n} \\
+                                \end{align*}
+
+                                \begin{itemize}
+                                    \item \emph{$\bar{\varphi}$ is well-defined}: If $\overline{m} = \overline{m'}$, then $m - m' \in \mathfrak{m}M$.
+                                        Therefore,
+                                        \[m \otimes_A n - m' \otimes_A n = (m - m') \otimes_A n \in \mathfrak{m}(M \otimes_A N)\]
+                                        We can play the same game with the second coordinate (Say, $n - n' \in \mathfrak{m}N$).
+                                        All in all,
+                                        \[m' \otimes_A n' - m \otimes_A n = m' \otimes_A (n'-n) + (m'-m) \otimes_A n \in \mathfrak{m}(M \otimes_A N)\]
+                                    \item \emph{$\bar{\varphi}$ is clearly $\mathbb{K}$-bilinear}.
+                                    \item \emph{Any $\mathbb{K}$-bilinear function out of $(M / \mathfrak{m} M) \times (N / \mathfrak{m} N)$ factors through $\bar{\varphi}$ uniquely}:
+                                        We know this to be true, by definition, if we forget about the quotients (say, if we have the usual $\varphi: M \times N \rightarrow M \otimes_A N$).
+                                        Therefore, if we take a $\mathbb{K}$-bilinear function $\overline{f}: (M / \mathfrak{m} M) \times (N / \mathfrak{m} N) \rightarrow P$,
+                                        its composition $f$ with the natural projection
+                                        $\pi_M: M \rightarrow M / \mathfrak{m} M$ and $\pi_N: N \rightarrow N / \mathfrak{m} N$ will factor through $\varphi$ as $f = \hat{f} \circ \varphi$.
+                                        This function $\hat{f}$ must be zero on $\mathfrak{m}(M \otimes_A N)$, since $f$ = $\overline{f} \circ (\pi_M \times \pi_N)$
+                                        factors through the quotient $(M \times N) / \mathfrak{m}(M \times N)$.
+                                        But by the universal property of the quotient, $\hat{f}$ factors through the quotient
+                                        $(M \otimes_A N) / \mathfrak{m}(M \otimes_A N)$ (say, as $\hat{f} = \hat{\bar{f}} \circ \pi_{\otimes}$).
+                                        We need to show that $\bar{f} = \hat{\bar{f}} \circ \bar{\varphi}$.
+
+
+
+
+
+                                \end{itemize}
+
+                            \end{proof}
+
+                    \end{claim}
+
+                \end{proof}
+            \end{sol}
+        \item Prove that the result is no longer true if $A$ is not local.
+            \begin{sol}
+                \begin{claim}
+                    Let $\mathfrak{m}_1$ and $\mathfrak{m}_2$ be two distinct maximal ideals of $A$.
+                    Then, $A/\mathfrak{m}_1 \otimes_A A/\mathfrak{m}_2 = 0$.
+                    \begin{proof}
+                        We will show that all generators $\hat{a} \otimes_A \bar{b}$ of the tensor product are zero,
+                        where $\hat{a}$ and $\bar{b}$ are the images of $a$ and $b$ in the quotients.
+                        Let $x \in \mathfrak{m}_1 \setminus \mathfrak{m}_2$ and let $\bar{y} = (\bar{x})^{-1}$.
+                        Then $\hat{a}\otimes_A\bar{b}=\hat{a}\otimes_A\overline{bxy} = \widehat{xa}\otimes_A\overline{yb} = \hat{0}\otimes_A\overline{yb}=0$.
+
+
+                    \end{proof}
+                \end{claim}
+            \end{sol}
+    \end{enumerate}
+\end{problem}

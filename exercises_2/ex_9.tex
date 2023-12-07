@@ -12,67 +12,103 @@
                     and the quotient $\mathbb{K}\coloneqq~A/\mathfrak{m}$.
                     \begin{claim}
                         For any finitely generated $A$-module $P$, 
-                        $P \otimes_A \mathbb{K}$ is a $\mathbb{K}$-vector space.
+                        $P \otimes_A \mathbb{K} \cong P/\mathfrak{m}P$ is a $\mathbb{K}$-vector space.
+                        All of its elements are of the form $p \otimes_{A} 1$, where $p \in P$.
                         \begin{proof}
+                            The first isomorphism is a consequence of Extra Exercise 14.
                             We only need to check that the scalar multiplication is well-defined.
-                            Indeed, if $q-r \in \mathfrak{m}$, and $p\,\otimes_A\,k$ one of the generators of $P \otimes_A \mathbb{K}$,
-                            then $q\,(p \otimes_A k) - r\,(p \otimes_A k) =
-                            (p \otimes_A qk) - (p \otimes_A rk) =
-                            p \otimes_A (qk - rk) =
-                            p \otimes_A (q-r)k =
-                            p \otimes_A 0 = 0$.
-                            Therefore, $ q\,(p \otimes_A k) = r\,(p \otimes_A k)$.
-                            Because this is true for any generator, it is also true for any finite linear combination of generators (that is, the whole tensor product).
+                            Indeed, if $a - b \in \mathfrak{m}, p \in P, ap - bp = (a-b) p \in \mathfrak{m}P$
+                            so $ap + \mathfrak{m}P = bp + \mathfrak{m}P$.
+                            For the second part, any of the generators $p_i \otimes_{A} k_i$ can be written as
+                            $p_i k_i \otimes_A 1$, so their finite sums are of the form $\sum_{i}p_i  \otimes_{A} 1$.
                         \end{proof}
                     \end{claim}
 
-                    \begin{rk}
-                        In fact, we can express all elements of $P \otimes_A \mathbb{K}$ as $p \otimes_A 1$
-                        for some $p \in P$ and $k \in \mathbb{K}$.
-                        This is true because we have a set of generators
-                        of the form $p \otimes_A k$ with $p \in P$ and $k \in \mathbb{K}$, and
-                        $p_1 \otimes_A k_1 + p_2 \otimes_A k_2 =
-                        k_1 (p_1 \otimes_A 1 ) + k_2 (p_2 \otimes_A 1) =
-                        (\widehat{k_1} p_1 + \widehat{k_2} p_2) \otimes_A 1$,
-                        where $\widehat{k_i}$ is any lift of $k_i$ to $A$.
-                    \end{rk}
-
                     We have just shown that $M \otimes_A \mathbb{K}$ and $N \otimes_A \mathbb{K}$ have a $\mathbb{K}$-vector space structure.
-                    It is clear that $M \otimes_A N = 0$ implies $M \otimes_A  N \otimes_A \mathbb{K} = 0$.
+                    It is clear that $M \otimes_A N = 0$ implies $(M \otimes_A N) / \mathfrak{m}(M \otimes_A N) = M \otimes_A  N \otimes_A \mathbb{K} = 0$.
                     In fact, we will show that it is a certain $\mathbb{K}$-tensor product, from which the result will follow:
 
                     \begin{claim}
                         $M \otimes_A N \otimes_A \mathbb{K} \cong (M \otimes_A \mathbb{K}) \otimes_{\mathbb{K}} (N \otimes_A \mathbb{K})$ as $\mathbb{K}$-vector spaces.
                             \begin{proof}
 
-                                We will show the universal property of the tensor product for the map
+                                Let us simplify the notation by writing $M/\mathfrak{m}M \eqqcolon M/\mathfrak{m}$, and the same for the other modules.
+
+                                We will show that $M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}$ via the universal property of the quotient.
+                                For this, we will first construct a candidate linear projection \linebreak
+                                ${\hat{\pi}: M \otimes_A N \rightarrow M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m}}$.
+                                We have the usual tensor product bilinear maps
+                                \[\varphi: M \times N \rightarrow M \otimes_A N\]
+                                and
+                                \[\overline{\varphi}: M/\mathfrak{m} \times N/\mathfrak{m} \rightarrow M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m}\]
+                                Furthermore, consider the canonical projections
                                 \begin{align*}
-                                    \varphi: (M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K}) \rightarrow M \otimes_A N \otimes_A \mathbb{K} \\
-                                    (m \otimes_A 1, n \otimes_A 1) \mapsto m \otimes_A n \otimes_A 1 \\
+                                    \pi_M: M &\rightarrow M/\mathfrak{m}\\
+                                    \pi_N: N &\rightarrow N/\mathfrak{m}
                                 \end{align*}
+                                Clearly,
+                                \[\overline{\varphi} \circ (\pi_M \times \pi_N): M \times N \rightarrow M/\mathfrak{m} \otimes_{\mathbb{K}} N/\mathfrak{m}\]
+                                is $A$-bilinear, so, by the universal property of the tensor product, there exists a unique $A$-linear map $\hat{\pi}$ making the following diagram commute:
 
-                                \begin{itemize}
-                                    \item \emph{$\varphi$ is well-defined}: Suppose $m \otimes_A 1 = m' \otimes_A 1$.
-                                    then, $(m - m') \otimes_A 1 = 0 = 0 \otimes_A 1$
+                                \begin{center}
+                                    \begin{tikzcd}
+                                        {M \times N} && {M \otimes_A N} \\
+                                        \\
+                                        {M / \mathfrak{m} \times N / \mathfrak{m}} && {M / \mathfrak{m} \otimes_{\mathbb{K}} N / \mathfrak{m}}
+                                        \arrow["\varphi", from=1-1, to=1-3]
+                                        \arrow["{\hat{\pi}}", from=1-3, to=3-3]
+                                        \arrow["{\pi_M\times\pi_N}"', from=1-1, to=3-1]
+                                        \arrow["{\overline{\varphi}}"', from=3-1, to=3-3]
+                                    \end{tikzcd}
+                                \end{center}
+
+                                Now, consider any $A$-linear map $f: M \otimes_A N \rightarrow P$ such that $f(\mathfrak{m}(M \otimes_A N)) = 0$.
+                                We want to see that it factors linearly and uniquely through $\hat{\pi}$ as:
+
+                                \begin{center}
+                                    \[\begin{tikzcd}
+                                    {M \times N} && {M \otimes_A N} && P \\
+                                    \\
+                                    {M / \mathfrak{m} \times N / \mathfrak{m}} && {M / \mathfrak{m} \otimes_{\mathbb{K}} N / \mathfrak{m}}
+                                    \arrow["\varphi", from=1-1, to=1-3]
+                                    \arrow["{\hat{\pi}}", from=1-3, to=3-3]
+                                    \arrow["{\pi_M\times\pi_N}"', from=1-1, to=3-1]
+                                    \arrow["{\overline{\varphi}}"', from=3-1, to=3-3]
+                                    \arrow["f", from=1-3, to=1-5]
+                                    \arrow["{\bar{f}}", from=3-3, to=1-5]
+                                \end{tikzcd}\]
+
+                                \end{center}
+
+                                Uniqueness is guaranteed, because the only way to construct
+                                $\bar{f}$ is by setting \[{\bar{f}(\overline{m} \otimes_{\mathbb{K}} \overline{n}) = f(m \otimes_A n)}\]
+                                and extending linearly.
+                                If well-defined, this construction is also clearly linear.
+                                Let us check that it is well-defined:
+                                Suppose that $\overline{m'} = \overline{m}$, that is, $m' - m \in \mathfrak{m}M$.
+                                Then, $m' \otimes_A n - m \otimes_A n = (m' - m) \otimes_A n \in \mathfrak{m}(M \otimes_A N)$.
+                                Therefore, $f(m' \otimes_A n) = f(m \otimes_A n)$.
+                                We can do the same for $n$, so $\bar{f}$ is well-defined at least on a basis $\{\overline{m_i}\otimes_\mathbb{K}\overline{n_j}\}$.
+                                This is enough because, by linearity, it is well-defined on the whole space.
+                                Checking that the diagram commutes is a matter of applying linearity and the commutativity of the diagram for $\hat{\pi}$.
 
 
-
-
-                                    \item \emph{$\varphi$ is $\mathbb{K}$-bilinear} because I say so (si lo miras lo ves).
-                                    \item Let $V$ be a $\mathbb{K}$-vector space and $f: (M \otimes_A \mathbb{K}) \times (N \otimes_A \mathbb{K}) \rightarrow V$ a $\mathbb{K}$-bilinear map.
-                                        We will show that there exists a unique $\mathbb{K}$-linear map $\overline{f}: M \otimes_A N \otimes_A \mathbb{K} \rightarrow V$ such that $f = \overline{f} \circ \varphi$.
-                                        Clearly, if such map exists, it is unique by construction (the image of $m \otimes_A n \otimes_A 1$ is just $f(m \otimes_A 1, n \otimes_A 1)$).
-                                        Let us show that this map $\bar{f}$ is well-defined and $\mathbb{K}$-linear.
-                                        \begin{itemize}
-                                            \item \emph{$\overline{f}$ is well-defined}: Suppose $m \otimes_A n \otimes_A 1 = m' \otimes_A n' \otimes_A 1$.
-                                            \item \emph{$\overline{f}$ is $\mathbb{K}$-linear} because I say so (si lo miras lo ves).
-                                        \end{itemize}
-
-                                \end{itemize}
-
+                                Now, we have shown that $M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}$ as $A$-modules.
+                                But both are $\mathbb{K}$-vector spaces, so they are isomorphic as $\mathbb{K}$-vector spaces (for any $A$-linear function $g$,
+                                $\overline{\lambda} = \overline{\lambda'}$,
+                                $g(\lambda x) - g(\lambda'x) = (\lambda - \lambda') g(x) = 0x = 0$ so $g$ is also $\mathbb{K}$-linear).
                             \end{proof}
-
                     \end{claim}
+
+                    So far, we have that $ (M \otimes_A \mathbb{K}) \otimes_\mathbb{K}( N \otimes_A \mathbb{K}) = 0$.
+                    However, from linear algebra we know that the dimension of a tensor product over a vector space
+                    is the product of the dimensions of the factors.
+                    Therefore, $M \otimes_A \mathbb{K} = 0$ or $N \otimes_A \mathbb{K} = 0$.
+                    Now, recall that $M \otimes_A \mathbb{K} = M \otimes_A A/\mathfrak{m} $, and the same for $N$.
+                    $\mathfrak{m}$ is the only maximal ideal of $A$ so in particular it is contained in the Jacobson radical (it fact, it \emph{is} the Jacobson radical).
+                    By Problem~\ref{itm:2_1}, $M = 0$ or $N = 0$, as we wanted to show.
+
+
 
                 \end{proof}
             \end{sol}
