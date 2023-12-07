@@ -86,9 +86,12 @@
                                 Then, $m' \otimes_A n - m \otimes_A n = (m' - m) \otimes_A n \in \mathfrak{m}(M \otimes_A N)$.
                                 Therefore, $f(m' \otimes_A n) = f(m \otimes_A n)$.
                                 We can do the same for $n$, so $\bar{f}$ is well-defined at least on a basis $\{\overline{m_i}\otimes_\mathbb{K}\overline{n_j}\}$.
-                                This is enough because, by linearity, it is well-defined on the whole space.
-                                Checking that the diagram commutes is a matter of applying linearity and the commutativity of the diagram for $\hat{\pi}$.
-
+                                This is enough because, by linearity, it is well-defined on the whole space:
+                                \[
+                                    \bar{f}\left(\sum_{i, j} \overline{\lambda^i_j} \overline{m_i} \otimes_\mathbb{K} \overline{n_j} \right) = \sum_{i,j} f(\lambda^i_j m_i \otimes_A n_j)
+                                \]
+                                where lifting $\overline{\lambda^i_j}$ is fine because $\mathfrak{m}(M \otimes_A N) \subseteq \text{Ker } f$.
+                                Checking that the diagram commutes is a matter of applying linearity of $f$, $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
 
                                 Now, we have shown that $M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}$ as $A$-modules.
                                 But both are $\mathbb{K}$-vector spaces, so they are isomorphic as $\mathbb{K}$-vector spaces (for any $A$-linear function $g$,
