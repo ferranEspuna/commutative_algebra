@@ -38,7 +38,22 @@
             Unless otherwise specified, all rings we discuss will be commutative with unit.
         \end{rk}
 
-        %\todo{Radical, I:J, I:J^\infty }
+        \begin{defn}
+            We say that $I \subseteq A$ is and \emph{ideal} if:
+            \begin{itemize}
+                \item $(I,+)$ is an abelian group.
+                \item For all $a \in A$ and for all $x\in I$, $ax \in I$.
+            \end{itemize}
+        \end{defn}
+
+        \begin{defn}
+            We define:
+            \begin{itemize}
+                \item The \emph{radical} of an ideal $I$ is $rad(I) \coloneqq \{a \in A \mid a^{n} \in I, n > 0\}$.
+                \item (\emph{Colon ideal}) $(I:J) \coloneqq \{a \in A \mid aJ \subseteq I\}$.
+                \item (\emph{Saturation}) $(I:J^{\infty}) \coloneqq \{a \in A \mid \exists n > 0 \text{ s.t. } a J^n \subseteq I\}$.
+            \end{itemize}
+        \end{defn}
 
         \begin{defn}
             Let $f: A \rightarrow B$ be a ring homomorphism, and let $J \subset B$ be an ideal.
@@ -61,14 +76,14 @@
 
         \begin{rk}
             $\langle S \rangle$ is the smallest ideal of $R$ containing $S$.
-            It can be checked that it is indeed an ideal by noticing that all elements of it belong to all some ideals containing $S$,
+            It can be checked that it is indeed an ideal by noticing that all elements of it belong to all ideals containing $S$,
             and veryfying the axioms from there.
         \end{rk}
 
         \begin{prop}
             In the above situation,
             \begin{align}
-                \langle S \rangle = \{a_1 s_1 + \cdots + a_n s_n\ \mid n \in \mathbb{N}, a_1, \ldots a_n \in A, s_1, \ldots s_n \in S\} \nonumber
+                \langle S \rangle = \{a_1 s_1 + \cdots + a_n s_n\ \mid n \in \mathbb{N}, a_1, \ldots, a_n \in A, s_1, \ldots, s_n \in S\} \nonumber
             \end{align}
         \end{prop}
 
@@ -106,12 +121,12 @@
             Furthermore, extension and contraction clearly respect inclusions.
             \begin{enumerate}
                 \item $I \subset f^{-1}(f(I)) \subset f^{-1}(I^e) = I^{ec}$.
-                \item $(J^{c})^e = f(J^c) = \langle f(f^{-1}(J))\rangle \subset \langle J  \rangle = J$.
+                \item $(J^{c})^e = \langle f(J^c) \rangle = \langle f(f^{-1}(J))\rangle \subset \langle J  \rangle = J$.
 
                 \item By the two previous points, $(I^e)^{ce} \subset I^e$ and $I\subset I^{ec}$ so
-                $(I^{ec})^e \subset I^e$.
+                $I^e \subset (I^{ec})^e$.
 
-                \item Similarly, $(J^c)^{ec} \subset J^c$ and $J^{ce} \subset J$ so
+                \item Similarly, $J^c \subset (J^c)^{ec}$ and $J^{ce} \subset J$ so
                 $(J^{ce})^c \subset J^c$.
             \end{enumerate}
         \end{proof}
@@ -228,6 +243,15 @@
 
         \begin{theorem}
             All rings have maximal ideals.
+        \end{theorem}
+            \begin{proof}
+                Exercise.
+                Use Zorn's lemma.
+            \end{proof}
+
+        \begin{theorem}
+            Let $A$ be a ring and $I \subseteq A$ be an ideal.
+            Then, there exists a maximal ideal $\mathfrak{m} \subseteq A$ such that $I \subseteq \mathfrak{m}$.
         \end{theorem}
             \begin{proof}
                 Exercise.
@@ -392,7 +416,8 @@
             \end{proof}
 
         \begin{prop} \label{prop:extension-in-fractions}
-            In the above situation, let $I \subset A$ be an ideal Consider the canonical projection $\pi: A \rightarrow S^{-1}A$.
+            In the above situation, let $I \subset A$ be an ideal.
+            Consider the canonical projection $\pi: A \rightarrow S^{-1}A$.
             Then we can write the extension of $I$ by $\pi$ as
             $I^{e} \eqqcolon IS^{-1}A = S^{-1}I \coloneqq \{\frac{j}{s} \mid j \in I, s \in S \}$.
             Furthermore, every ideal of $S^{-1}A$ is of this form.
@@ -411,6 +436,14 @@
                     Let $\frac{a}{s} \in J.$ Then $\pi(a) = \frac{a}{1} = \frac{a}{s} \frac{s}{1} \in J \Rightarrow a \in J^c \Rightarrow \frac{a}{s} \in J^{ce} $.
                     In particular, $J = J^{ce} = J^{c}S^{-1}A = S^{-1}J^{c}$.
                     \end{proof}
+
+        \begin{defn}
+            (\emph{Total frection ring}) $Tot(A) \coloneqq S^{-1}A$ where $S = \{a \in A \mid a \text{ is not a zero divisor }\}$.
+        \end{defn}
+
+        \begin{defn}
+            (\emph{Localization at an element}) $A_f \coloneqq S^{-1}A$ where $S = \{f^n \mid n \geq 0\}$ for a given $f \in A$.
+        \end{defn}
 
         \begin{defn}
             Let $A$ be a ring and $\mathfrak{p} \in \text{Spec}(A)$ a prime ideal.
