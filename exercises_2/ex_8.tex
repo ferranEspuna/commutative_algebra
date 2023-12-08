@@ -9,7 +9,7 @@
                     By construction, $M \otimes_A N \cong F/R$ with $F = \bigoplus_{(m,n) \in M \times N} A e(m,n)$, $A e(m,n)$ free
                     $A$-module of rank $1$ and $R$ the set of bilinear relationships of $e(m,n)$s.
 
-                    Now, for all $m \in M$ and $n = \in N$ exist $a_1, \dots, a_k, b_1, \dots, b_p \in A$ such that $m = a_1 m_1 + \dots + a_k m_k$ and $n = b_1 n_1 + \dots + b_p n_p$.
+                    Now, for all $m \in M$ and $n \in N$ exist $a_1, \dots, a_k, b_1, \dots, b_p \in A$ such that $m = a_1 m_1 + \dots + a_k m_k$ and $n = b_1 n_1 + \dots + b_p n_p$.
                     Then
                     \[
                        e(m,n) = e(a_1 m_1 + \dots + a_k m_k, b_1 n_1 + \dots + b_p n_p) = \sum_{i=1}^{k}\sum_{j=1}^{p} a_i b_j e(m_i, n_j)
@@ -21,7 +21,7 @@
                     and, $M \otimes_A N$ is a finitely generated $A$-module.
                 \end{proof}
             \end{sol}
-        \item If $A$ is noetherian, then $Hom_A(M,N)$ is a finitely generated $A$-module.
+        \item If $A$ is Noetherian, then $Hom_A(M,N)$ is a finitely generated $A$-module.
             \begin{sol}
                 \begin{proof}
                     Consider the same system of generators of the previous section for $M$ and $N$, and the $A$-module homomorphism
@@ -37,8 +37,8 @@
                     \]
                     Thus, $f = g$ and $\psi$ is injective.
 
-                    Then, $Hom_A(M,N) \cong \psi(Hom_A(M,N)) \subseteq N^r$ with $N^r$ is finitely generated and thus noetherian.
-                    Since submodules of noetherian modules are noetherian, $Hom_A(M,N)$ is noetherian too, and we conclude that it is finitely generated.
+                    Then, $Hom_A(M,N) \cong \psi(Hom_A(M,N)) \subseteq N^r$ with $N^r$ is finitely generated and thus Noetherian.
+                    Since submodules of Noetherian modules are Noetherian, $Hom_A(M,N)$ is Noetherian too, and we conclude that it is finitely generated.
                 \end{proof}
             \end{sol}
     \end{enumerate}
