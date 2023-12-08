@@ -60,7 +60,7 @@
                                 \end{center}
 
                                 Now, consider any $A$-linear map $f: M \otimes_A N \rightarrow P$ such that $f(\mathfrak{m}(M \otimes_A N)) = 0$.
-                                We want to see that it factors linearly and uniquely through $\hat{\pi}$ as:
+                                We want to see that it factors $A$-linearly and uniquely through $\hat{\pi}$ as:
 
                                 \begin{center}
                                     \[\begin{tikzcd}
@@ -77,21 +77,22 @@
 
                                 \end{center}
 
-                                Uniqueness is guaranteed, because the only way to construct
-                                $\bar{f}$ is by setting \[{\bar{f}(\overline{m} \otimes_{\mathbb{K}} \overline{n}) = f(m \otimes_A n)}\]
-                                and extending linearly.
-                                If well-defined, this construction is also clearly linear.
-                                Let us check that it is well-defined:
-                                Suppose that $\overline{m'} = \overline{m}$, that is, $m' - m \in \mathfrak{m}M$.
-                                Then, $m' \otimes_A n - m \otimes_A n = (m' - m) \otimes_A n \in \mathfrak{m}(M \otimes_A N)$.
-                                Therefore, $f(m' \otimes_A n) = f(m \otimes_A n)$.
-                                We can do the same for $n$, so $\bar{f}$ is well-defined at least on a basis $\{\overline{m_i}\otimes_\mathbb{K}\overline{n_j}\}$.
-                                This is enough because, by linearity, it is well-defined on the whole space:
+                                The only way to construct
+                                $\bar{f}$ is by setting \[{\bar{f}(\overline{m_i} \otimes_{\mathbb{K}} \overline{n_j}) = f(m_i \otimes_A n_j)}\]
+                                on a $K$-basis $\{\overline{m_i} \otimes_{\mathbb{K}} \overline{n_j}\}$ and extending $A$-linearly (considering $\mathfrak{m} \otimes_{\mathbb{K}} N / \mathfrak{m}$ as an $A$-module):
+
                                 \[
-                                    \bar{f}\left(\sum_{i, j} \overline{\lambda^i_j} \overline{m_i} \otimes_\mathbb{K} \overline{n_j} \right) = \sum_{i,j} f(\lambda^i_j m_i \otimes_A n_j)
+                                    \bar{f} \left( \sum_{i,j} \overline{\lambda^i_j} \overline{m_i} \otimes_\mathbb{K} \overline{n_j} \right) =
+                                    \bar{f} \left( \sum_{i,j} \lambda^i_j \overline{m_i} \otimes_\mathbb{K} \overline{n_j} \right) =
+                                    \sum_{i,j} \lambda^i_j f(m_i \otimes_A n_j)
                                 \]
-                                where lifting $\overline{\lambda^i_j}$ is fine because $\mathfrak{m}(M \otimes_A N) \subseteq \text{Ker } f$.
-                                Checking that the diagram commutes is a matter of applying linearity of $f$, $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
+
+                                This well-defined because if ${\lambda \in \mathfrak{m}}$, ${x \in M \otimes_A N}$, ${\lambda f(x) = f(\lambda x) = 0}$,
+                                so that any choice of $\lambda^i_j$s on the right yields the same result.
+                                Also, it is $A$-linear by construction.
+                                Verifying that the diagram commutes is a matter of applying linearity of $f$, $\bar{f}$
+                                $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
+                                $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
 
                                 Now, we have shown that $M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}$ as $A$-modules.
                                 But both are $\mathbb{K}$-vector spaces, so they are isomorphic as $\mathbb{K}$-vector spaces (for any $A$-linear function $g$,
