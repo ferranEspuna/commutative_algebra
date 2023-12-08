@@ -79,7 +79,7 @@
 
                                 The only way to construct
                                 $\bar{f}$ is by setting \[{\bar{f}(\overline{m_i} \otimes_{\mathbb{K}} \overline{n_j}) = f(m_i \otimes_A n_j)}\]
-                                on a $K$-basis $\{\overline{m_i} \otimes_{\mathbb{K}} \overline{n_j}\}$ and extending $A$-linearly (considering $\mathfrak{m} \otimes_{\mathbb{K}} N / \mathfrak{m}$ as an $A$-module):
+                                on a $K$-basis $\{\overline{m_i} \otimes_{\mathbb{K}} \overline{n_j}\}$ and extending $A$-linearly (considering $M/\mathfrak{m} \otimes_{\mathbb{K}} N / \mathfrak{m}$ as an $A$-module):
 
                                 \[
                                     \bar{f} \left( \sum_{i,j} \overline{\lambda^i_j} \overline{m_i} \otimes_\mathbb{K} \overline{n_j} \right) =
@@ -97,15 +97,34 @@
                                     so that any choices of $\lambda^i_j$s on the right yields the same result.
                                 \end{itemize}
 
-
-
-
                                 Also, it is $A$-linear by construction.
-                                Verifying that the diagram commutes is a matter of applying linearity of $f$, $\bar{f}$
-                                $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
-                                $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
+                                To verify that the diagram commutes, let us extend some lifts $\{m_i\}$ of our chosen basis
+                                to a (finite) set of generators by the set $\{k_s\}$.
+                                By subtracting multiples of the $m_i$'s, we can assume that the $k_s$'s are in $\mathfrak{m}M$.
+                                Similarly, we can extend the chosen basis of $N$ to a set of generators $\{l_t\}$, and assume that the $l_t$'s are in $\mathfrak{m}N$.
+                                If we take an element
+                                \[
+                                    x =
+                                    \sum_{i,j} \lambda^i_j m_i \otimes_A n_j +
+                                    \sum_{i, t} \lambda^i_t m_i \otimes_A l_t +
+                                    \sum_{s, j} \lambda^s_j k_i \otimes_A n_j +
+                                    \sum_{s, t} \lambda^s_t k_i \otimes_A l_t
+                                    \in M \otimes_A N
+                                \]
+                                then applying $f$ to it only the first term survives,
+                                while if we run it counter-clockwise through the diagram, we get
+                                \[
+                                    \hat{\pi}(x) =
+                                    \sum_{i,j} \lambda^i_j \overline{m_i} \otimes_\mathbb{K} \overline{n_j} +
+                                    \sum_{i, t} \lambda^i_t \overline{m_i} \otimes_\mathbb{K} 0 +
+                                    \sum_{s, j} \lambda^s_j 0 \otimes_\mathbb{K} \overline{n_j} +
+                                    \sum_{s, t} \lambda^s_t 0 \otimes_\mathbb{K} 0
+                                    = \sum_{i,j} \lambda^i_j \overline{m_i} \otimes_\mathbb{K} \overline{n_j}
+                                \]
 
-                                Now, we have shown that $M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}$ as $A$-modules.
+                                so by the expression derived earlier
+                                $\bar{f} \circ \hat{\pi} (x) = f(x)$.
+                                Now, we have shown that ${M/\mathfrak{m} \otimes_\mathbb{K} N/\mathfrak{m} \cong (M \otimes_A N)/\mathfrak{m}}$ as $A$-modules.
                                 But both are $\mathbb{K}$-vector spaces, so they are isomorphic as $\mathbb{K}$-vector spaces (for any $A$-linear function $g$,
                                 $\overline{\lambda} = \overline{\lambda'}$,
                                 $g(\lambda x) - g(\lambda'x) = (\lambda - \lambda') g(x) = 0x = 0$ so $g$ is also $\mathbb{K}$-linear).
