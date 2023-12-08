@@ -6,18 +6,20 @@
             \begin{sol}
                 \begin{proof}
                     Take $\{m_1, \dots, m_k\}$ and $\{n_1, \dots, n_p\}$ finite systems of generators of $M$ and $N$ respectively.
-                    By construction, $M \otimes_A N \cong F/R$ with $F = \bigoplus_{(m,n) \in M \times N} A e(m,n)$, $A e(m,n)$ free
-                    $A$-module of rank $1$ and $R$ the set of bilinear relationships of $e(m,n)$s.
+                    we have seen that a construction of $M \otimes_A N$ is $F/R$ with
+                    \[ F = \bigoplus_{(m,n) \in M \times N} A e(m,n)\]
+                    where each $A e(m,n)$ is a free $A$-module of rank $1$ and $R$ is the set of bilinear relationships of between them.
 
-                    Now, for all $m \in M$ and $n \in N$ exist $a_1, \dots, a_k, b_1, \dots, b_p \in A$ such that $m = a_1 m_1 + \dots + a_k m_k$ and $n = b_1 n_1 + \dots + b_p n_p$.
+                    Now, for all $m \in M$ and $n \in N$ exist $a_1, \dots, a_k, b_1, \dots, b_p \in A$ such that \linebreak
+                    ${m = a_1 m_1 + \dots + a_k m_k}$
+                    and ${n = b_1 n_1 + \dots + b_p n_p}$.
                     Then
                     \[
-                       e(m,n) = e(a_1 m_1 + \dots + a_k m_k, b_1 n_1 + \dots + b_p n_p) = \sum_{i=1}^{k}\sum_{j=1}^{p} a_i b_j e(m_i, n_j)
+                       \overline{e(m,n)} = \overline{e(a_1 m_1 + \dots + a_k m_k, b_1 n_1 + \dots + b_p n_p)}
+                       = \sum_{i=1}^{k}\sum_{j=1}^{p} a_i b_j \overline{e(m_i, n_j)}
                     \]
-                    We conclude that
-                    \[
-                        M \otimes_A N \cong F/R \cong \bigoplus_{\substack{i \in \{1,\dots,k\} \\ j \in \{1,\dots,p\}}} A e(m_i,n_j) = A^{kp}
-                    \]
+                    We conclude that $\{\overline{e(m_i, n_j)}\mid 1 \leq i \leq k, 1 \leq j \leq p\}$
+                    is a finite system of generators of $M \otimes_A N$.
                     and, $M \otimes_A N$ is a finitely generated $A$-module.
                 \end{proof}
             \end{sol}
