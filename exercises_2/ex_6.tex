@@ -8,22 +8,24 @@
             \begin{itemize}
                 \item[$(\Rightarrow)$]
                 \begin{claim}
-                    If $S^{-1}M = 0$, then for all $a \in M$ there exist a $t \in S$ such that $t a = 0$.
-                    \begin{sol}
+                    If $S^{-1}M = 0$, then for all $a \in M$ there exists some $t \in S$ such that $t a = 0$.
+                    \begin{proof}
                         Take $a \in M$ and $s \in S$.
-                        Because of the condition, $\frac{a}{s} = \frac{0}{1}$.
-                        Then, there exists a $t \in S$ such that $t (a 1 - 0 s) = 0$, and thus $t a = 0$.
-                    \end{sol}
+                        Because of the condition, $\frac{a}{s} = \frac{0}{1}$
+                        so, for some $t \in S$, $ta = t (a 1 - 0 s) = 0$.
+                    \end{proof}
                 \end{claim}
-                Because of the claim we have that there exist $t_1, \dots, t_n \in S$ such that $t_1 a_1 = 0, \dots, t_n a_n = 0$.
-                Take $t = t_1 \dots t_n \in S$.
+                Because of the claim we have that there exist $t_1, \dots, t_n \in S$ such that \linebreak
+                ${t_1 a_1 = \cdots = t_n a_n = 0}$.
+                Take their product $t = t_1 \dots t_n \in S$.
                 We have that for all $m = c_1 a_1 + \dots + c_n a_n \in M$ with $c_1, \dots, c_n \in A$,
                 \[
                     t m = c_1 (t a_1) + \dots + c_n (t a_n) = 0
                 \]
+
                 \item[$(\Leftarrow)$]
                 By hypothesis, there exists $s \in S$ such that $s a = 0$ for all $a \in A$.
-                Now, take $m = \frac{a'}{s'} \in S^{-1}M$ with $a' \in M$ and $s \in S$.
+                Now, take ${m = \frac{a'}{s'} \in S^{-1}M}$ with $a' \in M$ and $s \in S$.
                 We have that $0 = s a' = s (a' 1 - 0 s')$ and thus $m = \frac{a'}{s'} = \frac{0}{1} = 0$.
             \end{itemize}
         \end{proof}

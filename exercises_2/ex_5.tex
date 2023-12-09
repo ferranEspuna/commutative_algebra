@@ -1,37 +1,57 @@
 \begin{problem}
     Let $S \subseteq A$ be a multiplicatively closed set.
-    Prove that if $0 \rightarrow M' \rightarrow M \rightarrow M'' \rightarrow 0$ is a short exact sequence then
-    $0 \rightarrow S^{-1}M' \rightarrow S^{-1}M \rightarrow S^{-1}M'' \rightarrow 0$ is exact.
+    Prove that if
+    %${0 \rightarrow M' \rightarrow M \rightarrow M'' \rightarrow 0}$
+    \[\begin{tikzcd}
+	0 & {M'} & M & {M''} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["f", from=1-2, to=1-3]
+	\arrow["g", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+    \end{tikzcd}\]
+    is a short exact sequence then the natural extension
+    %${0 \rightarrow S^{-1}M' \rightarrow S^{-1}M \rightarrow S^{-1}M'' \rightarrow 0}$
+    \[\begin{tikzcd}
+	0 & {S^{-1}M'} & {S^{-1}M} & {S^{-1}M''} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow["{\tilde{f}}", from=1-2, to=1-3]
+	\arrow["{\tilde{g}}", from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+    \end{tikzcd}\]
+    is exact.
     \begin{sol}
         \begin{proof}
             We will consider that $0 \notin S$, otherwise $S^{-1}M' = S^{-1}M = S^{-1}M'' = 0$ and the sequence is exact.
-            Denote $f: M' \rightarrow M$, $g: M \rightarrow M''$, $\tilde{f}: S^{-1}M' \rightarrow S^{-1}M$ and $\tilde{g}: S^{-1}M \rightarrow S^{-1}M''$.
+            %Denote $f: M' \rightarrow M$, $g: M \rightarrow M''$, $\tilde{f}: S^{-1}M' \rightarrow S^{-1}M$ and $\tilde{g}: S^{-1}M \rightarrow S^{-1}M''$.
             We need to prove:
             \begin{itemize}
-                \item \underline{$\tilde{f}$ injective}.
-                Take $m' \in S^{-1}M'$ such that $\tilde{f}(m') = 0$.
-                There exist $a' \in M'$ and $s \in S$ such that $m' = \frac{a'}{s}$.
+                \item \bm{$\tilde{f}$ }\textbf{ injective}:
+                Take $m' = \frac{a'}{s} \in S^{-1}M'$ such that $\tilde{f}(m') = 0$.
+                %There exist $a' \in M'$ and $s \in S$ such that $m' = \frac{a'}{s}$.
                 By definition of $\tilde{f}$
                 \[
-                    0 = \frac{0}{1} = \tilde{f}(m') = \tilde{f}(\frac{a'}{s}) = \frac{f(a')}{s}
+                    \frac{0}{1} = 0 = \tilde{f}(m') = \tilde{f}\left(\frac{a'}{s}\right) = \frac{f(a')}{s}
                 \]
-                Then, there exists $t \in S$ such that $t (0 s - f(a') 1) = 0$, i.e. $f(t a') = 0$.
-                But then, since $f$ is injective $t a' = 0$.
-                Equivalently, $t (a'1 - 0 s) = 0$ and $m' = \frac{a'}{s} = \frac{0}{1} = 0$.
-                \item \underline{$\tilde{g}$ surjective}.
+                so there exists $t \in S$ such that $0 = t (0 s - 1 f(a')) = f(t a')$.
+                Since $f$ is injective, $0 = t a' = t (a'1 - 0 s)$ so
+                $m' = \frac{a'}{s} = \frac{0}{1} = 0$.
+
+                \item \bm{$\tilde{g}$ }\textbf{ surjective}:
                 Take $m'' \in S^{-1}M''$.
                 There exist $a'' \in M''$ and $s \in S$ such that $m'' = \frac{a''}{s}$.
                 Then, since $g$ is exhaustive, exists $a \in M$ such that $g(a) = a''$.
                 But then $\tilde{g}(\frac{a}{s}) = \frac{g(a)}{s} = \frac{a''}{s} = m''$.
                 We conclude that $\tilde{g}$ is surjective.
-                \item \underline{$\ker(\tilde{g}) \supseteq im(\tilde{f})$}.
+
+                \item \bm{$\ker (\tilde{g}) \supseteq \textbf{Im}(\tilde{f})$}:
                 Take $m' = \frac{a'}{s} \in S^{-1}M'$ with $a' \in M'$ and $s \in S$.
-                Then, since $g \circ f = 0$ $\tilde{g}(\tilde{f}(m')) = \tilde{g}(\frac{f(a)}{s}) = \frac{g(f(a))}{s} = \frac{0}{s} = 0$.
-                \item \underline{$\ker(\tilde{g}) \subseteq im(\tilde{f})$}.
-                Take $m = \frac{a}{s} \in S^{-1}M$ with $a \in M$ and $s \in S$, such that $\tilde{g}(m) = 0$.
-                Then $\frac{g(a)}{s} = 0$, and there exists $t \in S$ such that $t(g(a) 1 - 0 s) = 0$, i.e. $g(ta) = 0$.
-                But since $ker(g) = im(f)$, there exists $a' \in M'$ such that $f(a') = ta$.
-                But then $\frac{f(a')}{ts} = \frac{a}{s} = m$ and $\tilde{f}(\frac{a'}{ts}) = m$ with $\frac{a'}{ts} \in S^{-1}M'$.
+                Then, since $g \circ f = 0$ $\tilde{g}(\tilde{f}(m')) = \tilde{g}(\frac{f(a')}{s}) = \frac{g(f(a'))}{s} = \frac{0}{s} = 0$.
+
+                \item \bm{$\ker (\tilde{g}) \subseteq \textbf{Im} (\tilde{f})$}:
+                Take $m = \frac{a}{s} \in S^{-1}M$ with $a \in M$ and $s \in S$, such that ${0 = \tilde{g}(m) = \frac{g(a)}{s}}$.
+                There exists $t \in S$ such that $0 = t(g(a) 1 - 0 s) = g(ta)$.
+                But since $\ker(g) = \text{Im}(f)$, there exists $a' \in M'$ such that $f(a') = ta$.
+                Then, $\frac{f(a')}{ts} = \frac{a}{s} = m$ and $\tilde{f}(\frac{a'}{ts}) = m$ with $\frac{a'}{ts} \in S^{-1}M'$.
             \end{itemize}
         \end{proof}
     \end{sol}
