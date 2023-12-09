@@ -12,6 +12,8 @@
 \usepackage{amssymb}
 \usepackage{tikz-cd}
 \usepackage{wasysym}
+\usepackage{stmaryrd}
+\usepackage{xfrac}
 %These are my Commutative Algebra Teory notes from the course given by Prof. Josep Alvarez Montaner at UPC in 2023.
 
 % Title
@@ -484,8 +486,87 @@
             \end{proof}
 
         \begin{theorem}
-            TODO
+            We have:
+            \begin{itemize}
+                \item $S^{-1}I = S^{-1}A \Leftrightarrow I \cap S \neq \emptyset$.
+                \item $\mathfrak{p} \in Spec(A)$ s.t. $\mathfrak{p} \cap S \neq \emptyset \Leftrightarrow S^{-1}\mathfrak{p} \in SpecS^{-1}A$
+                \item There is a bijection
+                \[
+                    \begin{aligned}
+                        \left\{ \mathfrak{p} \in SpecA \mid \mathfrak \cap S = \emptyset \right\} &\longleftrightarrow SpecS^{-1}A \\
+                        \mathfrak{p} &\longmapsto S^{-1}\mathfrak{p} \\
+                        \mathfrak{q} = \mathfrak{q} \cap A &\longmapsfrom \mathfrak{q}
+                    \end{aligned}
+                \]
+            \end{itemize}
         \end{theorem}
+            \begin{proof}
 
+                %TODO
+                TODO
 
+            \end{proof}
+
+        \begin{prop}
+            Let $f:A \longrightarrow B$ be a ring homomorphism.
+            Let $S \subseteq A$ and $T \subseteq B$ be multiplicatively closed subsets such that $f(S) \subseteq T$.
+            Then there exist a unique $g: S^{-1}A \longrightarrow T^{-1}B$ such that the following diagram is commutative:
+            \begin{center}
+            \begin{tikzcd}
+                A & B \\
+                {S^{-1}A} & {T^{-1}B}
+                \arrow["f", from=1-1, to=1-2]
+                \arrow["\varphi"', from=1-1, to=2-1]
+                \arrow["\psi", from=1-2, to=2-2]
+                \arrow["g"', from=2-1, to=2-2]
+            \end{tikzcd}
+            \end{center}
+        \end{prop}
+            \begin{proof}
+
+                %TODO
+                TODO
+
+            \end{proof}
+
+        \begin{corollary}
+            Let $f:A \longrightarrow A/I$ with a given ideal $I \subseteq A$.
+            Let $S \subseteq A$ be a multiplicatively closed set and $\overline{S} \subseteq A/I$ the associated one.
+            Then
+            \[
+                \overline{S}^{-1}A/I \cong \sfrac{S^{-1}A}{S^{-1}I}  %TODO: porque se queda pequeño. AAAhhhh!!! (btw, That's what she asked)
+            \]
+        \end{corollary}
+
+        \begin{defn}
+            The \emph{residue field} of a ring $A$ w.r.t. a prime ideal $\mathfrak{p} \in SpecA$ is
+            \[
+                k(\mathfrak{p}) = \sfrac{A_{\mathfrak{p}}}{\mathfrak{p}A_{\mathfrak{p}}}
+            \]
+        \end{defn}
+
+        \begin{defn}
+            Let $f: A \longrightarrow B$ be a ring homomorphism.
+            This induces the morphism $f^*: SpecB \longrightarrow Spec A$, with $f^*(\mathfrak{q}) = \mathfrak{q}^c$.
+            Then, the \emph{fiber} of $\mathfrak{p} \in SpecA$ is defined as
+            \[
+                (f^*)^{-1}(\mathfrak{p}) \coloneqq \left\{ \mathfrak{q} \in SpecB \mid \mathfrak{q}^c = \mathfrak{p} \right\}
+            \]
+        \end{defn}
+
+        \begin{prop}
+            In the conditions of the previous definition, we have that
+            \[
+                (f^*)^{-1}(\mathfrak{p}) = \sfrac{T^{-1}B}{\mathfrak{p}T^{-1}B} \cong Spec\left( k(\mathfrak{p}) \otimes_A B \right)
+            \]
+            where $T = f(A \setminus \mathfrak{p})$.
+        \end{prop}
+            \begin{proof}
+
+                %TODO
+                TODO. La primera igualdad la hemos demostrado en clase.
+                La segunda solo se enuncia en los apuntes.
+
+            \end{proof}
+    
 \end{document}
