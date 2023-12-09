@@ -16,7 +16,7 @@
                     \[
                         M/IM \cong A/I \otimes_A M = 0 \Rightarrow M/IM = 0 \Rightarrow M = IM
                     \]
-                    Finally, using~\ref{itm:nakayamas_lemma}
+                    Finally, using Problem~\ref{itm:nakayamas_lemma}
                     \[
                         M = IM \Rightarrow M = 0
                     \]
@@ -28,22 +28,23 @@
                     Suppose $M = IM + N$.
                     Then
                     \[
-                        M / N = (IM + N) / N \cong IM / N
+                        M / N = (IM + N) / N \cong I (M / N)
                     \]
-                    We can use~\ref{itm:nakayamas_lemma}
+                    where the isomorphism comes from projecting $IM+N$ to $M/N$
+                    and checking that the image is $I (M/N)$.
+                    We can use Problem~\ref{itm:nakayamas_lemma}
                     \[
-                        M/N = IM/N \Rightarrow M/N = 0
+                        M/N = I (M / N) \Rightarrow M/N = 0
                     \]
-                    Thus, $M = N$, and we have proven the statement.
+                    Thus, $M = N$ and we have proven the statement.
                 \end{proof}
             \end{sol}
-        \item If $f: N \rightarrow M$ is a homomorphism, $\overline{f}: N/IN \rightarrow M/IM$ surjective $\Rightarrow$ $f$
-        surjective.
+        \item If $f: N \rightarrow M$ is a homomorphism, $\overline{f}: N/IN \rightarrow M/IM$ surjective $\Rightarrow$ $f$ surjective.
             \begin{sol}
                 \begin{proof}
                     \begin{claim}
                         $M = IM + f(N)$
-                        \begin{sol}
+                        \begin{proof}
                             We will prove both inclusions:
                             \begin{itemize}
                                 \item[$(\supseteq)$] Comes directly from the fact that $IM \subseteq M$ and $f(N) \subseteq M$ by definition.
@@ -55,7 +56,7 @@
                                     m = f(n) + x \in IM + f(N)
                                 \]
                             \end{itemize}
-                        \end{sol}
+                        \end{proof}
                     \end{claim}
                     Since $f(N) \subseteq M$ and $M = IM + f(N)$ we can use~\ref{itm:2_2} to conclude that $M = f(N)$ and thus, $f$ is surjective.
                 \end{proof}
