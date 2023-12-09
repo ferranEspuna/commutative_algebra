@@ -87,8 +87,19 @@
                                     \sum_{i,j} \lambda^i_j f(m_i \otimes_A n_j)
                                 \]
 
-                                This well-defined because if ${\lambda \in \mathfrak{m}}$, ${x \in M \otimes_A N}$, ${\lambda f(x) = f(\lambda x) = 0}$,
-                                so that any choice of $\lambda^i_j$s on the right yields the same result.
+                                This well-defined because:
+                                \begin{itemize}
+                                    \item If $\overline{m_i'} = \overline{m_i}$ and $\overline{n_j'} = \overline{n_j}$, then
+                                    \[f(m_i' \otimes_A n_j') - f(m_i \otimes_A n_j) = f((m_i' - m_i) \otimes_A n_j') + f(m_i \otimes_A (n_j' - n_j)) = 0\]
+                                    so any choices of $m_i \otimes_A n_j$ on the right give the same result.
+                                    \item if ${\lambda \in \mathfrak{m}}$, ${x \in M \otimes_A N}$,
+                                    \[\lambda f(x) = f(\lambda x) = 0\]
+                                    so that any choices of $\lambda^i_j$s on the right yields the same result.
+                                \end{itemize}
+
+
+
+
                                 Also, it is $A$-linear by construction.
                                 Verifying that the diagram commutes is a matter of applying linearity of $f$, $\bar{f}$
                                 $\varphi$ and $\overline{\varphi}$, and the commutativity of the diagram for $\hat{\pi}$.
