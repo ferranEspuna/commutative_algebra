@@ -41,7 +41,7 @@
         \end{rk}
 
         \begin{defn}
-            We say that $I \subseteq A$ is and \emph{ideal} if:
+            We say that $I \subseteq A$ is an \emph{ideal} if:
             \begin{itemize}
                 \item $(I,+)$ is an abelian group.
                 \item For all $a \in A$ and for all $x\in I$, $ax \in I$.
@@ -362,7 +362,7 @@
             \end{proof}
 
         \begin{prop}
-            Let $A$ be a ring and $S \subset R$ a multiplicatively closed subset.
+            Let $A$ be a ring and $S \subset A$ a multiplicatively closed subset.
             Let $f: A \rightarrow B$ be a ring homomorphism such that $f(S) \subset B^*$.
             Then, there exists a unique ring homomorphism
             $g: S^{-1}A \rightarrow B$ such that $f = g \circ \pi$, where $\pi$
@@ -489,11 +489,11 @@
             We have:
             \begin{itemize}
                 \item $S^{-1}I = S^{-1}A \Leftrightarrow I \cap S \neq \emptyset$.
-                \item $\mathfrak{p} \in Spec(A)$ s.t. $\mathfrak{p} \cap S \neq \emptyset \Leftrightarrow S^{-1}\mathfrak{p} \in SpecS^{-1}A$
+                \item $\mathfrak{p} \in Spec(A)$ s.t. $\mathfrak{p} \cap S = \emptyset \Leftrightarrow S^{-1}\mathfrak{p} \in SpecS^{-1}A$
                 \item There is a bijection
                 \[
                     \begin{aligned}
-                        \left\{ \mathfrak{p} \in SpecA \mid \mathfrak \cap S = \emptyset \right\} &\longleftrightarrow SpecS^{-1}A \\
+                        \left\{ \mathfrak{p} \in SpecA \mid \mathfrak{p} \cap S = \emptyset \right\} &\longleftrightarrow SpecS^{-1}A \\
                         \mathfrak{p} &\longmapsto S^{-1}\mathfrak{p} \\
                         \mathfrak{q} = \mathfrak{q} \cap A &\longmapsfrom \mathfrak{q}
                     \end{aligned}
@@ -557,7 +557,7 @@
         \begin{prop}
             In the conditions of the previous definition, we have that
             \[
-                (f^*)^{-1}(\mathfrak{p}) = \sfrac{T^{-1}B}{\mathfrak{p}T^{-1}B} \cong Spec\left( k(\mathfrak{p}) \otimes_A B \right)
+                (f^*)^{-1}(\mathfrak{p}) = Spec \left( \sfrac{T^{-1}B}{\mathfrak{p}T^{-1}B} \right) \cong Spec\left( k(\mathfrak{p}) \otimes_A B \right)
             \]
             where $T = f(A \setminus \mathfrak{p})$.
         \end{prop}
