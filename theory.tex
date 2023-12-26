@@ -29,6 +29,9 @@
 \newtheorem{defn}[theorem]{Definition}
 \newtheorem{rk}[theorem]{Remark}
 
+% Commands
+\newcommand{\notimplies}{\;\not\!\!\!\implies}
+
 % Document
 \begin{document}
 
@@ -39,6 +42,16 @@
         \begin{rk}
             Unless otherwise specified, all rings we discuss will be commutative with unit.
         \end{rk}
+
+        \begin{defn}
+            Let $A$, $B$ be rings.
+            We say that $f: A \longrightarrow B$ is a \emph{ring homomorphism} if for all $a, b \in A$:
+            \begin{itemize}
+                \item $f(a+b) = f(a) + f(b)$
+                \item $f(ab) = f(a) f(b)$
+                \item $f(1_A) = 1_B$
+            \end{itemize}
+        \end{defn}
 
         \begin{defn}
             We say that $I \subseteq A$ is an \emph{ideal} if:
@@ -568,5 +581,49 @@
                 La segunda solo se enuncia en los apuntes.
 
             \end{proof}
-    
+
+        \begin{defn}
+            Let $\mathfrak{q} \in A$ be a proper ideal.
+            We say that $\mathfrak{q}$ is \emph{primary} if fot all $a, b \in A$
+            \[
+                ab \in \mathfrak{q}, a \notin \mathfrak{q} \Longrightarrow b^n \in \mathfrak{q} \text{ for some } n > 0
+            \]
+        \end{defn}
+
+        \begin{rk}
+            We have:
+            \begin{itemize}
+                \item $\mathfrak{p}$ prime ideal $\Longrightarrow \mathfrak{p}$ primary ideal.
+                \item $\mathfrak{p}$ primary ideal $\notimplies \mathfrak{p}$ prime ideal.
+                \item Let $f: A \longrightarrow B$ be a ring homomorphism.
+                Then,
+                \[
+                    \mathfrak{q} \subseteq B \text{ primary ideal } \Longrightarrow \mathfrak{q}^c \subseteq A \text{ primary ideal}
+                \]
+            \end{itemize}
+        \end{rk}
+
+        \begin{prop}
+            $\mathfrak{q} \text{ primary ideal } \Longrightarrow rad(\mathfrak{q}) \text{ prime ideal }$
+        \end{prop}
+            \begin{proof}
+
+                %TODO
+
+            \end{proof}
+
+        \begin{defn}
+            In the conditions of the previous proposition, we say that $\mathfrak{q}$ is $\mathfrak{p}$-primary.
+        \end{defn}
+
+        \begin{prop}
+            Let $\mathfrak{q} \subseteq A$ be an ideal s.t. $rad(\mathfrak{q}) = \mathfrak{m}$ is a maximal ideal.
+            Then $\mathfrak{q}$ is primary.
+        \end{prop}
+            \begin{proof}
+
+                %TODO
+
+            \end{proof}
+
 \end{document}
