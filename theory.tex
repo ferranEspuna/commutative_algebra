@@ -197,7 +197,7 @@
 
         \begin{prop}
             Let $\mathfrak{p} \subset R$ be an ideal.
-            Then, $\mathfrak{p} \in \text{Spec}(R) \Leftrightarrow R/\mathfrak{p}$ is an integral domain.
+            Then, $\mathfrak{p} \in \text{Spec}R \Leftrightarrow R/\mathfrak{p}$ is an integral domain.
         \end{prop}
             \begin{proof}
                 Let \begin{align}
@@ -252,7 +252,7 @@
             \end{proof}
 
         \begin{rk}
-            All fields are integral domains, so $\text{Max}(R) \subset \text{Spec}(R)$.
+            All fields are integral domains, so $\text{Max}(R) \subset \text{Spec}R$.
             That is, all maximal ideals are prime.
         \end{rk}
 
@@ -461,7 +461,7 @@
         \end{defn}
 
         \begin{defn}
-            Let $A$ be a ring and $\mathfrak{p} \in \text{Spec}(A)$ a prime ideal.
+            Let $A$ be a ring and $\mathfrak{p} \in \text{Spec}A$ a prime ideal.
             Then, the \emph{localization of $A$ at $\mathfrak{p}$} is $A_{\mathfrak{p}} \coloneqq S^{-1}A$, where $S = A \setminus \mathfrak{p}$.
         \end{defn}
 
@@ -502,23 +502,49 @@
             We have:
             \begin{itemize}
                 \item $S^{-1}I = S^{-1}A \Leftrightarrow I \cap S \neq \emptyset$.
-                \item $\mathfrak{p} \in Spec(A)$ s.t. $\mathfrak{p} \cap S = \emptyset \Leftrightarrow S^{-1}\mathfrak{p} \in SpecS^{-1}A$
+                \item For $\mathfrak{p} \subset A$ ideal, $\mathfrak{p}\in\text{Spec} A$ and
+                $\mathfrak{p} \cap S = \emptyset \Leftrightarrow S^{-1}\mathfrak{p} \in\text{Spec} S^{-1}A$.
                 \item There is a bijection
                 \[
                     \begin{aligned}
-                        \left\{ \mathfrak{p} \in SpecA \mid \mathfrak{p} \cap S = \emptyset \right\} &\longleftrightarrow SpecS^{-1}A \\
+                        \left\{ \mathfrak{p} \in\text{Spec} A \mid \mathfrak{p} \cap S = \emptyset \right\} &\longleftrightarrow\text{Spec} S^{-1}A \\
                         \mathfrak{p} &\longmapsto S^{-1}\mathfrak{p} \\
                         \mathfrak{q} = \mathfrak{q} \cap A &\longmapsfrom \mathfrak{q}
                     \end{aligned}
                 \]
             \end{itemize}
-        \end{theorem}
+
             \begin{proof}
 
-                %TODO
-                TODO
+                We will show these three points in order.
+
+                \begin{itemize}
+                    \item $S^{-1}I = S^{-1}A \Leftrightarrow \frac{1}{1} \in S^{-1}I \Rightarrow
+                    \exists s, t \in S, i \in i \colon \frac{1}{1} = \frac{i}{s} \rightarrow t (s - i) = 0
+                    \Rightarrow ti = ts \in I \cap S$.A
+                    For the other implication suppose $s \in I \cap S$.
+                    Then, $1 = \frac{s}{s} \in S^{-1}I$ and we are done.
+                    \item Because of the previous point,
+                    and the fact that the preimage of a prime ideal is prime,
+                    we only need to show the right implication.
+                    We will proceed by contradiction.
+                    Suppose
+                    $\mathfrak{p} \cap S = \emptyset$ and $S^{-1}\mathfrak{p} \notin\text{Spec} S^{-1}A$.
+                    By the previous point, the extended ideal is proper.
+                    Thus, for some $\frac{a}{s}, \frac{b}{t} \notin S^{-1}\mathfrak{p}$
+                    (that is, $a, b \notin \mathfrak{p}$),
+                    $\frac{ab}{st} \in S^{-1}\mathfrak{p}$ (that is, $ab \in \mathfrak{p}$).
+                    This is a contradiction, as $\mathfrak{p}$ is prime.
+                    \item We have already seen this bijection at the level of ideals.
+                    In the previous point we have characterized exactly when the right hand side is prime,
+                    which is precisely when the left hand side is prime and does not intersect $S$.
+
+
+                \end{itemize}
 
             \end{proof}
+        \end{theorem}
+
 
         \begin{prop}
             Let $f:A \longrightarrow B$ be a ring homomorphism.
@@ -552,7 +578,7 @@
         \end{corollary}
 
         \begin{defn}
-            The \emph{residue field} of a ring $A$ w.r.t.\ a prime ideal $\mathfrak{p} \in SpecA$ is
+            The \emph{residue field} of a ring $A$ w.r.t.\ a prime ideal $\mathfrak{p} \in\text{Spec}A$ is
             \[
                 k(\mathfrak{p}) = \sfrac{A_{\mathfrak{p}}}{\mathfrak{p}A_{\mathfrak{p}}}
             \]
@@ -560,17 +586,17 @@
 
         \begin{defn}
             Let $f: A \longrightarrow B$ be a ring homomorphism.
-            This induces the morphism $f^*: SpecB \longrightarrow Spec A$, with $f^*(\mathfrak{q}) = \mathfrak{q}^c$.
-            Then, the \emph{fiber} of $\mathfrak{p} \in SpecA$ is defined as
+            This induces the morphism $f^*:\text{Spec} B \longrightarrow\text{Spec} A$, with $f^*(\mathfrak{q}) = \mathfrak{q}^c$.
+            Then, the \emph{fiber} of $\mathfrak{p} \in\text{Spec}A$ is defined as
             \[
-                (f^*)^{-1}(\mathfrak{p}) \coloneqq \left\{ \mathfrak{q} \in SpecB \mid \mathfrak{q}^c = \mathfrak{p} \right\}
+                (f^*)^{-1}(\mathfrak{p}) \coloneqq \left\{ \mathfrak{q} \in\text{Spec} B \mid \mathfrak{q}^c = \mathfrak{p} \right\}
             \]
         \end{defn}
 
         \begin{prop}
             In the conditions of the previous definition, we have that
             \[
-                (f^*)^{-1}(\mathfrak{p}) = Spec \left( \sfrac{T^{-1}B}{\mathfrak{p}T^{-1}B} \right) \cong Spec\left( k(\mathfrak{p}) \otimes_A B \right)
+                (f^*)^{-1}(\mathfrak{p}) =\text{Spec} \left( \sfrac{T^{-1}B}{\mathfrak{p}T^{-1}B} \right) \cong\text{Spec} k(\mathfrak{p}) \otimes_A B
             \]
             where $T = f(A \setminus \mathfrak{p})$.
         \end{prop}
