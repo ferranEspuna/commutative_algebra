@@ -374,7 +374,7 @@
                 In particular, it contains only zero if and only if $S$ contains no zero divisors.
             \end{proof}
 
-        \begin{prop}
+        \begin{prop} \label{prop:universal-property-fractions}
             Let $A$ be a ring and $S \subset A$ a multiplicatively closed subset.
             Let $f: A \rightarrow B$ be a ring homomorphism such that $f(S) \subset B^*$.
             Then, there exists a unique ring homomorphism
@@ -537,8 +537,8 @@
         \end{prop}
             \begin{proof}
 
-                %TODO
-                TODO
+                Apply Proposition~\ref{prop:universal-property-fractions} to the composition $\psi \circ f$.
+                It is clear that  $\psi \circ f(S) \subset \psi(T) \subset T^{-1}B^*$.
 
             \end{proof}
 
@@ -552,7 +552,7 @@
         \end{corollary}
 
         \begin{defn}
-            The \emph{residue field} of a ring $A$ w.r.t. a prime ideal $\mathfrak{p} \in SpecA$ is
+            The \emph{residue field} of a ring $A$ w.r.t.\ a prime ideal $\mathfrak{p} \in SpecA$ is
             \[
                 k(\mathfrak{p}) = \sfrac{A_{\mathfrak{p}}}{\mathfrak{p}A_{\mathfrak{p}}}
             \]
