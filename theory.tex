@@ -636,7 +636,11 @@
         \end{prop}
             \begin{proof}
 
-                %TODO
+                Let $ab \in rad(\mathfrak{q})$.
+                Suppose $a \notin rad(\mathfrak{q})$.
+                In particular, $a \notin \mathfrak{q}$.
+                Then, $b^n \in \mathfrak{q}$ for some $n > 0$.
+                Therefore, $b \in rad(\mathfrak{q})$.
 
             \end{proof}
 
@@ -650,7 +654,19 @@
         \end{prop}
             \begin{proof}
 
-                %TODO
+                Let $ab \in \mathfrak{q}$, $a \notin \mathfrak{q}$.
+                We will show that $b^n \in \mathfrak{q}$ for some $n > 0$.
+                Consider the inclusions $\mathfrak{m} \subseteq \mathfrak{m} + (b) \subseteq A$.
+                Because $\mathfrak{m}$ is maximal, we must have equality in (exactly) one of the two.
+                The first (i.e., $b \in \mathfrak{m} = rad(\mathfrak{q})$) 
+                is precisely what we want.
+                Let us show that the other option leads to contradiction.
+                In that case, we would have $1 = x + by$, for some $x \in \mathfrak{m}$ and $y \in A$.
+                Then, $a = ax + aby \Rightarrow a(1-x) = aby \in \mathfrak{q}$.
+                However, reducing modulo $\mathfrak{q}$, we see $\bar{a}\overline{(1-x)} = \bar{0}$
+                and $\overline{x} \in \mathcal{N}(A/\mathfrak{q}) \Rightarrow \overline{1-x}$ is a unit.
+                Therefore. $\bar{a} = \bar{0}$, which means $a \in \mathfrak{q}$, against our assumption.
+
 
             \end{proof}
 
