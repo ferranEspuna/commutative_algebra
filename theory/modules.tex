@@ -1,0 +1,126 @@
+\section{Modules}\label{sec:modules}
+
+        \begin{defn}
+            We say that $M$ is an \emph{$A$-module} if:
+            \begin{itemize}
+                \item $(M, +)$ is an abelian group.
+                \item We have an action $\cdot: A \times M \longrightarrow M$, called \emph{product by scalar}, which for all $a, b \in A$ and $m, n \in M$ satisfies:
+                \begin{itemize}
+                    \item $(a + b)m = am + bm$
+                    \item $a(m + n) = am + an$
+                    \item $(ab)m = a (bm)$
+                    \item $1 m = m$
+                \end{itemize}
+            \end{itemize}
+        \end{defn}
+
+        \begin{defn}
+            Let $M, N$ be $A$-modules.
+            We say that $f: M \longrightarrow N$ is a \emph{ring homomorphism} if, for all $m,n \in M$ and $a \in A$, it satisfies:
+            \begin{itemize}
+                \item $f(m + n) = f(m) + f(n)$
+                \item $f(am) = a f(m)$
+            \end{itemize}
+            We also define $Hom_A(M,N) = \left\{ f: M \longrightarrow N \mid f \text{ is a ring homomorphism}\right\}$
+        \end{defn}
+
+        \begin{rk}
+            $Hom_A(M,N)$ is an $A$-module.
+            Also, it non-empty since $0 \in Hom_A(M,N)$.
+        \end{rk}
+
+        \begin{defn}
+            Let $M$ be an $A$-module.
+            We say that $N \subseteq M$ is a \emph{submodule} of $M$ if, for all $m, n \in N$ and $a \in A$, it satisfies:
+            \begin{itemize}
+                \item $m + n \in N$
+                \item $am \in N$
+            \end{itemize}
+        \end{defn}
+
+        \begin{prop}
+            Given $M$ $A$-module and $N \subseteq M$ submodule, $M/N$ is an $A$-module.
+        \end{prop}
+
+        \begin{prop}
+            Let $f: M \longrightarrow N$ be a ring homomorphism.
+            Then:
+            \begin{itemize}
+                \item $P \subseteq M$ submodule $\implies f(P) \subseteq N$ submodule.
+                \item $Q \subseteq N$ submodule $\implies f^{-1}(Q) \subseteq M$ submodule.
+            \end{itemize}
+        \end{prop}
+
+        \begin{rk}
+            Let $f: M \longrightarrow Im(f)$ be a ring homomorphism.
+            Then:
+            \begin{itemize}
+                \item $\sfrac{M}{Ker(f)} \cong Im(f)$
+                \item Let $N_2 \subseteq N_1 \subseteq M$ submodules.
+                Then $\frac{\sfrac{M}{N_2}}{\sfrac{N_1}{N_2}} \cong \sfrac{M}{N_1}$.
+                \item Let $N_2, N_1 \subseteq M$ submodules.
+                $\sfrac{N_1 + N_2}{N_2} \cong \sfrac{N_1}{N_1 \cap N_2}$.
+            \end{itemize}
+        \end{rk}
+
+        \begin{defn}
+            Let $M$ be an $A$-module.
+            We say that it is \emph{free} if $M \cong \bigoplus_{i \in I} M_i$ with $M_i \cong A$
+        \end{defn}
+
+        \begin{defn}
+            Let $M$ be an $A$-module.
+            We say that:
+            \begin{itemize}
+                \item $S = {m_i}_{i \in I}$ is a \emph{system of generators} if $M = \left<S\right> $, i.e.
+                \[
+                    M = \left\{ a_1 m_{i_1} + \dots + a_n m_{i_n} \mid a_1, \dots, a_n \in A, m_{i_1}, \dots, m_{i_n} \in S \right\}
+                \]
+                \item ${m_i}_{i \in I}$ are \emph{linearly independent} if for all $m_{i_1}, \dots, m_{i_n} \in S$ and $a_1, \dots, a_n \in A$
+                such that $a_1 m_{i_1} + \dots + a_n m_{i_n} = 0$, we have that $a_1 = \dots = a_n = 0$.
+                \item $S = {m_i}_{i \in I}$ is a \emph{basis} of $M$ if it's a system a generators and they are linearly independent.
+            \end{itemize}
+        \end{defn}
+
+        \begin{rk}
+            Consider the morphism:
+            \begin{align*}
+                \varphi: A^{\oplus{I}} &\longrightarrow M \\
+                \left(a_i\right)_{i \in I} &\longmapsto \sum_{i\in I} a_i m_i
+            \end{align*}
+
+            Then:
+            \begin{itemize}
+                \item $\varphi$ is exhaustive $\Longleftrightarrow$ ${m_i}_{i\in I}$ is a system of generators of $M$.
+                \item $\varphi$ is injective $\Longleftrightarrow$ ${m_i}_{i\in I}$ are linearly independent.
+                \item $\varphi$ is isomorphism $\Longleftrightarrow$ ${m_i}_{i\in I}$ is a basis of $M$.
+            \end{itemize}
+        \end{rk}
+
+        \begin{rk}
+            $M$ is a free $A$-module if there exists a basis $\{m_i\}_i \in I$ of $M$.
+            In this case
+            \[
+                M \cong \bigoplus_{i \in I} A m_i
+            \]
+        \end{rk}
+
+        \begin{defn}
+            $M = \left<S\right> $ is \emph{cyclic} if $\#S = 1$.
+        \end{defn}
+
+        \begin{rk}
+            If $M$ is cyclic, then
+            \begin{center}
+            \begin{align*}
+                \varphi: A &\longrightarrow M \\
+                a &\longmapsto am
+            \end{align*}
+            \end{center}
+            is surjective.
+            Thus $M \cong \sfrac{A}{Ker(f)}$ and $Ker(f)$ is an ideal of $A$.
+        \end{rk}
+
+        \begin{theorem}
+            Let $M$ be an $A$-module.
+        \end{theorem}

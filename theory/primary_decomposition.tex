@@ -1,0 +1,96 @@
+\begin{defn}
+        Let $\mathfrak{q} \in A$ be a proper ideal.
+        We say that $\mathfrak{q}$ is \emph{primary} if fot all $a, b \in A$
+        \[
+            ab \in \mathfrak{q}, a \notin \mathfrak{q} \Longrightarrow b^n \in \mathfrak{q} \text{ for some } n > 0
+        \]
+\end{defn}
+
+\begin{rk}
+    We have:
+    \begin{itemize}
+        \item $\mathfrak{p}$ prime ideal $\Longrightarrow \mathfrak{p}$ primary ideal.
+        \item $\mathfrak{p}$ primary ideal $\notimplies \mathfrak{p}$ prime ideal.
+        \item Let $f: A \longrightarrow B$ be a ring homomorphism.
+        Then,
+        \[
+            \mathfrak{q} \subseteq B \text{ primary ideal } \Longrightarrow \mathfrak{q}^c \subseteq A \text{ primary ideal}
+        \]
+    \end{itemize}
+\end{rk}
+
+\begin{prop}
+    $\mathfrak{q} \text{ primary ideal } \Longrightarrow rad(\mathfrak{q}) \text{ prime ideal }$
+\end{prop}
+    \begin{proof}
+
+        Let $ab \in rad(\mathfrak{q})$.
+        Suppose $a \notin rad(\mathfrak{q})$.
+        In particular, $a \notin \mathfrak{q}$.
+        Then, $b^n \in \mathfrak{q}$ for some $n > 0$.
+        Therefore, $b \in rad(\mathfrak{q})$.
+
+    \end{proof}
+
+\begin{defn}
+    In the conditions of the previous proposition, we say that $\mathfrak{q}$ is $\mathfrak{p}$-primary.
+\end{defn}
+
+\begin{prop}
+    Let $\mathfrak{q} \subseteq A$ be an ideal s.t. $rad(\mathfrak{q}) = \mathfrak{m}$ is a maximal ideal.
+    Then $\mathfrak{q}$ is primary.
+
+    \begin{proof}
+        Let $ab \in \mathfrak{q}$.
+        Consider the inclusions $\mathfrak{m} \subseteq \mathfrak{m} + (b) \subseteq A$.
+        Because $\mathfrak{m}$ is maximal, we must have equality in (exactly) one of the two:
+
+        \begin{itemize}
+
+            \item If the second inclusion is an equality, we have $1 = x + by$, for some $x \in \mathfrak{m}$ and $y \in A$.
+            Then, $a = ax + aby \Rightarrow a(1-x) = aby \in \mathfrak{q}$.
+            However, reducing modulo $\mathfrak{q}$, we see $\bar{a}\overline{(1-x)} = \bar{0}$
+            and $\overline{x} \in \mathcal{N}(A/\mathfrak{q}) \Rightarrow \overline{1-x}$ is a unit.
+            Therefore. $\bar{a} = \bar{0}$, which means $a \in \mathfrak{q}$.
+
+            \item If the first inclusion is an equality, we have
+            $b \in \mathfrak{m} = rad(\mathfrak{q})
+            \Rightarrow b^n \in \mathfrak{q}$ for some $n > 0$.
+
+        \end{itemize}
+    \end{proof}
+
+\end{prop}
+
+\begin{defn}
+    Let $A$ be a ring and $I \subseteq A$ an ideal.
+    A \emph{primary decomposition} of $I$ is a representation of $I$ as an intersection of primary ideals,
+    say, $I = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n$ with $\mathfrak{q}_i$ primary.
+    We say that such a decomposition is \emph{minimal} or \emph{reduced} if:
+
+    \begin{enumerate}
+        \item $\mathfrak{p}_i \coloneqq \text{rad}(\mathfrak{q}_i)$ are distinct prime ideals. \label{item:distinct-primes}
+        \item $\mathfrak{q}_i \not\subset \bigcap_{j \neq i} \mathfrak{q}_j$ for all $i$. \label{item:noninclusion}
+    \end{enumerate}
+\end{defn}
+
+\begin{rk}
+    Given a primary decomposition of $I$, we can always find a reduced one.
+    This is because if the decomposition is not reduced,
+    we can decrease the number of primary ideals involved.
+    If condition~\ref{item:noninclusion} is not satisfied for some $i$,
+    we can remove $\mathfrak{q}_i$ from the decomposition and the equality will still hold.
+    If condition~\ref{item:distinct-primes} is not satisfied
+    (say, $\mathfrak{p}_i = \mathfrak{p}_j = \mathfrak{p}$),
+    then we can replace $\mathfrak{q}_i$ and $\mathfrak{q}_j$ by
+    $\mathfrak{q} \coloneqq \mathfrak{q}_i \cap \mathfrak{q}_j$.
+    To check that $\mathfrak{q}$ is ($\mathfrak{p}$ -) primary,
+    note that (by an extra exercise) $\text{rad}(\mathfrak{q}) = \mathfrak{p}$
+    and if $ab \in \mathfrak{q}$ and $a \notin \mathfrak{q}$,
+    we can assume $a \notin \mathfrak{q_i} \Rightarrow b \in \mathfrak{p}$.
+\end{rk}
+
+\begin{rk}
+    However, minimal decompositions are not completely unique.
+    In the following propositions, we will produce some invariants of these decompositions.
+\end{rk}
