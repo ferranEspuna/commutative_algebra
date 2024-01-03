@@ -23,13 +23,30 @@
         \end{defn}
 
         \begin{defn}
-            We define:
+            Let $A$ be a ring, $I, J \subseteq A$ ideals. We define:
             \begin{itemize}
-                \item The \emph{radical} of an ideal $I$ is $rad(I) \coloneqq \{a \in A \mid a^{n} \in I, n > 0\}$.
-                \item (\emph{Colon ideal}) $(I:J) \coloneqq \{a \in A \mid aJ \subseteq I\}$.
+                \item The \emph{Radical} of an ideal $I$ is $\text{rad}\,(I) \coloneqq \{a \in A \mid a^{n} \in I, n > 0\}$.
+                \item (\emph{Colon Ideal}) $(I:J) \coloneqq \{a \in A \mid aJ \subseteq I\}$.
                 \item (\emph{Saturation}) $(I:J^{\infty}) \coloneqq \{a \in A \mid \exists n > 0 \text{ s.t. } a J^n \subseteq I\}$.
             \end{itemize}
         \end{defn}
+
+        \begin{exercise}
+            These are all ideals of $A$.
+            \begin{enumerate}
+                \item $\text{rad}\,(\text{rad}\,(I)) = \text{rad}\,(I)$.
+                \item $\text{rad}\,(I \cap J) = \text{rad}\,(I) \cap \text{rad}\,(J)$. \label{item:rad-intersection}
+                \item $\text{rad}\,(I_1 \cap I_2 : J) = \text{rad}\,(I_1 : J) \cap \text{rad}\,(I_2 : J)$. \label{item:colon-intersection}
+            \end{enumerate}
+
+            \begin{proof}
+                TODO
+            \end{proof}
+        \end{exercise}
+
+        \begin{rk}
+            Properties~\ref{item:rad-intersection} and~\ref{item:colon-intersection} naturally extend to arbitrary finite intersections.
+        \end{rk}
 
         \begin{defn}
             Let $f: A \rightarrow B$ be a ring homomorphism, and let $J \subset B$ be an ideal.

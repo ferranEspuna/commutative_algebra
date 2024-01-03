@@ -36,6 +36,7 @@
     In the conditions of the previous proposition, we say that $\mathfrak{q}$ is $\mathfrak{p}$-primary.
 \end{defn}
 
+
 \begin{prop}
     Let $\mathfrak{q} \subseteq A$ be an ideal s.t. $rad(\mathfrak{q}) = \mathfrak{m}$ is a maximal ideal.
     Then $\mathfrak{q}$ is primary.
@@ -94,3 +95,48 @@
     However, minimal decompositions are not completely unique.
     In the following propositions, we will produce some invariants of these decompositions.
 \end{rk}
+
+\begin{lemma}
+    Let $A$ be a ring, let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal of $A$ and let $a \in A$.
+    If \linebreak ${(\mathfrak{q} : a) \coloneqq \{x \in A \mid ax \in \mathfrak{q}\}}$,
+    then:
+
+    \begin{enumerate}
+        \item $a \in \mathfrak{q} \Rightarrow (\mathfrak{q} : a) = A$.
+        \item $a \notin \mathfrak{q} \Rightarrow (\mathfrak{q} : a)$ is $\mathfrak{p}$-primary.
+        \item $a \notin \mathfrak{p} \Rightarrow (\mathfrak{q} : a) = \mathfrak{q}$
+    \end{enumerate}
+
+    \begin{proof}
+        We will show them in order:
+        \begin{enumerate}
+
+            \item
+            Trivial.
+
+            \item
+            Let us first prove that $\text{rad}\,((\mathfrak{q} : a)) = \mathfrak{p}$.
+            We have inclusions $\mathfrak{q} \subseteq (\mathfrak{q} : a) \subseteq \mathfrak{p}$,
+            where the second one holds because $ab \in \mathfrak{q}, a \notin q \Rightarrow b \in \mathfrak{p}$ (by definition of $\mathfrak{p}$-primary).
+            Taking radicals, we get $\mathfrak{p} \subseteq \text{rad}\,((\mathfrak{q} : a)) \subseteq \mathfrak{p}$.
+            Now, let $cd = b \in (\mathfrak{q} : a)$ (that is, $acd \in \mathfrak{q}$),
+            and suppose $c \notin (\mathfrak{q} : a)$.
+            This means that $ac \notin \mathfrak{q}$, so $d \in \mathfrak{p}$.
+
+            \item
+            Suppose that $b \in (\mathfrak{q} : a)$ and $b \notin \mathfrak{q}$.
+            Because $ab \in \mathfrak{q}$ and $\mathfrak{q}$ is $\mathfrak{p}$-primary,
+            this implies $a \in \mathfrak{p}$.
+
+        \end{enumerate}
+    \end{proof}
+\end{lemma}
+
+
+\begin{theorem}
+    In the above notation, we have that \[\{\mathfrak{p}_1 \ldots \mathfrak{p}_n\} = \{\text{rad}\,(I : a) \mid a \in A\} \cap \text{Spec}\,A\]
+
+    \begin{proof}
+
+    \end{proof}
+\end{theorem}
