@@ -2,7 +2,8 @@
         Let $\mathfrak{q} \in A$ be a proper ideal.
         We say that $\mathfrak{q}$ is \emph{primary} if fot all $a, b \in A$
         \[
-            ab \in \mathfrak{q}, a \notin \mathfrak{q} \Longrightarrow b^n \in \mathfrak{q} \text{ for some } n > 0
+            ab \in \mathfrak{q}, a \notin \mathfrak{q}
+            \Longrightarrow b^n \in \mathfrak{q} \text{ for some } n > 0
         \]
 \end{defn}
 
@@ -14,7 +15,8 @@
         \item Let $f: A \longrightarrow B$ be a ring homomorphism.
         Then,
         \[
-            \mathfrak{q} \subseteq B \text{ primary ideal } \Longrightarrow \mathfrak{q}^c \subseteq A \text{ primary ideal}
+            \mathfrak{q} \subseteq B \text{ primary ideal }
+            \Longrightarrow \mathfrak{q}^c \subseteq A \text{ primary ideal}
         \]
     \end{itemize}
 \end{rk}
@@ -33,12 +35,15 @@
     \end{proof}
 
 \begin{defn}
-    In the conditions of the previous proposition, we say that $\mathfrak{q}$ is $\mathfrak{p}$-primary.
+    In the conditions of the previous proposition,
+    we say that $\mathfrak{q}$
+    is $\mathfrak{p}$-primary.
 \end{defn}
 
 
 \begin{prop}
-    Let $\mathfrak{q} \subseteq A$ be an ideal s.t. $rad(\mathfrak{q}) = \mathfrak{m}$ is a maximal ideal.
+    Let $\mathfrak{q} \subseteq A$ be an ideal s.t.
+    $rad(\mathfrak{q}) = \mathfrak{m}$ is a maximal ideal.
     Then $\mathfrak{q}$ is primary.
 
     \begin{proof}
@@ -48,7 +53,8 @@
 
         \begin{itemize}
 
-            \item If the second inclusion is an equality, we have $1 = x + by$, for some $x \in \mathfrak{m}$ and $y \in A$.
+            \item If the second inclusion is an equality,
+            \item we have $1 = x + by$, for some $x \in \mathfrak{m}$ and $y \in A$.
             Then, $a = ax + aby \Rightarrow a(1-x) = aby \in \mathfrak{q}$.
             However, reducing modulo $\mathfrak{q}$, we see $\bar{a}\overline{(1-x)} = \bar{0}$
             and $\overline{x} \in \mathcal{N}(A/\mathfrak{q}) \Rightarrow \overline{1-x}$ is a unit.
@@ -65,13 +71,19 @@
 
 \begin{defn}
     Let $A$ be a ring and $I \subseteq A$ an ideal.
-    A \emph{primary decomposition} of $I$ is a representation of $I$ as an intersection of primary ideals,
+    A \emph{primary decomposition} of $I$ is a representation of $I$
+    as an intersection of primary ideals,
     say, $I = \mathfrak{q}_1 \cap \cdots \cap \mathfrak{q}_n$ with $\mathfrak{q}_i$ primary.
     We say that such a decomposition is \emph{minimal} or \emph{reduced} if:
 
     \begin{enumerate}
-        \item $\mathfrak{p}_i \coloneqq \text{rad}(\mathfrak{q}_i)$ are distinct prime ideals. \label{item:distinct-primes}
-        \item $\mathfrak{q}_i \not\subset \bigcap_{j \neq i} \mathfrak{q}_j$ for all $i$. \label{item:noninclusion}
+        \item
+        $\mathfrak{p}_i \coloneqq \text{rad}(\mathfrak{q}_i)$
+        are distinct prime ideals. \label{item:distinct-primes}
+
+        \item
+        $\bigcap_{j \neq i} \mathfrak{q}_j \not\subset \mathfrak{q}_i $
+        for all $i$. \label{item:noninclusion}
     \end{enumerate}
 \end{defn}
 
@@ -97,7 +109,8 @@
 \end{rk}
 
 \begin{lemma}
-    Let $A$ be a ring, let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal of $A$ and let $a \in A$.
+    Let $A$ be a ring, let $\mathfrak{q}$ be a $\mathfrak{p}$-primary ideal of $A$
+    and let $a \in A$.
     If \linebreak ${(\mathfrak{q} : a) \coloneqq \{x \in A \mid ax \in \mathfrak{q}\}}$,
     then:
 
@@ -116,9 +129,13 @@
 
             \item
             Let us first prove that $\text{rad}\,((\mathfrak{q} : a)) = \mathfrak{p}$.
-            We have inclusions $\mathfrak{q} \subseteq (\mathfrak{q} : a) \subseteq \mathfrak{p}$,
-            where the second one holds because $ab \in \mathfrak{q}, a \notin q \Rightarrow b \in \mathfrak{p}$ (by definition of $\mathfrak{p}$-primary).
-            Taking radicals, we get $\mathfrak{p} \subseteq \text{rad}\,((\mathfrak{q} : a)) \subseteq \mathfrak{p}$.
+            We have inclusions
+            $\mathfrak{q} \subseteq (\mathfrak{q} : a) \subseteq \mathfrak{p}$,
+            where the second one holds because
+            $ab \in \mathfrak{q}, a \notin q \Rightarrow b \in \mathfrak{p}$
+            (by definition of $\mathfrak{p}$-primary).
+            Taking radicals, we get
+            $\mathfrak{p} \subseteq \text{rad}\,((\mathfrak{q} : a)) \subseteq \mathfrak{p}$.
             Now, let $cd = b \in (\mathfrak{q} : a)$ (that is, $acd \in \mathfrak{q}$),
             and suppose $c \notin (\mathfrak{q} : a)$.
             This means that $ac \notin \mathfrak{q}$, so $d \in \mathfrak{p}$.
@@ -132,11 +149,80 @@
     \end{proof}
 \end{lemma}
 
+\begin{exercise}
+    Let $A$ be a ring, $\mathfrak{p}$ a prime ideal of $A$ and $I_1, \ldots, I_n$ ideals of $A$.
+    Suppose that $I_1 \cap \cdots \cap I_n \subseteq \mathfrak{p}$.
+    Then, there exists $i$ such that $I_i \subseteq \mathfrak{p}$.
+    \begin{proof}
+        We will proceed by induction on $n$.
+        \begin{enumerate}
+            \item
+            For $n=1$ there is nothing to prove.
+
+            \item
+            For $n=2$, suppose that
+            $a \in I_1 \setminus \mathfrak{p},
+            b \in I_2 \setminus \mathfrak{p}$.
+            Then, $ab \in I_1 \cap I_2 \subseteq \mathfrak{p}$,
+            which is a contradiction with the fact that $\mathfrak{p}$ is prime.
+
+            \item For $n > 2$, we can apply the $n = 2$ case to
+            $I_1 \cap \cdots \cap I_{n-1}$ and $I_n$.
+            Then if $I_n \in \mathfrak{p}$ we are done and if
+            $I_1 \cap \cdots \cap I_{n-1} \subseteq \mathfrak{p}$,
+            we apply the case $(n-1)$st case.
+        \end{enumerate}
+
+    \end{proof}
+\end{exercise}
+
 
 \begin{theorem}
-    In the above notation, we have that \[\{\mathfrak{p}_1 \ldots \mathfrak{p}_n\} = \{\text{rad}\,(I : a) \mid a \in A\} \cap \text{Spec}\,A\]
+    In the above notation, we have that
+    \[\{\mathfrak{p}_1 \ldots \mathfrak{p}_n\} =
+    \{\text{rad}\,(I : a) \mid a \in A\} \cap \text{Spec}\,A\]
 
     \begin{proof}
+        Observe that if $a \in A$,
+        \[(I:a) =
+        \left( \left(\bigcap_i \mathfrak{q}_i\right) : a \right )
+        = \bigcap_i (\mathfrak{q}_i : a)
+        \]
+        Were the second equality has been shown in an exercise.
+        Taking radicals,
+        \[
+            \text{rad}\,(I:a) = \bigcap_i \text{rad}\,((\mathfrak{q}_i : a))
+            = \bigcap_{a \notin \mathfrak{q}_i} \mathfrak{p}_i
+        \]
+        Where the last equality follows from the previous lemma.
+        We are now ready to show both inclusions in the statement:
+
+        \begin{itemize}
+            \item[$(\supseteq)$]
+            If $\text{rad}\,((I : a))$ is prime,
+            by the exercise, there exists $i$ such that
+            $\mathfrak{p}_i \subseteq \text{rad}\,(I : a)$.
+            But because $\text{rad}\,(I : a)$ is the intersection of them all,
+            we must have $\text{rad}\,(I : a) = \mathfrak{p}_i$.
+
+            \item[$(\subseteq)$]
+            It is known that they are all prime ideals.
+            We need to show that for all $i$, there exists $a \in A$ such that
+            $\mathfrak{p}_i = \text{rad}\,(I : a)$.
+            It is here that we use the minimality of the decomposition:
+            We just choose $a \in \bigcap_{j \neq i} \mathfrak{q}_j \setminus \mathfrak{q}_i $.
+            Then, $\text{rad}\,(I : a) = \bigcap_{a \notin \mathfrak{q}_j} \mathfrak{p}_j = \mathfrak{p}_i$.
+
+
+        \end{itemize}
 
     \end{proof}
 \end{theorem}
+
+\begin{rk}
+    This means that the set $\{\mathfrak{p}_1 \ldots \mathfrak{p}_n\}$
+    is independent of the choice of the decomposition.
+    We call them the \emph{associated primes} of $I$ in $A$
+    or $\text{Ass}\,(A/I)$.
+
+\end{rk}
