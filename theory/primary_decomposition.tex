@@ -242,3 +242,80 @@
     We call this set the \emph{minimal primary components} of $I$ in $A$ or $\text{Min}\,(A/I)$.
 \end{defn}
 
+\begin{rk}
+    We have now established two senses in which the minimal primary
+    decomposition of an ideal is unique,
+    but we have not whether it exists in general.
+    We will now do so in the Noetherian case.
+\end{rk}
+
+\begin{defn}
+    Let $A$ be a ring and let $I\subseteq A$ be an ideal.
+    We say that $I$ is \emph{irreducible} if,
+    for any two ideals $J_1, J_2$ of $A$,
+    $I = J_1 \cap J_2 \implies I = J_1 \text{ or } I = J_2$.
+\end{defn}
+
+\begin{rk}
+    If $I \subseteq A$ is irreducible, then so is $0 \subseteq A / I$. 
+\end{rk}
+
+\begin{prop}
+    Let $A$ be a Noetherian ring and $I \subseteq A$ an ideal.
+    Then, we can write $I = I_1 \cap \cdots \cap I_n$,
+    where each $I_i$ is irreducible.
+
+    \begin{proof}
+        Consider the set $\mathcal{F}$ of ideals of $A$ that cannot be written in such a way.
+        By way of contradiction, suppose that $\mathcal{F}$ is non-empty.
+        Let $I \in \mathcal{F}$ be a maximal element.
+        By construction, it cannot be written as an intersection of irreducible ideals.
+        In particular, $I$ is not irreducible, so we can write $I = J_1 \cap J_2$,
+        with $J_1, J_2 \supsetneq I$.
+        However, $J_1, J_2 \notin \mathcal{F}$, so we can write
+        them as intersections of irreducible ideals:
+        $J_1 = I_1 \cap \cdots \cap I_n$
+        and
+        $J_2 = I_{n+1} \cap \cdots \cap I_{n+m}$.
+        Then, $I = I_1 \cap \cdots \cap I_{n+m}$,
+        which is a contradiction.
+
+    \end{proof}
+\end{prop}
+
+\begin{prop}
+    Let $A$ be a Noetherian ring and $I \subseteq A$ an ideal.
+    Then,\linebreak
+    ${I \text{irreducible} \implies I \text{primary}}$.
+    \begin{proof}
+        Let $I$ be irreducible and let $ab \in I, a \notin I$.
+        Let $I_i \coloneqq (I: b^i)$.
+        Clearly, $I_i \subseteq I_{i+1}$
+        so we have an ascending chain of ideals, which must stabilize, say at $I_n$.
+        Now, set $J_1 \coloneqq I + (a)$ and $ J_2 \coloneqq I + (b^n)$.
+        \begin{claim}
+            $I = J_1 \cap J_2$.
+            \begin{proof}
+                The inclusion $I \subseteq J_1 \cap J_2$ is clear.
+        To see the other one, let $x \in J_1 \cap J_2$.
+        Then, $x = p_1 + ua = p_2 + vb^n $ for some $p_1, p_2 \in I$ and $u, v \in A$.
+        Then, $p_1 - p_2 = vb^n - ua \in I$.
+        Multiplying by $b$,
+        \[
+            vb^{n+1} - uab \in I
+            \Rightarrow vb^{n+1}\in I
+            \Rightarrow v \in I_{n+1} = I_n
+            \Rightarrow x = p_2 + vb^n \in I
+        \]
+            \end{proof}
+        \end{claim}
+        \noindent By the irreducibility of $I$, we get $I = J_1 = I + (a)$ or $I = J_2 = I + (b)$.
+        because we know $a \notin I$, we get $b^n \in I$.
+    \end{proof}
+
+\end{prop}
+
+\begin{rk}
+    We have just shown that, in a Noetherian ring,
+    every ideal has a primary decomposition.
+\end{rk}
