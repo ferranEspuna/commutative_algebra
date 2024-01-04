@@ -1,0 +1,140 @@
+\begin{theorem}
+    Let A be a ring.
+    The following are equivalent:
+    \begin{enumerate}
+
+        \item \label{itm:fg}
+        Every ideal of $A$ is finitely generated.
+
+        \item \label{itm:acc}
+        \emph{\textbf{Ascending chain condition}}:
+        every chain of ideals $I_1 \subseteq I_2 \subseteq \cdots \subseteq A$
+        is stationary, i.e.
+        there exists $n$ such that $I_n = I_{m} = \forall m \geq n$.
+
+        \item \label{itm:max}
+        Every non-empty set of ideals of $A$ has a maximal element.
+
+    \end{enumerate}
+
+    \begin{proof}
+        We will prove $ \eqref{itm:fg} \implies \eqref{itm:acc} \implies \eqref{itm:max} \implies \eqref{itm:fg}$.
+        \begin{itemize}[align=left]
+
+            \item[$\eqref{itm:fg} \Rightarrow \eqref{itm:acc}$:]
+            Consider $I \coloneqq \bigcup_{i \in \mathbb{N}} I_n$.
+            It is a finitely generated ideal, say $I = \left<a_1, \dots, a_n\right>$.
+            Let $a_j \in I_{i_j}$ for each $j \leq n$ and $k = \max_j i_j$.
+            Then, $I = I_k$ so the chain is stationary.
+
+            \item[$\eqref{itm:acc} \Rightarrow \eqref{itm:max}$:]
+            Let $\mathcal{F}$ be a non-empty set of ideals of $A$.
+            Suppose that the condition is false.
+            Pick $I_1 \in \mathcal{F}$.
+            Because it is not maximal, there exists $I_2 \in \mathcal{F}$ such that $I_1 \subsetneq I_2$.
+            By iterating this process, we get a chain $I_1 \subsetneq I_2 \subsetneq \cdots$ which is not stationary.
+
+            \item[$\eqref{itm:max} \Rightarrow \eqref{itm:fg}$:]
+            Let $I$ be an ideal of $A$.
+            consider the set of finitely generated ideals of $A$ contained in $I$.
+            It is non-empty because $0 \in I$.
+            By hypothesis, it has a maximal element, say $J$.
+            We claim that $J = I$.
+            Otherwise,
+            there exists $a \in I \setminus J$,
+            but then $J + (a)$ is a finitely generated ideal of $A$ contained in
+            $I$ which strictly contains $J$.
+            in contradiction with the maximality of $J$.
+        \end{itemize}
+    \end{proof}
+\end{theorem}
+
+\begin{defn}
+    A ring $A$ satisfying the equivalent conditions of the previous theorem is called \emph{Noetherian}.
+\end{defn}
+
+\begin{theorem}
+    Let $A$ be a ring.
+    The following are equivalent:
+    \begin{enumerate}
+        \item \label{itm:dcc}
+        \emph{\textbf{Descending chain condition}}:
+        Every of ideals $A \supseteq I_1 \supseteq I_2 \supseteq \cdots$,
+        is stationary, i.e.
+        there exists $n$ such that $I_n = I_{m} = \forall m \geq n$.
+
+        \item \label{itm:min}
+        Every non-empty set of ideals of $A$ has a minimal element.
+    \end{enumerate}
+
+    \begin{proof}
+        We will prove $ \eqref{itm:dcc} \implies \eqref{itm:min} \implies \eqref{itm:dcc}$.
+        \begin{itemize}[align=left]
+
+            \item[$\eqref{itm:dcc} \Rightarrow \eqref{itm:min}$:]
+            Just replace ``maximal'' with ``minimal'' in the proof of $\eqref{itm:acc} \Rightarrow \eqref{itm:max}$.
+
+            \item[$\eqref{itm:min} \Rightarrow \eqref{itm:dcc}$:]
+            Let $I_1 \supseteq I_2 \supseteq \cdots$ be a chain of ideals of $A$.
+            Then the set $\mathcal{F} \coloneqq \{I_n\}_{n \in \mathbb{N}}$ is non-empty.
+            By hypothesis, it has a minimal element, say $I_k$.
+            Then, $I_k = I_n$ for all $n \geq k$, each inclusion is shown by the chain condition or by minimality of $I_k$.
+
+        \end{itemize}
+    \end{proof}
+\end{theorem}
+
+\begin{defn}
+    A ring $A$ satisfying the equivalent conditions of the previous theorem is called \emph{Artinian}.
+\end{defn}
+
+\begin{rk}
+    These two conditions are preserved by taking quotients and rings of fractions.
+    This is because we can map all ideals of $A/I$ and $S^{-1} A$ to ideals of $A$
+    in an injective way that preserves inclusions (lifting and intersection, respectively).
+\end{rk}
+
+\begin{theorem}[Hilbert's basis theorem]
+    $A$ Noetherian $\implies A[x]$ Noetherian.
+    \begin{proof}
+        Suppose that $A$ is Noetherian and let $I \subseteq A[x]$ be an ideal.
+        Suppose that it is not finitely generated.
+        Let $f_1 \in I \setminus 0,
+        f_2 \in I \setminus (f_1),
+        f_3 \in I \setminus (f_1, f_2),
+        \dots$.
+        We may suppose that we have chosen the $f_i$ such that $\deg f_i$ is minimal at each step.
+        This means that if the leading term of $f_i$ is $a_i x^{d_i}$,
+        $d_1 \leq d_2 \leq d_3 \cdots$.
+        Because $A$ is Noetherian, the chain
+        $(a_1) \subseteq (a_1, a_2) \subseteq \cdots \subseteq A$
+        stabilizes, say, at step k.
+        Therefore, we can express, for some $b_i$s $\in A$,
+        $a_{k+1} = a_1 b_1 + \cdots + a_{k} b_{k}$.
+        Now, consider the polynomial
+        \[
+            g = f_{k+1} - ( b_1 x^{d_{k+1} - d_1} f_1 + \cdots + b_k x^{d_{k+1} - d_k} f_k)
+        \]
+        Each of the terms in the sum has degree at most $d_{k+1}$,
+        but by construction the degree $k+1$ coefficient of $g$ is zero.
+        However, $g \in (f_1, \dots, f_k, f_{k+1}) \setminus (f_1, \dots, f_k)$.
+        Otherwise,
+        \[
+        f_{k+1} = g + b_1 x^{d_{k+1} - d_1} f_1 +
+        \cdots + b_k x^{d_{k+1} - d_k} f_k \in (f_1, \dots, f_k)
+        \]
+        This contradicts the minimality of $d_{k+1}$.
+
+
+    \end{proof}
+\end{theorem}
+
+\begin{rk}
+    This in turn implies that $A[x_1, \dots, x_n]$ is Noetherian, by induction on $n$.
+\end{rk}
+
+\begin{rk}
+    The same is not true for Artinian rings.
+    For example, if $\mathbb{K}$ is a field, $\mathbb{K}[x]$ is not Artinian.
+    Indeed, the chain $(x) \supsetneq (x^2) \supsetneq (x^3) \supsetneq \cdots$ is not stationary.
+\end{rk}
