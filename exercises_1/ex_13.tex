@@ -63,10 +63,21 @@
             By~\ref{itm:nilponent_implies_nilponent_coefficients}, this happens precisely when
             the coefficients of $f$ are nilpotent in $A/\mathfrak{q}$.
             That is, when they belong to $\text{rad}(\mathfrak{q})$.
-            We then have the equality $\text{rad}(q[T]) = \text{rad}(q)[T]$.
+            We then have the equality $\text{rad}(\mathfrak{q}[T]) = \text{rad}(\mathfrak{q})[T] = \mathfrak{p}[T]$.
 
-            Furthermore, we have shown that $\mathfrak{p}[T]$ is prime in $A[T]$ exactly when $\mathfrak{p}$ is prime in $A$.
-            The same is true for the radicals, so we are done.
+            Now, let $f,g \in A[T]$ such that $fg \in \mathfrak{q}[T]$ and $f \notin \mathfrak{q}[T]$.
+            We may assume that $g \notin \mathfrak{q}[T]$ (otherwise, we are done).
+            Reducing modulo $\mathfrak{q}[T]$, $\bar{g}$ is a zero divisor in ${A[T] / \mathfrak{q}[T] = (A/\mathfrak{q})[T]}$.
+            By Exercise~\ref{itm:zero_divisor_polynomial}, there exists $\bar{0} \neq \bar{a} \in A/\mathfrak{q}$ such that $\overline{ag} = 0$.
+            This means that all the coefficients $g_i$ of $g$ satisfy $ag_i \in \mathfrak{q}$.
+            Since $a \notin \mathfrak{q}$, $g_i \in \mathfrak{p}$
+            and thus $g \in \mathfrak{p}[T] = \text{rad}(\mathfrak{q})[T]$.
+
+
+
+
+
+
             \end{proof}
 
 

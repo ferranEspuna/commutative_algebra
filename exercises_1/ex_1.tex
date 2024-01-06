@@ -78,11 +78,15 @@
                             Every chain in $\varSigma_x$ has an upper bound.
                             \begin{proof}
                                 Let $\{I_{\alpha}\}_{\alpha \in S}$ be a chain in $\varSigma_x$.
-                                Then, $I = \bigcup_{\alpha \in S} I_{\alpha}$ is an ideal of $A$ (One can check that if $x,y \in I$, then $x,y \in I_{\alpha} $ for some $\alpha \in S$, and then check the axioms from there).
-                                Let $x^n \in I$ for some $n \in \mathbb{N}$.
+                                Then, we claim $I = \bigcup_{\alpha \in S} I_{\alpha}$ is an upper bound:
+                                \begin{itemize}
+                                    \item It is an ideal of $A$ (One can check that if $x,y \in I$, then $x,y \in I_{\alpha} $ for some $\alpha \in S$, and then check the axioms from there).
+
+                                    \item By way of contradiction, Let $x^n \in I$ for some $n \in \mathbb{N}$.
                                 Then, $x^n \in I_{\alpha}$ for some $\alpha \in A$.
-                                Since $I_{\alpha}$ is an ideal, $x \in I_{\alpha}$.
                                 Thus, $I \in \varSigma_x$.
+                                \end{itemize}
+
                             \end{proof}
                         \end{claim}
 
