@@ -47,7 +47,7 @@ jobs:
 
           title="Automated PDFs (${GITHUB_REF_NAME})"
           notes="Automated build for ${GITHUB_SHA}."
-          assets=(out/theory.pdf dist/commutative_algebra-release.zip)
+          assets=(out/exercises_1.pdf out/exercises_2.pdf out/theory.pdf dist/commutative_algebra-release.zip)
 
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "${assets[@]}" --clobber

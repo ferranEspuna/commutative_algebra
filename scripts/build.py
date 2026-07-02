@@ -46,6 +46,8 @@ class LatexTarget:
 
 
 TARGETS = {
+    'exercises_1': LatexTarget('exercises_1', 'exercises_1.tex', 'out/exercises_1.pdf'),
+    'exercises_2': LatexTarget('exercises_2', 'exercises_2.tex', 'out/exercises_2.pdf'),
     'theory': LatexTarget('theory', 'theory.tex', 'out/theory.pdf'),
 }
 

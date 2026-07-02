@@ -18,6 +18,8 @@ python scripts/build.py --clean --package
 ```
 
 Outputs:
+- `out/exercises_1.pdf`
+- `out/exercises_2.pdf`
 - `out/theory.pdf`
 
 The release zip is written to `dist/commutative_algebra-release.zip` and contains the PDFs plus a buildable source tree.
